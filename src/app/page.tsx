@@ -7,8 +7,7 @@ import ProjectStack from "@/components/ProjectStack";
 import TechSplit from "@/components/TechSplit";
 import ReceiptTweets from "@/components/ReceiptTweets";
 import ContactEnd from "@/components/ContactEnd";
-import { IdentityTile, ConnectTile, GlobeTile } from "@/components/cards";
-import TabsCard from "@/components/TabsCard";
+import Board from "@/components/Board";
 import ActivityGrid from "@/components/ActivityGrid";
 import LightRays from "@/components/LightRays";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
@@ -155,20 +154,11 @@ export default function Home() {
       </section>
 
       {/* ══ II.5 · THE DESK — live bento ══════════════════════ */}
-      <section className="mx-auto max-w-6xl px-6 py-24" id="desk">
+      <section className="mx-auto max-w-[1400px] px-6 py-24" id="desk">
         <Head caps="Meanwhile," serif="at the desk." />
-        <div className="grid gap-4 sm:grid-cols-3 [&>*]:min-w-0">
-          <IdentityTile />
-          <div className="sm:col-span-2">
-            <TabsCard />
-          </div>
-          <GlobeTile />
-          <div className="sm:col-span-2">
-            <ActivityGrid />
-          </div>
-          <div className="sm:col-span-3">
-            <ConnectTile />
-          </div>
+        <Board />
+        <div className="mt-4">
+          <ActivityGrid />
         </div>
       </section>
 
