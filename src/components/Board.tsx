@@ -79,6 +79,14 @@ function useTimes() {
 
 const CARD =
   "relative overflow-hidden rounded-[28px] border border-white/[0.07] bg-[#101312]/70";
+
+/* Carved cuts — the cards' edges curve around the watch circle. */
+const BITE_MID =
+  "radial-gradient(circle 208px at 50% calc(100% + 34px), transparent 207px, #000 208px)";
+const BITE_BOT =
+  "radial-gradient(circle 208px at 50% -50px, transparent 207px, #000 208px)";
+const SCOOP_TR =
+  "radial-gradient(circle 46px at calc(100% - 6px) 6px, transparent 45px, #000 46px)";
 const SPOT = {
   background:
     "radial-gradient(90% 60% at 30% -5%, rgba(255,255,255,0.09), rgba(255,255,255,0.015) 45%, transparent 70%)",
@@ -92,7 +100,7 @@ export default function Board() {
   return (
     <div className="relative">
       {/* ── top row ─────────────────────────────────────────── */}
-      <div className="grid gap-4 lg:grid-cols-[340px_1fr_390px] [&>*]:min-w-0">
+      <div className="grid gap-4 lg:grid-cols-[365px_1fr_365px] [&>*]:min-w-0">
         {/* identity */}
         <div className={`${CARD} flex flex-col p-7`} style={SPOT}>
           <p className="kicker">
@@ -141,7 +149,14 @@ export default function Board() {
         </div>
 
         {/* philosophy */}
-        <div className={`${CARD} p-8 pb-44`} style={SPOT}>
+        <div
+          className={`${CARD} p-8 pb-44`}
+          style={{
+            ...SPOT,
+            WebkitMaskImage: BITE_MID,
+            maskImage: BITE_MID,
+          }}
+        >
           <div className="flex items-start justify-between gap-4">
             <p className="kicker rounded-full border border-line px-3 py-1.5">
               ⌁ products that act
@@ -190,7 +205,10 @@ export default function Board() {
         </div>
 
         {/* connect */}
-        <div className={`${CARD} flex flex-col p-8`} style={SPOT}>
+        <div
+          className={`${CARD} flex flex-col p-8`}
+          style={{ ...SPOT, WebkitMaskImage: SCOOP_TR, maskImage: SCOOP_TR }}
+        >
           <div className="flex items-center justify-between">
             <span className="flex items-center gap-2 rounded-full border border-line px-3 py-1.5">
               <span className="relative flex h-2 w-2">
@@ -199,7 +217,7 @@ export default function Board() {
               </span>
               <span className="kicker">shipping daily</span>
             </span>
-            <span className="kicker rounded-xl border border-line px-2.5 py-1.5">⌘</span>
+            <span aria-hidden className="w-6" />
           </div>
           <div className="mt-8">
             <p className="text-3xl font-black leading-[1.05] tracking-tight">
@@ -235,22 +253,42 @@ export default function Board() {
         </div>
       </div>
 
+      {/* chip nested in the connect card's scooped corner */}
+      <span className="kicker absolute -top-0.5 -right-0.5 z-10 hidden rounded-2xl border border-line bg-bg px-3 py-2 lg:block">
+        ⌘
+      </span>
+
       {/* ── the watch, carved between rows ──────────────────── */}
       <div className="relative z-20 mx-auto -my-[150px] hidden w-fit lg:block">
+        {/* faint outer ring arc over the cards */}
         <div
-          className="rounded-full p-6"
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.05]"
+        />
+        {/* stem down into the bottom card */}
+        <div
+          aria-hidden
+          className="absolute left-1/2 top-full h-16 w-4 -translate-x-1/2 rounded-b-full border-x border-b border-white/[0.07]"
+          style={{ background: "var(--bg)" }}
+        />
+        <div
+          className="relative rounded-full p-5"
           style={{
             background: "var(--bg)",
-            boxShadow:
-              "0 0 0 1px rgba(255,255,255,0.06), 0 30px 80px rgba(0,0,0,0.8)",
+            boxShadow: "0 30px 80px rgba(0,0,0,0.85)",
           }}
         >
-          <Watch size={300} />
+          <div className="rounded-full border border-white/10 p-2.5">
+            <Watch size={300} />
+          </div>
         </div>
       </div>
 
       {/* ── bottom row ──────────────────────────────────────── */}
-      <div className={`${CARD} mt-4 lg:min-h-[420px]`} style={SPOT}>
+      <div
+        className={`${CARD} mt-4 lg:min-h-[420px]`}
+        style={{ ...SPOT, WebkitMaskImage: BITE_BOT, maskImage: BITE_BOT }}
+      >
         <div className="grid gap-8 p-8 lg:grid-cols-2">
           <div className="relative min-h-[300px]">
             <p className="kicker">available globally</p>
