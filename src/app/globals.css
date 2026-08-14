@@ -340,7 +340,7 @@ body {
     min-height: 100svh;
   }
 
-  .hero-wordmark {
+  .hero-lockup {
     left: 26%;
     top: 54%;
     width: min(50vw, 430px);

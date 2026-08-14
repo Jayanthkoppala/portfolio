@@ -223,6 +223,7 @@ const MoltenMetal: React.FC<MoltenMetalProps> = ({
 
     const targetMouse: [number, number] = [0.5, 0.5];
     const currentMouse: [number, number] = [0.5, 0.5];
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const handleMouseMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
@@ -233,8 +234,10 @@ const MoltenMetal: React.FC<MoltenMetalProps> = ({
       targetMouse[0] = 0.5;
       targetMouse[1] = 0.5;
     };
-    canvas.addEventListener('mousemove', handleMouseMove);
-    canvas.addEventListener('mouseleave', handleMouseLeave);
+    if (!reducedMotion) {
+      canvas.addEventListener('mousemove', handleMouseMove);
+      canvas.addEventListener('mouseleave', handleMouseLeave);
+    }
 
     let raf = 0;
     let isVisible = true;
@@ -253,7 +256,11 @@ const MoltenMetal: React.FC<MoltenMetalProps> = ({
     };
 
     const tryStart = () => {
-      if (isVisible && isPageVisible && raf === 0) raf = requestAnimationFrame(loop);
+      if (reducedMotion) {
+        renderer.render({ scene: mesh });
+      } else if (isVisible && isPageVisible && raf === 0) {
+        raf = requestAnimationFrame(loop);
+      }
     };
     const tryStop = () => {
       if (raf !== 0) {
@@ -265,7 +272,8 @@ const MoltenMetal: React.FC<MoltenMetalProps> = ({
     const io = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting;
-        isVisible ? tryStart() : tryStop();
+        if (isVisible) tryStart();
+        else tryStop();
       },
       { threshold: 0 }
     );
@@ -273,7 +281,8 @@ const MoltenMetal: React.FC<MoltenMetalProps> = ({
 
     const onVisibility = () => {
       isPageVisible = !document.hidden;
-      isPageVisible ? tryStart() : tryStop();
+      if (isPageVisible) tryStart();
+      else tryStop();
     };
     document.addEventListener('visibilitychange', onVisibility);
 
@@ -331,6 +340,7 @@ const MoltenMetal: React.FC<MoltenMetalProps> = ({
     uc3[0] = c3[0];
     uc3[1] = c3[1];
     uc3[2] = c3[2];
+    ctx.renderer.render({ scene: ctx.mesh });
   }, [
     color1,
     color2,
