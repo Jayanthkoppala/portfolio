@@ -304,13 +304,72 @@ body {
   margin: 0;
 }
 
-/* hero entrance — reliable, no scroll-trigger */
-.hero-name {
-  animation: hero-rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+/* Hero details enter after the molten wordmark has established itself. */
+.hero-proof,
+.hero-actions,
+.hero-tertiary {
+  animation: hero-detail-rise 600ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
-@keyframes hero-rise {
-  from { opacity: 0; transform: translateY(48px); filter: blur(10px); }
-  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+
+.hero-proof {
+  animation-delay: 620ms;
+}
+
+.hero-actions {
+  animation-delay: 720ms;
+}
+
+.hero-tertiary {
+  animation-delay: 820ms;
+}
+
+@keyframes hero-detail-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* A short landscape viewport needs a side-by-side hero, not a taller page. */
+@media (min-width: 760px) and (max-height: 500px) and (orientation: landscape) {
+  .hero-section {
+    min-height: 100svh;
+  }
+
+  .hero-wordmark {
+    left: 26%;
+    top: 54%;
+    width: min(50vw, 430px);
+  }
+
+  .hero-content {
+    position: absolute;
+    top: 53%;
+    right: 3.5vw;
+    width: 42vw;
+    margin-top: 0;
+    padding: 0;
+    transform: translateY(-50%);
+    align-items: flex-start;
+  }
+
+  .hero-proof {
+    max-width: 25rem;
+    text-align: left;
+  }
+
+  .hero-actions {
+    justify-content: flex-start;
+    margin-top: 1.25rem;
+  }
+
+  .hero-scroll-cue {
+    display: none;
+  }
 }
 
 /* One 187px circle governs all three cutouts. The top row's centre is 25px
@@ -352,4 +411,21 @@ body {
       #000 187px
     );
   }
+}
+
+/* Inline proof links inside prose — parthh-style claim links */
+.proof-link {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--accent) 35%, transparent);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s;
+}
+.proof-link:hover {
+  text-decoration-color: var(--accent);
+}
+.proof-link::after {
+  content: " ↗";
+  font-size: 0.75em;
+  vertical-align: 0.15em;
 }
