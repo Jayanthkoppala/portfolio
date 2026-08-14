@@ -372,6 +372,30 @@ export default function Board() {
             >
               {zone === "India" ? "🇮🇳 India" : zone === "UK" ? "🇬🇧 UK" : "🇺🇸 USA"}
             </span>
+            <div className="relative z-10 mt-5 flex flex-row flex-wrap gap-3 lg:absolute lg:right-7 lg:top-[155px] lg:mt-0 lg:flex-col lg:items-end">
+              {[
+                { flag: "🇬🇧", name: "UK", time: uk },
+                { flag: "🇮🇳", name: "India", time: ist },
+                { flag: "🇺🇸", name: "USA", time: "" },
+              ].map((z) => (
+                <button
+                  key={z.name}
+                  onClick={() => setZone(z.name)}
+                  className={`w-fit min-w-[128px] rounded-full border px-4 py-2.5 text-center text-sm transition-all duration-300 ${
+                    zone === z.name
+                      ? "scale-105 border-transparent bg-ink font-semibold text-bg shadow-[0_8px_24px_rgba(233,238,234,0.15)]"
+                      : "border-line bg-bg/70 text-ink-dim hover:border-ink-faint hover:text-ink"
+                  }`}
+                >
+                  {z.name} {z.flag}
+                  {z.time && (
+                    <span className={`ml-1 font-mono text-xs ${zone === z.name ? "text-bg/60" : "text-ink-faint"}`}>
+                      {z.time}
+                    </span>
+                  )}
+                </button>
+              ))}
+            </div>
             <div className="absolute bottom-6 right-7 z-10 text-right">
               <p className="kicker">📍 remote</p>
               <p className="mt-0.5 text-lg font-semibold text-ink">India</p>
@@ -379,31 +403,9 @@ export default function Board() {
           </div>
         </div>
 
-        {/* carved column — pills float in page-black */}
-        <div className="relative z-10 flex flex-row items-center justify-center gap-3 lg:flex-col lg:justify-start lg:pt-[210px]">
-          {[
-            { flag: "🇬🇧", name: "UK", time: uk },
-            { flag: "🇮🇳", name: "India", time: ist },
-            { flag: "🇺🇸", name: "USA", time: "" },
-          ].map((z) => (
-            <button
-              key={z.name}
-              onClick={() => setZone(z.name)}
-              className={`w-fit min-w-[128px] rounded-full border px-4 py-2.5 text-center text-sm transition-all duration-300 ${
-                zone === z.name
-                  ? "scale-105 border-transparent bg-ink font-semibold text-bg shadow-[0_8px_24px_rgba(233,238,234,0.15)]"
-                  : "border-line bg-bg/70 text-ink-dim hover:border-ink-faint hover:text-ink"
-              }`}
-            >
-              {z.name} {z.flag}
-              {z.time && (
-                <span className={`ml-1 font-mono text-xs ${zone === z.name ? "text-bg/60" : "text-ink-faint"}`}>
-                  {z.time}
-                </span>
-              )}
-            </button>
-          ))}
-          <span className="mt-auto mb-1 hidden h-1.5 w-14 rounded-full border border-white/[0.09] bg-[#11140f] lg:block" />
+        {/* carved column — just the stem handle */}
+        <div className="relative z-10 hidden lg:flex lg:flex-col">
+          <span className="mt-auto mb-1 mx-auto h-1.5 w-14 rounded-full border border-white/[0.09] bg-[#11140f]" />
         </div>
 
         {/* founder + phones card */}
