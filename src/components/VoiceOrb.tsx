@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import SiriOrb from "@/components/ui/smoothui/siri-orb";
 
 /**
  * Breathing voice orb + "ask me" panel.
@@ -133,24 +134,20 @@ export default function VoiceOrb() {
         className="group relative grid h-52 w-52 cursor-pointer place-items-center"
       >
         <div
-          className="absolute inset-0 rounded-full transition-transform duration-200"
-          style={{
-            transform: `scale(${1 + level * 0.35})`,
-            background:
-              "radial-gradient(circle at 50% 45%, rgba(16,185,129,0.55), rgba(16,185,129,0.12) 55%, transparent 72%)",
-            filter: "blur(6px)",
-          }}
-        />
-        <div
-          className="absolute inset-8 rounded-full transition-transform duration-200"
-          style={{
-            transform: `scale(${1 + level * 0.2})`,
-            background:
-              "radial-gradient(circle at 50% 40%, rgba(110,231,183,0.9), rgba(16,185,129,0.5) 60%, rgba(16,185,129,0.15))",
-            boxShadow: "0 0 80px rgba(16,185,129,0.35)",
-          }}
-        />
-        <div className="relative z-10 h-4 w-4 rounded-md bg-bg/80 backdrop-blur group-hover:scale-125 transition-transform" />
+          className="transition-transform duration-300"
+          style={{ transform: `scale(${1 + level * 0.12})`, filter: "drop-shadow(0 0 60px rgba(16,185,129,0.35))" }}
+        >
+          <SiriOrb
+            size="200px"
+            animationDuration={16}
+            colors={{
+              bg: "oklch(20% 0.03 170)",
+              c1: "oklch(75% 0.16 165)",
+              c2: "oklch(65% 0.17 175)",
+              c3: "oklch(60% 0.12 200)",
+            }}
+          />
+        </div>
       </button>
 
       {!open && (

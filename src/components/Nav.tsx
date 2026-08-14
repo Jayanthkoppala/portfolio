@@ -34,7 +34,20 @@ export default function Nav() {
 
   return (
     <>
-      <nav className="fixed left-1/2 top-4 z-50 hidden -translate-x-1/2 items-center gap-1 rounded-full px-2 py-1.5 sm:flex glass">
+      {/* mobile: fixed bottom pill */}
+      <nav className="glass !fixed inset-x-4 bottom-4 z-50 flex items-center justify-around rounded-full px-2 py-2 sm:hidden">
+        {LINKS.slice(0, 4).map((l) => (
+          <a
+            key={l.href}
+            href={l.href}
+            className="rounded-full px-3 py-1.5 text-xs font-medium text-ink-dim"
+          >
+            {l.label}
+          </a>
+        ))}
+      </nav>
+
+      <nav className="glass !fixed left-1/2 top-4 z-50 hidden w-max -translate-x-1/2 items-center gap-1 rounded-full px-2 py-1.5 sm:flex">
         {LINKS.map((l) => (
           <a
             key={l.href}

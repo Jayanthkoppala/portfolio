@@ -15,7 +15,7 @@ export default function Ribbon({
 }) {
   const row = [...phrases, ...phrases, ...phrases];
   return (
-    <div className="relative -mx-4 my-8 overflow-hidden py-6" aria-hidden>
+    <div className="relative -mx-[6%] my-8 w-[112%] overflow-hidden py-8" aria-hidden>
       <div
         className="bg-accent py-3"
         style={{ transform: `rotate(${angle}deg) scale(1.06)` }}
