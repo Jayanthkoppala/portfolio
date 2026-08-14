@@ -136,9 +136,9 @@ export function IconCloud({
       const z = Math.sin(phi) * r
 
       newIcons.push({
-        x: x * 100,
-        y: y * 100,
-        z: z * 100,
+        x: x * 150,
+        y: y * 150,
+        z: z * 150,
         scale: 1,
         opacity: 1,
         id: i,
@@ -351,8 +351,8 @@ export function IconCloud({
     <div className="relative inline-block">
       <canvas
         ref={canvasRef}
-        width={400}
-        height={400}
+        width={520}
+        height={520}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}

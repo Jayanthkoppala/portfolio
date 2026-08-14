@@ -90,15 +90,30 @@ function useTimes() {
 }
 
 const CARD =
-  "relative overflow-hidden rounded-[28px] border border-white/[0.07] bg-[#101312]/70";
+  "relative overflow-hidden rounded-[28px] border border-white/[0.07] bg-[#101312]/70 transition-all duration-300 hover:border-white/[0.14] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]";
+
+function SocialIcon({ name }: { name: string }) {
+  const paths: Record<string, string> = {
+    X: "M18.9 1.2h3.7l-8.1 9.3L24 23.2h-7.5l-5.9-7.7-6.7 7.7H.2l8.7-9.9L-.1 1.2h7.7l5.3 7 6-7Zm-1.3 19.8h2L6.5 3.3H4.3l13.3 17.7Z",
+    GitHub:
+      "M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6a11.5 11.5 0 0 0 7.9-10.9C23.5 5.6 18.4.5 12 .5Z",
+    LinkedIn:
+      "M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2ZM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2Zm1.8 13H3.5V9h3.6v11.4ZM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 1 .8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7c0-1-.8-1.7-1.8-1.7Z",
+    Instagram:
+      "M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2a3.8 3.8 0 0 1-.9 1.4c-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4a3.8 3.8 0 0 1-1.4-.9 3.8 3.8 0 0 1-.9-1.4c-.2-.4-.4-1-.4-2.2-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.2-.1 1.6-.1 4.8-.1ZM12 0C8.7 0 8.3 0 7.1.1 5.8.2 5 .4 4.3.6c-.7.3-1.4.7-2 1.3s-1 1.3-1.3 2C.7 4.6.5 5.5.4 6.7.3 8 .3 8.4.3 11.7s0 3.7.1 5c.1 1.2.3 2.1.6 2.8.3.7.7 1.4 1.3 2s1.3 1 2 1.3c.7.3 1.5.5 2.8.6 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c1.2-.1 2.1-.3 2.8-.6.7-.3 1.4-.7 2-1.3s1-1.3 1.3-2c.3-.7.5-1.5.6-2.8.1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.2-.3-2.1-.6-2.8a5.5 5.5 0 0 0-1.3-2 5.5 5.5 0 0 0-2-1.3c-.7-.3-1.5-.5-2.8-.6C15.7 0 15.3 0 12 0Zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4Zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm7.8-10.4a1.4 1.4 0 1 1-2.9 0 1.4 1.4 0 0 1 2.9 0Z",
+  };
+  return (
+    <svg viewBox="0 0 24 24" className="h-[18px] w-[18px] fill-current">
+      <path d={paths[name] || ""} />
+    </svg>
+  );
+}
 
 /* Carved cuts — the cards' edges curve around the watch circle. */
 const BITE_MID =
   "radial-gradient(circle 218px at 50% calc(100% + 38px), transparent 217px, #000 218px)";
 const BITE_BOT =
   "radial-gradient(circle 218px at 50% -56px, transparent 217px, #000 218px)";
-const SCOOP_TR =
-  "radial-gradient(circle 46px at calc(100% - 6px) 6px, transparent 45px, #000 46px)";
 const SPOT = {
   background:
     "radial-gradient(90% 60% at 30% -5%, rgba(255,255,255,0.09), rgba(255,255,255,0.015) 45%, transparent 70%)",
@@ -122,7 +137,7 @@ export default function Board() {
             full-stack engineer ·{" "}
             <span className="text-accent">building BOSS!</span>
           </p>
-          <p className="mt-4 text-4xl font-bold tracking-tight">
+          <p className="mt-3 text-3xl font-bold tracking-tight">
             Jayanth <span className="serif-accent font-normal text-ink-dim">Koppala</span>
           </p>
           <p className="kicker mt-2">📍 Bengaluru, IN · {ist}</p>
@@ -135,21 +150,22 @@ export default function Board() {
                   "radial-gradient(65% 60% at 42% 30%, rgba(255,255,255,0.17), transparent 70%)",
               }}
             />
-            <div className="relative h-[300px] w-full cursor-grab active:cursor-grabbing">
+            <div className="relative h-[230px] w-[230px] cursor-grab active:cursor-grabbing">
               <Cube3D />
             </div>
           </div>
           <div className="border-t border-line pt-4">
-            <div className="flex items-center justify-center gap-7">
-              {identity.socials.slice(0, 3).map((s) => (
+            <div className="flex items-center justify-center gap-8 text-ink-dim">
+              {identity.socials.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="kicker transition-colors hover:!text-accent"
+                  aria-label={s.label}
+                  className="transition-all duration-200 hover:scale-125 hover:text-accent"
                 >
-                  {s.label}
+                  <SocialIcon name={s.label} />
                 </a>
               ))}
             </div>
@@ -158,7 +174,7 @@ export default function Board() {
 
         {/* philosophy */}
         <div
-          className={`${CARD} p-8 pb-44`}
+          className={`${CARD} p-7 pb-40`}
           style={{
             ...SPOT,
             WebkitMaskImage: BITE_MID,
@@ -213,10 +229,7 @@ export default function Board() {
         </div>
 
         {/* connect */}
-        <div
-          className={`${CARD} flex flex-col p-8`}
-          style={{ ...SPOT, WebkitMaskImage: SCOOP_TR, maskImage: SCOOP_TR }}
-        >
+        <div className={`${CARD} flex flex-col p-7`} style={SPOT}>
           <div className="flex items-center justify-between">
             <span className="flex items-center gap-2 rounded-full border border-line px-3 py-1.5">
               <span className="relative flex h-2 w-2">
@@ -225,9 +238,9 @@ export default function Board() {
               </span>
               <span className="kicker">shipping daily</span>
             </span>
-            <span aria-hidden className="w-6" />
+
           </div>
-          <div className="mt-8">
+          <div className="mt-6">
             <p className="text-3xl font-black leading-[1.05] tracking-tight">
               LET&apos;S BUILD
               <br />
@@ -243,12 +256,12 @@ export default function Board() {
               setCopied(true);
               setTimeout(() => setCopied(false), 1800);
             }}
-            className="mt-10 text-left"
+            className="group mt-6 text-left"
           >
-            <p className="text-xl font-semibold text-ink transition-colors hover:text-accent">
+            <p className="text-xl font-semibold text-ink transition-colors group-hover:text-accent">
               ⬡ {identity.email}
             </p>
-            <p className="kicker mt-3 tracking-[0.3em]">
+            <p className="kicker mt-2 tracking-[0.3em]">
               {copied ? "copied ✓" : "tap to copy email"}
             </p>
           </button>
@@ -260,11 +273,6 @@ export default function Board() {
           </a>
         </div>
       </div>
-
-      {/* chip nested in the connect card's scooped corner */}
-      <span className="kicker absolute -top-0.5 -right-0.5 z-10 hidden rounded-2xl border border-line bg-bg px-3 py-2 lg:block">
-        ⌘
-      </span>
 
       {/* ── the watch: collar plate + stand, carved between rows ── */}
       <div className="relative z-20 mx-auto -my-[168px] hidden w-fit lg:block">
@@ -282,76 +290,109 @@ export default function Board() {
         {/* stem + foot into the bottom card */}
         <div
           aria-hidden
-          className="absolute left-1/2 top-full h-[72px] w-5 -translate-x-1/2"
+          className="absolute left-1/2 top-full h-10 w-5 -translate-x-1/2"
           style={{ background: "#0c0e0d", borderLeft: "1px solid rgba(255,255,255,0.06)", borderRight: "1px solid rgba(255,255,255,0.06)" }}
         />
         <div
           aria-hidden
-          className="absolute left-1/2 top-[calc(100%+68px)] h-2 w-16 -translate-x-1/2 rounded-full border border-white/[0.08]"
+          className="absolute left-1/2 top-[calc(100%+36px)] h-2 w-16 -translate-x-1/2 rounded-full border border-white/[0.08]"
           style={{ background: "#11140f" }}
         />
-        {/* collar plate */}
+        {/* collar plate — stepped rings */}
         <div
-          className="relative rounded-full p-8"
-          style={{
-            background:
-              "radial-gradient(70% 70% at 40% 30%, #131614, #0b0d0c 70%)",
-            boxShadow:
-              "0 0 0 1px rgba(255,255,255,0.05), 0 40px 100px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.05)",
-          }}
+          className="group relative rounded-full p-3 transition-transform duration-500 hover:scale-[1.015]"
+          style={{ background: "var(--bg)" }}
         >
-          <Watch size={340} />
+          <div
+            className="rounded-full p-2"
+            style={{
+              background:
+                "linear-gradient(145deg, rgba(255,255,255,0.09), rgba(255,255,255,0.01) 55%)",
+            }}
+          >
+            <div
+              className="rounded-full p-4 transition-shadow duration-500 group-hover:shadow-[0_0_60px_rgba(16,185,129,0.12)]"
+              style={{
+                background:
+                  "radial-gradient(70% 70% at 40% 30%, #141715, #0a0c0b 72%)",
+                boxShadow:
+                  "inset 0 1px 0 rgba(255,255,255,0.06), 0 40px 100px rgba(0,0,0,0.9)",
+              }}
+            >
+              <Watch size={330} />
+            </div>
+          </div>
         </div>
       </div>
 
       {/* ── bottom row ──────────────────────────────────────── */}
-      <div
-        className={`${CARD} mt-4 lg:min-h-[420px]`}
-        style={{ ...SPOT, WebkitMaskImage: BITE_BOT, maskImage: BITE_BOT }}
-      >
-        <div className="grid gap-8 p-8 lg:grid-cols-2">
-          <div className="relative min-h-[300px]">
+      <div className={`${CARD} mt-4`} style={SPOT}>
+        <div className="grid gap-6 p-7 lg:grid-cols-[1.15fr_auto_1.3fr] lg:gap-10">
+          {/* globe zone */}
+          <div className="relative min-h-[340px] overflow-hidden">
             <p className="kicker">available globally</p>
-            <p className="mt-3 text-3xl font-bold leading-tight">
+            <p className="mt-2 text-3xl font-bold leading-tight">
               Adaptable across
               <br />
               time zones
             </p>
-            <div className="pointer-events-none absolute -bottom-40 -left-24 h-[480px] w-[480px] opacity-90">
+            <div className="pointer-events-none absolute -bottom-[220px] -left-[100px] h-[520px] w-[520px]">
               <Globe config={GLOBE_CFG} className="!max-w-none" />
             </div>
-            <div className="absolute bottom-2 left-40 z-10 flex flex-col gap-2">
-              <span className="w-fit rounded-full border border-line bg-bg/80 px-4 py-1.5 text-sm text-ink backdrop-blur">
-                UK 🇬🇧 <span className="text-ink-faint">{uk}</span>
-              </span>
-              <span className="w-fit rounded-full border border-line bg-bg/80 px-4 py-1.5 text-sm text-ink backdrop-blur">
-                India 🇮🇳 <span className="text-ink-faint">{ist}</span>
-              </span>
-            </div>
+            <span className="absolute bottom-24 left-[38%] z-10 rounded-md border border-line bg-bg/90 px-2.5 py-1 font-mono text-xs text-ink backdrop-blur">
+              🇮🇳 India
+            </span>
           </div>
-          <div className="relative min-h-[300px] overflow-visible text-right">
+
+          {/* timezone pill column */}
+          <div className="relative z-10 flex flex-row items-center gap-3 lg:mt-28 lg:flex-col lg:justify-start">
+            {[
+              { flag: "🇬🇧", name: "UK", time: uk },
+              { flag: "🇮🇳", name: "India", time: ist, hot: true },
+            ].map((z) => (
+              <span
+                key={z.name}
+                className={`w-fit min-w-[130px] rounded-full border px-4 py-2 text-center text-sm transition-colors ${
+                  z.hot
+                    ? "border-accent/50 bg-accent/10 text-ink"
+                    : "border-line bg-bg/70 text-ink-dim"
+                }`}
+              >
+                {z.name} {z.flag}{" "}
+                <span className="font-mono text-xs text-ink-faint">{z.time}</span>
+              </span>
+            ))}
+            <p className="kicker mt-2 hidden text-center lg:block">
+              📍 remote
+              <br />
+              <span className="text-ink">India</span>
+            </p>
+          </div>
+
+          {/* founder + phones */}
+          <div className="relative min-h-[340px] overflow-hidden text-right">
             <p className="text-4xl font-bold tracking-tight">
               Founder of{" "}
               <a
                 href="https://bosshq.in"
                 target="_blank"
                 rel="noreferrer"
-                className="serif-accent bg-gradient-to-r from-accent to-[#6ee7b7] bg-clip-text text-transparent"
+                className="serif-accent bg-gradient-to-r from-accent to-[#6ee7b7] bg-clip-text text-transparent transition-opacity hover:opacity-80"
               >
                 BOSS!
               </a>
             </p>
-            <p className="serif-accent mt-2 text-lg text-ink-faint">
+            <p className="serif-accent mt-1 text-lg text-ink-faint">
               &lt; round-one hiring, done /&gt;
             </p>
-            <div className="pointer-events-none absolute -bottom-40 right-0 flex justify-end gap-4">
-              <div className="w-[150px] -rotate-12 opacity-70">
+            <div className="pointer-events-none absolute -bottom-24 right-0 flex justify-end gap-3">
+              <div className="w-[135px] -rotate-12 opacity-70 transition-transform">
                 <Iphone src="/shots/boss-hero.png" className="size-full" />
               </div>
-              <div className="z-10 w-[170px]">
+              <div className="z-10 w-[155px]">
                 <Iphone src="/shots/boss-hero.png" className="size-full" />
               </div>
-              <div className="w-[150px] rotate-12 opacity-70">
+              <div className="w-[135px] rotate-12 opacity-70">
                 <Iphone src="/shots/boss-hero.png" className="size-full" />
               </div>
             </div>
