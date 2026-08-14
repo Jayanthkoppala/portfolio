@@ -137,7 +137,7 @@ export default function VoiceOrb() {
           style={{
             transform: `scale(${1 + level * 0.35})`,
             background:
-              "radial-gradient(circle at 50% 45%, rgba(255,92,31,0.55), rgba(255,92,31,0.12) 55%, transparent 72%)",
+              "radial-gradient(circle at 50% 45%, rgba(16,185,129,0.55), rgba(16,185,129,0.12) 55%, transparent 72%)",
             filter: "blur(6px)",
           }}
         />
@@ -146,8 +146,8 @@ export default function VoiceOrb() {
           style={{
             transform: `scale(${1 + level * 0.2})`,
             background:
-              "radial-gradient(circle at 50% 40%, rgba(255,140,90,0.9), rgba(255,92,31,0.5) 60%, rgba(255,92,31,0.15))",
-            boxShadow: "0 0 80px rgba(255,92,31,0.35)",
+              "radial-gradient(circle at 50% 40%, rgba(110,231,183,0.9), rgba(16,185,129,0.5) 60%, rgba(16,185,129,0.15))",
+            boxShadow: "0 0 80px rgba(16,185,129,0.35)",
           }}
         />
         <div className="relative z-10 h-4 w-4 rounded-md bg-bg/80 backdrop-blur group-hover:scale-125 transition-transform" />

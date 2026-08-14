@@ -15,10 +15,10 @@ export default function ActivityGrid() {
     c === 0 ? 0 : c <= max * 0.15 ? 1 : c <= max * 0.4 ? 2 : c <= max * 0.7 ? 3 : 4;
   const colors = [
     "rgba(255,255,255,0.05)",
-    "rgba(255,92,31,0.25)",
-    "rgba(255,92,31,0.45)",
-    "rgba(255,92,31,0.7)",
-    "#ff5c1f",
+    "rgba(16,185,129,0.25)",
+    "rgba(16,185,129,0.45)",
+    "rgba(16,185,129,0.7)",
+    "#10b981",
   ];
 
   const privatePct = Math.round(
