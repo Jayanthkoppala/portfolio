@@ -15,6 +15,7 @@ const LINKS = {
   atrium: "https://x.com/JayBosshq/status/1908253253730500716",
   thread: "https://x.com/JayBosshq/status/1905868856201195986",
   polkadot: "https://x.com/JayBosshq/status/1864403099470975119",
+  xtheoDemo: "https://x.com/JayBosshq/status/2002170394623807826",
   mca: "https://tracxn.com/d/legal-entities/india/ledgesys-software-private-limited/__fqiPlCYIzq7GSQ0teygyeLP3MgCfmkhePuaoGAce3h4",
   vixdex: "https://vixdex.vercel.app",
   credibly: "https://credibly-teal.vercel.app",
@@ -97,7 +98,9 @@ const ENTRIES: CareerEntry[] = [
         contracts holding user funds. On-chain there is no hotfix, so the bar
         was different. I learned 1→100 engineering the hard way — InfluxDB
         for time-series, Kafka for streaming token data — and led a team of 3
-        while shipping alongside them.
+        while shipping alongside them. The part I&apos;m proudest of:
+        autonomous strategy agents trading perpetuals live —{" "}
+        <ProofLink href={LINKS.xtheoDemo}>watch the demo</ProofLink>.
       </>
     ),
     chips: ["Solidity", "Foundry", "Kafka", "InfluxDB", "LLM agents"],
