@@ -283,13 +283,6 @@ export default function Board() {
       {/* ── the watch: measured center, concentric cuts, no arch ── */}
       {cy !== null && (
         <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 z-10 hidden h-px bg-white/[0.06] lg:block"
-          style={{ top: cy }}
-        />
-      )}
-      {cy !== null && (
-        <div
           className="absolute left-1/2 z-20 hidden lg:block"
           style={{ top: cy, transform: "translate(-50%, -50%)" }}
         >
