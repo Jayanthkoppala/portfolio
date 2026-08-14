@@ -12,6 +12,8 @@ import ActivityGrid from "@/components/ActivityGrid";
 import MoltenMetal from "@/components/MoltenMetal";
 import MoltenName from "@/components/MoltenName";
 import StatusLine from "@/components/HeroBits";
+import ProfileCard from "@/components/ProfileCard";
+import GradientWaves from "@/components/GradientWaves";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { Highlighter } from "@/components/ui/highlighter";
 import { identity, about } from "@/config/portfolio";
@@ -131,9 +133,10 @@ export default function Home() {
 
       {/* ══ II · THE STORY ════════════════════════════════════ */}
       <Bridge text="how it started, in my own words —" />
-      <section className="mx-auto max-w-3xl px-6 pb-24 pt-8" id="story">
+      <section className="mx-auto max-w-6xl px-6 pb-24 pt-8" id="story">
         <Head caps="The" serif="story." />
-        <div className="space-y-6 text-lg leading-relaxed text-ink-dim">
+        <div className="grid gap-12 lg:grid-cols-[1fr_380px]">
+        <div className="max-w-3xl space-y-6 text-lg leading-relaxed text-ink-dim">
           {about.map((p, i) => (
             <p
               key={i}
@@ -161,6 +164,22 @@ export default function Home() {
             </p>
           ))}
         </div>
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <ProfileCard
+              avatarUrl="/shots/jay.png"
+              miniAvatarUrl="/shots/jay.png"
+              name="Jayanth Koppala"
+              title="Full-stack engineer & founder"
+              handle="JayBosshq"
+              status="Shipping daily"
+              contactText="Email"
+              showUserInfo
+              enableTilt
+              innerGradient="linear-gradient(145deg,#10b98126 0%,#0a0c0bcc 100%)"
+            />
+          </div>
+        </div>
+
       </section>
 
       {/* ══ II.5 · THE DESK — live bento ══════════════════════ */}
@@ -217,6 +236,16 @@ export default function Home() {
               "radial-gradient(120% 100% at 50% 115%, var(--hero-glow-soft), transparent 65%)",
           }}
         />
+        <div aria-hidden className="pointer-events-none absolute inset-0 opacity-40">
+          <GradientWaves
+            horizonColor="#0a0c0b"
+            waveColor="#065f46"
+            crestColor="#10b981"
+            speed={0.5}
+            amplitude={0.7}
+            brightness={0.8}
+          />
+        </div>
         <div className="relative mx-auto max-w-6xl px-6 py-24">
           <ContactEnd />
           <p className="kicker mt-16">
