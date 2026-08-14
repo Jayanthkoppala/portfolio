@@ -31,17 +31,17 @@ export default function TabsCard() {
   const [active, setActive] = useState(0);
   const tab = TABS[active];
   return (
-    <div className="glass flex h-full flex-col p-6">
+    <div className="glass flex h-full flex-col p-5">
       <div className="flex items-center justify-between">
         <p className="kicker">how I build</p>
         <p className="kicker !text-accent">philosophy</p>
       </div>
-      <h3 className="mt-4 text-3xl font-bold leading-none tracking-tight">
+      <h3 className="mt-3 text-2xl font-bold leading-none tracking-tight">
         Products
         <br />
         <span className="serif-accent text-ink-dim">you can trust.</span>
       </h3>
-      <div className="mt-5 flex flex-wrap gap-2">
+      <div className="mt-4 flex flex-wrap gap-2">
         {TABS.map((t, i) => (
           <button
             key={t.key}
@@ -56,11 +56,11 @@ export default function TabsCard() {
           </button>
         ))}
       </div>
-      <div className="mt-5">
+      <div className="mt-4">
         <p className="text-sm font-semibold text-ink">{tab.head}</p>
         <p className="mt-2 text-sm leading-relaxed text-ink-dim">{tab.body}</p>
       </div>
-      <div className="mt-6 space-y-4 border-t border-line pt-5">
+      <div className="mt-4 space-y-3 border-t border-line pt-4">
         {thinking.map((t) => (
           <a key={t.title} href={t.href} target="_blank" rel="noreferrer" className="group block">
             <p className="text-sm font-semibold">{t.title}</p>

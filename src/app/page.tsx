@@ -159,13 +159,15 @@ export default function Home() {
         <Head caps="Meanwhile," serif="at the desk." />
         <div className="grid gap-4 sm:grid-cols-3 [&>*]:min-w-0">
           <IdentityTile />
-          <div className="sm:col-span-2 sm:row-span-2">
+          <div className="sm:col-span-2">
             <TabsCard />
           </div>
           <GlobeTile />
-          <ConnectTile />
           <div className="sm:col-span-2">
             <ActivityGrid />
+          </div>
+          <div className="sm:col-span-3">
+            <ConnectTile />
           </div>
         </div>
       </section>

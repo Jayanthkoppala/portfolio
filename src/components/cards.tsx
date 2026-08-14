@@ -86,37 +86,33 @@ export function IdentityTile() {
 export function ConnectTile() {
   const [copied, setCopied] = useState(false);
   return (
-    <Tile className="flex flex-col justify-between">
-      <div className="flex items-center gap-2">
+    <Tile className="flex flex-wrap items-center justify-between gap-4 !py-5">
+      <div className="flex items-center gap-4">
         <span className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
         </span>
-        <p className="kicker">shipping daily</p>
-      </div>
-      <div className="my-5">
-        <p className="text-2xl font-bold leading-tight tracking-tight">
-          LET&apos;S BUILD
-          <br />
-          SOMETHING
+        <p className="text-xl font-bold leading-tight tracking-tight">
+          LET&apos;S BUILD SOMETHING{" "}
+          <span className="serif-accent font-normal text-ink-dim">
+            that actually ships.
+          </span>
         </p>
-        <p className="serif-accent text-xl text-ink-dim">that actually ships.</p>
       </div>
-      <div>
+      <div className="flex flex-wrap items-center gap-3">
         <button
           onClick={() => {
             navigator.clipboard.writeText(identity.email);
             setCopied(true);
             setTimeout(() => setCopied(false), 1800);
           }}
-          className="w-full rounded-xl border border-line py-3 text-sm text-ink transition-colors hover:border-accent"
+          className="rounded-full border border-line px-4 py-2 text-sm text-ink transition-colors hover:border-accent"
         >
-          {copied ? "copied ✓" : identity.email}
+          {copied ? "copied ✓" : `${identity.email} — tap to copy`}
         </button>
-        <p className="kicker mt-2 text-center">tap to copy email</p>
         <a
           href={`mailto:${identity.email}`}
-          className="mt-3 block w-full rounded-xl bg-ink py-3 text-center text-sm font-bold text-bg transition-transform hover:scale-[1.02]"
+          className="rounded-full bg-ink px-5 py-2 text-sm font-bold text-bg transition-transform hover:scale-[1.03]"
         >
           CONNECT NOW ↗
         </a>
