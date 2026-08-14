@@ -114,6 +114,18 @@ export default function Home() {
         </p>
       </section>
 
+      {/* ══ II.5 · THE DESK — live bento ══════════════════════ */}
+      <section
+        className="mx-auto max-w-[1400px] px-6 pb-12 pt-24 xl:px-12"
+        id="desk"
+      >
+        <Head caps="Meanwhile," serif="at the desk." />
+        <Board />
+        <div className="mt-8">
+          <ActivityGrid />
+        </div>
+      </section>
+
       <Ribbon
         phrases={[
           "cooking season",
@@ -180,18 +192,6 @@ export default function Home() {
           </div>
         </div>
 
-      </section>
-
-      {/* ══ II.5 · THE DESK — live bento ══════════════════════ */}
-      <section
-        className="mx-auto max-w-[1400px] px-6 pb-12 pt-24 xl:px-12"
-        id="desk"
-      >
-        <Head caps="Meanwhile," serif="at the desk." />
-        <Board />
-        <div className="mt-8">
-          <ActivityGrid />
-        </div>
       </section>
 
       {/* ══ III · HOW I BUILD — directly after GitHub activity ═ */}
