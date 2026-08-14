@@ -8,6 +8,13 @@ import ProjectStack from "@/components/ProjectStack";
 import TechSplit from "@/components/TechSplit";
 import ReceiptTweets from "@/components/ReceiptTweets";
 import ContactEnd from "@/components/ContactEnd";
+import {
+  IdentityTile,
+  ConnectTile,
+  GlobeTile,
+  WatchTile,
+  TerminalTile,
+} from "@/components/cards";
 import LightRays from "@/components/LightRays";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { identity, about } from "@/config/portfolio";
@@ -149,6 +156,35 @@ export default function Home() {
               {p}
             </p>
           ))}
+        </div>
+      </section>
+
+      {/* ══ II.5 · THE DESK — live bento ══════════════════════ */}
+      <section className="mx-auto max-w-6xl px-6 py-24" id="desk">
+        <Head caps="Meanwhile," serif="at the desk." />
+        <div className="grid gap-4 sm:grid-cols-3 [&>*]:min-w-0">
+          <IdentityTile />
+          <WatchTile />
+          <TerminalTile />
+          <GlobeTile />
+          <ConnectTile />
+          <a
+            href="#voice"
+            className="glass group flex flex-col items-center justify-center gap-3 !rounded-3xl p-6"
+          >
+            <div
+              className="h-16 w-16 rounded-full transition-transform group-hover:scale-110"
+              style={{
+                background:
+                  "radial-gradient(circle at 50% 40%, rgba(110,231,183,0.9), rgba(16,185,129,0.4) 60%, transparent)",
+                boxShadow: "0 0 40px rgba(16,185,129,0.4)",
+              }}
+            />
+            <p className="text-center text-sm text-ink-dim">
+              don&apos;t read the page.{" "}
+              <span className="text-accent">ask it.</span>
+            </p>
+          </a>
         </div>
       </section>
 
