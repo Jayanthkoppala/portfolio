@@ -291,16 +291,6 @@ export default function Board() {
             aria-hidden
             className="pointer-events-none absolute left-1/2 top-1/2 h-[516px] w-[516px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.08]"
           />
-          {/* stem up: bridges exactly the carve gap into the middle card */}
-          <div
-            aria-hidden
-            className="absolute bottom-full left-1/2 h-[14px] w-6 -translate-x-1/2"
-            style={{
-              background: "var(--bg)",
-              borderLeft: "1px solid rgba(255,255,255,0.06)",
-              borderRight: "1px solid rgba(255,255,255,0.06)",
-            }}
-          />
           {/* neck under the disc, opening into the column */}
           <div
             aria-hidden
