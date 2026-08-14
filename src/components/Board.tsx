@@ -7,7 +7,19 @@
  * (the reference site fakes its 3D too).
  */
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const Cube3D = dynamic(() => import("@/components/Cube3D"), {
+  ssr: false,
+  loading: () => (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/shots/cube.png"
+      alt=""
+      className="w-full brightness-[1.35]"
+    />
+  ),
+});
 import { Globe } from "@/components/ui/globe";
 import { Iphone } from "@/components/ui/iphone";
 import Watch from "@/components/Watch";
@@ -24,11 +36,11 @@ const GLOBE_CFG: COBEOptions = {
   diffuse: 1.2,
   mapSamples: 16000,
   mapBrightness: 5,
-  baseColor: [0.12, 0.17, 0.15],
+  baseColor: [0.55, 0.58, 0.56],
   markerColor: [16 / 255, 185 / 255, 129 / 255],
-  glowColor: [0.05, 0.14, 0.11],
+  glowColor: [0.09, 0.11, 0.1],
   markers: [
-    { location: [12.9716, 77.5946], size: 0.1 },
+    { location: [12.9716, 77.5946], size: 0.09 },
     { location: [51.5074, -0.1278], size: 0.05 },
   ],
   onRender: () => {},
@@ -82,9 +94,9 @@ const CARD =
 
 /* Carved cuts — the cards' edges curve around the watch circle. */
 const BITE_MID =
-  "radial-gradient(circle 208px at 50% calc(100% + 34px), transparent 207px, #000 208px)";
+  "radial-gradient(circle 218px at 50% calc(100% + 38px), transparent 217px, #000 218px)";
 const BITE_BOT =
-  "radial-gradient(circle 208px at 50% -50px, transparent 207px, #000 208px)";
+  "radial-gradient(circle 218px at 50% -56px, transparent 217px, #000 218px)";
 const SCOOP_TR =
   "radial-gradient(circle 46px at calc(100% - 6px) 6px, transparent 45px, #000 46px)";
 const SPOT = {
@@ -120,16 +132,12 @@ export default function Board() {
               className="absolute inset-0"
               style={{
                 background:
-                  "radial-gradient(60% 60% at 45% 35%, rgba(255,255,255,0.10), transparent 70%)",
+                  "radial-gradient(65% 60% at 42% 30%, rgba(255,255,255,0.17), transparent 70%)",
               }}
             />
-            <Image
-              src="/shots/cube.png"
-              alt=""
-              width={340}
-              height={340}
-              className="relative w-[85%] max-w-[280px] animate-[cube-float_7s_ease-in-out_infinite]"
-            />
+            <div className="relative h-[300px] w-full cursor-grab active:cursor-grabbing">
+              <Cube3D />
+            </div>
           </div>
           <div className="border-t border-line pt-4">
             <div className="flex items-center justify-center gap-7">
@@ -258,29 +266,41 @@ export default function Board() {
         ⌘
       </span>
 
-      {/* ── the watch, carved between rows ──────────────────── */}
-      <div className="relative z-20 mx-auto -my-[150px] hidden w-fit lg:block">
-        {/* faint outer ring arc over the cards */}
+      {/* ── the watch: collar plate + stand, carved between rows ── */}
+      <div className="relative z-20 mx-auto -my-[168px] hidden w-fit lg:block">
+        {/* stroke that traces the carved cut edge on both cards */}
         <div
           aria-hidden
-          className="pointer-events-none absolute left-1/2 top-1/2 h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.05]"
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[416px] w-[416px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.08]"
         />
-        {/* stem down into the bottom card */}
+        {/* arch rising toward the middle card */}
         <div
           aria-hidden
-          className="absolute left-1/2 top-full h-16 w-4 -translate-x-1/2 rounded-b-full border-x border-b border-white/[0.07]"
-          style={{ background: "var(--bg)" }}
+          className="absolute bottom-full left-1/2 h-14 w-24 -translate-x-1/2 rounded-t-full border-x border-t border-white/[0.06]"
+          style={{ background: "#0c0e0d" }}
+        />
+        {/* stem + foot into the bottom card */}
+        <div
+          aria-hidden
+          className="absolute left-1/2 top-full h-[72px] w-5 -translate-x-1/2"
+          style={{ background: "#0c0e0d", borderLeft: "1px solid rgba(255,255,255,0.06)", borderRight: "1px solid rgba(255,255,255,0.06)" }}
         />
         <div
-          className="relative rounded-full p-5"
+          aria-hidden
+          className="absolute left-1/2 top-[calc(100%+68px)] h-2 w-16 -translate-x-1/2 rounded-full border border-white/[0.08]"
+          style={{ background: "#11140f" }}
+        />
+        {/* collar plate */}
+        <div
+          className="relative rounded-full p-8"
           style={{
-            background: "var(--bg)",
-            boxShadow: "0 30px 80px rgba(0,0,0,0.85)",
+            background:
+              "radial-gradient(70% 70% at 40% 30%, #131614, #0b0d0c 70%)",
+            boxShadow:
+              "0 0 0 1px rgba(255,255,255,0.05), 0 40px 100px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.05)",
           }}
         >
-          <div className="rounded-full border border-white/10 p-2.5">
-            <Watch size={300} />
-          </div>
+          <Watch size={340} />
         </div>
       </div>
 
@@ -297,7 +317,7 @@ export default function Board() {
               <br />
               time zones
             </p>
-            <div className="pointer-events-none absolute -bottom-24 -left-16 h-[380px] w-[380px] opacity-90">
+            <div className="pointer-events-none absolute -bottom-40 -left-24 h-[480px] w-[480px] opacity-90">
               <Globe config={GLOBE_CFG} className="!max-w-none" />
             </div>
             <div className="absolute bottom-2 left-40 z-10 flex flex-col gap-2">
@@ -343,10 +363,10 @@ export default function Board() {
         @keyframes cube-float {
           0%,
           100% {
-            transform: translateY(0) rotate(-2deg);
+            transform: translateY(0);
           }
           50% {
-            transform: translateY(-14px) rotate(2deg);
+            transform: translateY(-12px);
           }
         }
       `}</style>

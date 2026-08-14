@@ -4,7 +4,7 @@ import { IconCloud } from "@/components/ui/icon-cloud";
 
 const SLUGS = [
   "typescript", "nextdotjs", "react", "nodedotjs", "python", "solidity",
-  "tailwindcss", "mongodb", "postgresql", "amazonwebservices", "docker",
+  "tailwindcss", "mongodb", "postgresql", "googlecloud", "docker",
   "git", "github", "vercel", "cloudflare", "anthropic", "ethereum",
   "solana", "telegram", "whatsapp", "linux", "framer", "figma", "bun",
   "express",
