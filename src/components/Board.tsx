@@ -372,7 +372,7 @@ export default function Board() {
             >
               {zone === "India" ? "🇮🇳 India" : zone === "UK" ? "🇬🇧 UK" : "🇺🇸 USA"}
             </span>
-            <div className="relative z-10 mt-5 flex flex-row flex-wrap gap-3 lg:absolute lg:right-7 lg:top-[155px] lg:mt-0 lg:flex-col lg:items-end">
+            <div className="relative z-10 mt-5 flex flex-row flex-wrap gap-3 lg:absolute lg:inset-x-7 lg:bottom-6 lg:mt-0 lg:justify-end">
               {[
                 { flag: "🇬🇧", name: "UK", time: uk },
                 { flag: "🇮🇳", name: "India", time: ist },
@@ -395,10 +395,6 @@ export default function Board() {
                   )}
                 </button>
               ))}
-            </div>
-            <div className="absolute bottom-6 right-7 z-10 text-right">
-              <p className="kicker">📍 remote</p>
-              <p className="mt-0.5 text-lg font-semibold text-ink">India</p>
             </div>
           </div>
         </div>
