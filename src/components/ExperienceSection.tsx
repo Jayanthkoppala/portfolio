@@ -18,6 +18,8 @@ const LINKS = {
   xtheoDemo: "https://x.com/JayBosshq/status/2002170394623807826",
   mca: "https://tracxn.com/d/legal-entities/india/ledgesys-software-private-limited/__fqiPlCYIzq7GSQ0teygyeLP3MgCfmkhePuaoGAce3h4",
   vixdex: "https://vixdex.vercel.app",
+  securrDocs: "https://securr.gitbook.io/securr",
+  securrLi: "https://www.linkedin.com/company/securrtech",
   credibly: "https://credibly-teal.vercel.app",
 };
 
@@ -32,11 +34,17 @@ const ENTRIES: CareerEntry[] = [
     sub: "one role through a rename",
     body: (
       <>
-        My first production job, at 19. I designed and built the landing page
-        that pulled 2,000 users in its first 30 days, 67% above target. Then I
-        built the bug-bounty platform itself, front and back, as part of the
-        core team. Web3 security work: the users were hackers, and the product
-        had to survive them.
+        My first production job, at 19, straight through a rename. I designed
+        and built the landing page that pulled 2,000 users in its first 30
+        days — 67% above target — then built the bug-bounty platform itself,
+        front and back, as part of the core team, and set up the code-review
+        process that cut bugs by 30%. This was Web3 security with real names
+        on the client list — <ProofLink href={LINKS.securrLi}>Securr&apos;s</ProofLink>{" "}
+        audits covered Chingari and StackOS, and{" "}
+        <ProofLink href={LINKS.securrDocs}>
+          the platform docs are still live
+        </ProofLink>
+        . The users were hackers; the product had to survive them.
       </>
     ),
     chips: ["React", "Next.js", "Node.js", "MongoDB"],
@@ -68,14 +76,17 @@ const ENTRIES: CareerEntry[] = [
     org: "LEDGESYS · Souldem",
     body: (
       <>
-        My first registered company, at 20. Souldem put exam credentials
-        on-chain so certificates couldn&apos;t be faked — React and Solidity
-        up front, Node and Mongo behind, IPFS for storage. It won a ₹15 lakh
-        grant in the MSME Idea Hackathon and was incubated at the iTNT Hub,
-        Anna University. The paper trail is public:{" "}
-        <ProofLink href={LINKS.mca}>the incorporation record</ProofLink>.
-        Running it taught me the unglamorous parts — filings, pitches,
-        keeping a cofounder and a deadline in the same room.
+        My first registered company, built with Abdul Haq — a co-founder I
+        met at a networking event in my second year of college, then built
+        with for three years. Souldem put exam credentials on-chain so
+        certificates couldn&apos;t be faked — React and Solidity up front,
+        Node and Mongo behind, IPFS for storage. It won a ₹15 lakh grant in
+        the MSME Idea Hackathon and was incubated at the iTNT Hub, Anna
+        University. The paper trail is public:{" "}
+        <ProofLink href={LINKS.mca}>the incorporation record</ProofLink> — my
+        name is on the directors line. Running it taught me the unglamorous
+        parts: filings, pitches, keeping a cofounder and a deadline in the
+        same room.
       </>
     ),
     chips: ["Solidity", "IPFS", "Node.js", "Company ops"],
@@ -87,19 +98,22 @@ const ENTRIES: CareerEntry[] = [
     periodLabel: "August 2025 to March 2026",
     role: "Founding Engineer",
     org: "Xtheo",
+    sub: "in stealth",
     body: (
       <>
-        This job started as a competition. I built an AI agent that traded
-        Solana memecoins for the Recall + Gaia challenge, placed 9th, won
-        $1,500 —{" "}
-        <ProofLink href={LINKS.recall}>the entry became a job offer</ProofLink>
-        . At Xtheo I took an AI DeFi platform from zero to production:
-        natural-language swaps, bridging and liquidity, with audited leverage
-        contracts holding user funds. On-chain there is no hotfix, so the bar
-        was different. I learned 1→100 engineering the hard way — InfluxDB
-        for time-series, Kafka for streaming token data — and led a team of 3
-        while shipping alongside them. The part I&apos;m proudest of:
-        autonomous strategy agents trading perpetuals live —{" "}
+        An AI-DeFi startup, still in stealth — no landing page, on purpose.
+        I joined by winning: my trading agent placed 9th in the Recall + Gaia
+        challenge, won $1,500, and{" "}
+        <ProofLink href={LINKS.recall}>
+          the entry became the job offer
+        </ProofLink>
+        . I took the platform from zero to production: natural-language
+        swaps, bridging and liquidity on top of multi-agent orchestration,
+        with audited leverage contracts holding user funds — on-chain there
+        is no hotfix. Kafka streamed the token data, InfluxDB held the
+        time-series, and I built and mentored a team of 3 while shipping
+        alongside them. The part I&apos;m proudest of: autonomous strategy
+        agents trading perpetuals live —{" "}
         <ProofLink href={LINKS.xtheoDemo}>watch the demo</ProofLink>.
       </>
     ),
@@ -121,11 +135,12 @@ const ENTRIES: CareerEntry[] = [
         <ProofLink href={LINKS.nohunt}>NoHunt</ProofLink> took one resume
         upload and did the rest — discovery, tailoring, form-filling,
         tracking, through a Chrome extension that drove the browser itself.
-        The engineering was real: a deterministic ATS-readiness engine running
-        19 checks in under 50 milliseconds at zero LLM cost, and job ingestion
-        indexed across Elasticsearch, Qdrant and MongoDB. I closed this
-        chapter in May 2026 — six months on the candidate side taught me
-        exactly where the bodies are buried. Then I switched chairs.
+        The engineering was real: a deterministic ATS-readiness engine
+        running 19 checks in under 50 milliseconds at zero LLM cost, and live
+        job ingestion from Ashby, Lever and Greenhouse, searchable by
+        keyword, meaning or skill match. I closed this chapter in May 2026 —
+        six months on the candidate side taught me exactly where the bodies
+        are buried. Then I switched chairs.
       </>
     ),
     chips: ["Multi-agent systems", "Elasticsearch", "Chrome MV3", "Qdrant"],
@@ -142,8 +157,9 @@ const ENTRIES: CareerEntry[] = [
     body: (
       <>
         <ProofLink href={LINKS.qatobit}>Qatobit</ProofLink> is crypto index
-        investing for India — structured QSI indices instead of coin-picking,
-        live proof of reserves, INR deposits from ₹200. I build the platform
+        investing for India — rules-based QSI indices instead of
+        coin-picking, live proof of reserves, CERT-In audited infrastructure,
+        INR deposits with withdrawals from ₹200. I build the platform
         engineering: the part that has to hold when real money moves. It runs
         part-time alongside BOSS. Two products, one keyboard.
       </>
