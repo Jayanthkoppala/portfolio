@@ -7,7 +7,7 @@ const LINKS = [
   { label: "Story", href: "#story" },
   { label: "Work", href: "#work" },
   { label: "Receipts", href: "#receipts" },
-  { label: "Ask", href: "#voice" },
+  { label: "Contact", href: "#contact" },
 ];
 
 /** Glass capsule nav + ⌘K command palette. */

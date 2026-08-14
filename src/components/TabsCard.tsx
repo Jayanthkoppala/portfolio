@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { thinking } from "@/config/portfolio";
 
 const TABS = [
   {
@@ -58,6 +59,17 @@ export default function TabsCard() {
       <div className="mt-5">
         <p className="text-sm font-semibold text-ink">{tab.head}</p>
         <p className="mt-2 text-sm leading-relaxed text-ink-dim">{tab.body}</p>
+      </div>
+      <div className="mt-6 space-y-4 border-t border-line pt-5">
+        {thinking.map((t) => (
+          <a key={t.title} href={t.href} target="_blank" rel="noreferrer" className="group block">
+            <p className="text-sm font-semibold">{t.title}</p>
+            <p className="serif-accent text-base leading-snug text-ink-dim">
+              &ldquo;{t.quote}&rdquo;{" "}
+              <span className="kicker transition-colors group-hover:!text-accent">{t.where} ↗</span>
+            </p>
+          </a>
+        ))}
       </div>
     </div>
   );

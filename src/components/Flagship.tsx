@@ -1,6 +1,5 @@
 import { Iphone } from "@/components/ui/iphone";
 import { BorderBeam } from "@/components/ui/border-beam";
-import ActivityGrid from "@/components/ActivityGrid";
 
 /**
  * NOW — the flagship. The single canonical BOSS pitch on the page:
@@ -48,8 +47,7 @@ export default function Flagship() {
         </div>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-[2fr_1fr] [&>*]:min-w-0">
-        <ActivityGrid />
+      <div className="grid gap-4 [&>*]:min-w-0">
         <a
           href="https://qatobit.com"
           target="_blank"
