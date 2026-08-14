@@ -372,6 +372,10 @@ export default function Board() {
             >
               {zone === "India" ? "🇮🇳 India" : zone === "UK" ? "🇬🇧 UK" : "🇺🇸 USA"}
             </span>
+            <div className="absolute bottom-6 right-7 z-10 text-right">
+              <p className="kicker">📍 remote</p>
+              <p className="mt-0.5 text-lg font-semibold text-ink">India</p>
+            </div>
           </div>
         </div>
 
@@ -399,11 +403,6 @@ export default function Board() {
               )}
             </button>
           ))}
-          <p className="kicker mt-4 hidden text-center lg:block">
-            📍 remote
-            <br />
-            <span className="text-ink">India</span>
-          </p>
           <span className="mt-auto mb-1 hidden h-1.5 w-14 rounded-full border border-white/[0.09] bg-[#11140f] lg:block" />
         </div>
 
