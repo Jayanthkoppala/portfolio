@@ -1,0 +1,25 @@
+[     603ms] [INFO] Successfully set dark color mode. @ https://www.reactbits.dev/assets/index-CH3Tu9gL.js:207
+[     642ms] [WARNING] Failed to decode downloaded font: https://www.reactbits.dev/assets/css/geist/dist/fonts/geist-sans/Geist-Variable.woff2 @ https://www.reactbits.dev/components/model-viewer:0
+[     642ms] [WARNING] OTS parsing error: invalid sfntVersion: 1008821359 @ https://www.reactbits.dev/components/model-viewer:0
+[     643ms] [WARNING] Failed to decode downloaded font: https://www.reactbits.dev/assets/css/geist/dist/fonts/geist-sans/Geist-Variable.woff2 @ https://www.reactbits.dev/components/model-viewer:0
+[     643ms] [WARNING] OTS parsing error: invalid sfntVersion: 1008821359 @ https://www.reactbits.dev/components/model-viewer:0
+[     643ms] [WARNING] Failed to decode downloaded font: https://www.reactbits.dev/assets/css/geist/dist/fonts/geist-sans/Geist-Variable.woff2 @ https://www.reactbits.dev/components/model-viewer:0
+[     643ms] [WARNING] OTS parsing error: invalid sfntVersion: 1008821359 @ https://www.reactbits.dev/components/model-viewer:0
+[     657ms] [WARNING] Failed to decode downloaded font: https://www.reactbits.dev/assets/css/geist/dist/fonts/geist-mono/GeistMono-Variable.woff2 @ https://www.reactbits.dev/components/model-viewer:0
+[     657ms] [WARNING] OTS parsing error: invalid sfntVersion: 1008821359 @ https://www.reactbits.dev/components/model-viewer:0
+[     657ms] [WARNING] Failed to decode downloaded font: https://www.reactbits.dev/assets/css/geist/dist/fonts/geist-mono/GeistMono-Variable.woff2 @ https://www.reactbits.dev/components/model-viewer:0
+[     657ms] [WARNING] OTS parsing error: invalid sfntVersion: 1008821359 @ https://www.reactbits.dev/components/model-viewer:0
+[     657ms] [WARNING] Failed to decode downloaded font: https://www.reactbits.dev/assets/css/geist/dist/fonts/geist-mono/GeistMono-Variable.woff2 @ https://www.reactbits.dev/components/model-viewer:0
+[     657ms] [WARNING] OTS parsing error: invalid sfntVersion: 1008821359 @ https://www.reactbits.dev/components/model-viewer:0
+[     659ms] [WARNING] Failed to decode downloaded font: https://www.reactbits.dev/assets/css/geist/dist/fonts/geist-sans/Geist-Variable.woff2 @ https://www.googletagmanager.com/gtag/js?id=G-1GF5NXTV27:768
+[     659ms] [WARNING] OTS parsing error: invalid sfntVersion: 1008821359 @ https://www.googletagmanager.com/gtag/js?id=G-1GF5NXTV27:768
+[     659ms] [WARNING] Failed to decode downloaded font: https://www.reactbits.dev/assets/css/geist/dist/fonts/geist-mono/GeistMono-Variable.woff2 @ https://www.googletagmanager.com/gtag/js?id=G-1GF5NXTV27:768
+[     659ms] [WARNING] OTS parsing error: invalid sfntVersion: 1008821359 @ https://www.googletagmanager.com/gtag/js?id=G-1GF5NXTV27:768
+[     887ms] [WARNING] Failed to decode downloaded font: https://www.reactbits.dev/assets/css/geist/dist/fonts/geist-sans/Geist-Variable.woff2 @ https://www.reactbits.dev/assets/react-three-fiber.esm-RVpgQ-cC.js:51
+[     887ms] [WARNING] OTS parsing error: invalid sfntVersion: 1008821359 @ https://www.reactbits.dev/assets/react-three-fiber.esm-RVpgQ-cC.js:51
+[     887ms] [WARNING] Failed to decode downloaded font: https://www.reactbits.dev/assets/css/geist/dist/fonts/geist-mono/GeistMono-Variable.woff2 @ https://www.reactbits.dev/assets/react-three-fiber.esm-RVpgQ-cC.js:51
+[     887ms] [WARNING] OTS parsing error: invalid sfntVersion: 1008821359 @ https://www.reactbits.dev/assets/react-three-fiber.esm-RVpgQ-cC.js:51
+[    4758ms] [WARNING] Failed to decode downloaded font: https://www.reactbits.dev/assets/css/geist/dist/fonts/geist-sans/Geist-Variable.woff2 @ https://www.reactbits.dev/assets/index-CH3Tu9gL.js:205
+[    4758ms] [WARNING] OTS parsing error: invalid sfntVersion: 1008821359 @ https://www.reactbits.dev/assets/index-CH3Tu9gL.js:205
+[    4758ms] [WARNING] Failed to decode downloaded font: https://www.reactbits.dev/assets/css/geist/dist/fonts/geist-mono/GeistMono-Variable.woff2 @ https://www.reactbits.dev/assets/index-CH3Tu9gL.js:205
+[    4758ms] [WARNING] OTS parsing error: invalid sfntVersion: 1008821359 @ https://www.reactbits.dev/assets/index-CH3Tu9gL.js:205

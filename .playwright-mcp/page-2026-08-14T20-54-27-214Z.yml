@@ -1,0 +1,254 @@
+- generic [ref=e2]:
+  - navigation:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - link [ref=e5]:
+          - /url: /
+          - img "Logo" [ref=e6]
+        - generic [ref=e7]:
+          - img "Emerald" [ref=e10]
+          - generic [ref=e11]:
+            - generic [ref=e12]: Creative Engineer
+            - generic [ref=e13]: Building the Future
+      - list [ref=e17]:
+        - listitem [ref=e18]:
+          - link "Home Home" [ref=e19]:
+            - /url: /
+            - generic [ref=e25]:
+              - generic [ref=e26]: Home
+              - generic [ref=e27]: Home
+        - listitem [ref=e28]:
+          - link "About About" [ref=e29]:
+            - /url: /about
+            - generic [ref=e30]:
+              - generic [ref=e31]: About
+              - generic [ref=e32]: About
+        - listitem [ref=e33]:
+          - link "Work Work" [ref=e34]:
+            - /url: /projects
+            - generic [ref=e35]:
+              - generic [ref=e36]: Work
+              - generic [ref=e37]: Work
+        - listitem [ref=e38]:
+          - link "Blogs Blogs" [ref=e39]:
+            - /url: /blogs
+            - generic [ref=e40]:
+              - generic [ref=e41]: Blogs
+              - generic [ref=e42]: Blogs
+        - listitem [ref=e43]:
+          - button [ref=e44]:
+            - generic [ref=e45]:
+              - generic [ref=e46]: More
+              - generic [ref=e49]: More
+        - listitem [ref=e52]
+        - listitem [ref=e54]:
+          - button [ref=e55]
+        - listitem [ref=e61]:
+          - link "Book a Call" [ref=e62]:
+            - /url: /book-call
+      - button "Open Command Menu" [ref=e66]
+  - main [ref=e70]:
+    - generic [ref=e71]:
+      - link "Visit Wensity UI" [ref=e73]:
+        - /url: https://ui.wensity.com
+      - generic [ref=e83]:
+        - heading "Parth" [level=1] [ref=e85]
+        - generic [ref=e86]:
+          - paragraph [ref=e87]: I design and build products that
+          - paragraph [ref=e88]: deliver real impact.
+      - generic:
+        - generic: BASED IN Noida,INDIA
+        - generic: Full Stack Dev,& DESIGNER
+    - generic [ref=e93]:
+      - generic [ref=e95]:
+        - paragraph [ref=e96]: Crafting modern experiences
+        - generic [ref=e97]:
+          - heading "VENTURE" [level=2] [ref=e98]
+          - heading "SHOWCASE" [level=2] [ref=e99]
+      - generic [ref=e100]:
+        - generic [ref=e101]:
+          - generic [ref=e103]:
+            - img "Profile" [ref=e109]
+            - generic [ref=e113]:
+              - heading "Rune" [level=3] [ref=e114]
+              - paragraph [ref=e115]: 🚀 Rune is your all-in-one productivity toolkit featuring 145+ powerful tools for learning, creating, and working smarter. From text & writing tools, PDF management, image editing, video processing, to developer utilities, calculators, and AI-powered assistants—Rune empowers students, professionals, and creators with free 24/7 access to streamline their workflow.
+              - list [ref=e116]:
+                - listitem [ref=e117]:
+                  - generic [ref=e120]: 145+ free tools including text editors, PDF converters, and image processors
+                - listitem [ref=e121]:
+                  - generic [ref=e124]: AI-powered tools for writing, summarizing, and content creation
+                - listitem [ref=e125]:
+                  - generic [ref=e128]: Developer utilities with JSON formatter, regex tester, and code tools
+              - generic [ref=e129]:
+                - generic [ref=e130]: React
+                - generic [ref=e133]: TypeScript
+                - generic [ref=e136]: Next.js
+                - generic [ref=e139]: Tailwind CSS
+                - generic [ref=e142]: RuneAI
+                - generic [ref=e145]: Framer Motion
+                - generic [ref=e148]: Node.js
+                - generic [ref=e151]: Vercel
+          - generic [ref=e154]:
+            - link [ref=e157]:
+              - /url: https://rune.codes
+              - generic [ref=e159]:
+                - generic [ref=e160]:
+                  - img "Rune Mobile View 1" [ref=e173]
+                  - img "Rune Mobile View 2" [ref=e186]
+                - img "Rune" [ref=e197]
+            - link [ref=e201]:
+              - /url: https://ui.wensity.com
+              - generic [ref=e203]:
+                - generic [ref=e204]:
+                  - img "Wensity UI Mobile View 1" [ref=e217]
+                  - img "Wensity UI Mobile View 2" [ref=e230]
+                - img "Wensity UI" [ref=e241]
+            - link [ref=e245]:
+              - /url: https://rune.codes/hub
+              - generic [ref=e247]:
+                - generic [ref=e248]:
+                  - img "RuneHub Mobile View 1" [ref=e261]
+                  - img "RuneHub Mobile View 2" [ref=e274]
+                - img "RuneHub" [ref=e285]
+            - link [ref=e289]:
+              - /url: https://rune.codes/career
+              - generic [ref=e291]:
+                - generic [ref=e292]:
+                  - img "RuneCareer Mobile View 1" [ref=e305]
+                  - img "RuneCareer Mobile View 2" [ref=e318]
+                - img "RuneCareer" [ref=e329]
+            - link [ref=e333]:
+              - /url: https://ai.rune.codes
+              - generic [ref=e335]:
+                - generic [ref=e336]:
+                  - img "RuneAI Mobile View 1" [ref=e349]
+                  - img "RuneAI Mobile View 2" [ref=e362]
+                - img "RuneAI" [ref=e373]
+            - link [ref=e377]:
+              - /url: https://old.parthh.in
+              - generic [ref=e379]:
+                - generic [ref=e380]:
+                  - img "Old Portfolio Mobile View 1" [ref=e393]
+                  - img "Old Portfolio Mobile View 2" [ref=e406]
+                - img "Old Portfolio" [ref=e417]
+        - link [ref=e420]:
+          - /url: https://github.com/ksparth12
+    - generic [ref=e430]:
+      - generic:
+        - generic:
+          - img "skills cover rotating image"
+      - generic [ref=e431]:
+        - heading "MY SKILLSET The Magic Behind" [level=2] [ref=e432]:
+          - paragraph [ref=e433]: MY SKILLSET
+          - generic [ref=e434]: The Magic Behind
+        - list [ref=e435]:
+          - listitem "ReactJS" [ref=e436]:
+            - img "ReactJS" [ref=e437]
+          - listitem "NextJS" [ref=e439]:
+            - img "NextJS" [ref=e440]
+          - listitem "TypeScript" [ref=e442]:
+            - img "TypeScript" [ref=e443]
+          - listitem "Tailwind CSS" [ref=e445]:
+            - img "Tailwind CSS" [ref=e446]
+          - listitem "Motion" [ref=e448]:
+            - img "Motion" [ref=e449]
+          - listitem "Sanity" [ref=e451]:
+            - img "Sanity" [ref=e452]
+          - listitem "Contentful" [ref=e454]:
+            - img "Contentful" [ref=e455]
+          - listitem "NodeJS" [ref=e457]:
+            - img "NodeJS" [ref=e458]
+          - listitem "ExpressJS" [ref=e460]:
+            - img "ExpressJS" [ref=e461]
+          - listitem "PostgreSQL" [ref=e463]:
+            - img "PostgreSQL" [ref=e464]
+          - listitem "MongoDB" [ref=e466]:
+            - img "MongoDB" [ref=e467]
+          - listitem "Prisma" [ref=e469]:
+            - img "Prisma" [ref=e470]
+          - listitem "Zustand" [ref=e472]:
+            - img "Zustand" [ref=e473]
+          - listitem "Zod" [ref=e475]:
+            - img "Zod" [ref=e476]
+          - listitem "pnpm" [ref=e478]:
+            - img "pnpm" [ref=e479]
+          - listitem "Bun" [ref=e481]:
+            - img "Bun" [ref=e482]
+          - listitem "Git" [ref=e484]:
+            - img "Git" [ref=e485]
+          - listitem "GitHub" [ref=e487]:
+            - img "GitHub" [ref=e488]
+          - listitem "Vercel" [ref=e490]:
+            - img "Vercel" [ref=e491]
+          - listitem "AWS" [ref=e493]:
+            - img "AWS" [ref=e494]
+          - listitem "Docker" [ref=e496]:
+            - img "Docker" [ref=e497]
+          - listitem "Expo" [ref=e499]:
+            - img "Expo" [ref=e500]
+          - listitem "Clerk" [ref=e502]:
+            - img "Clerk" [ref=e503]
+          - listitem "Linux" [ref=e505]:
+            - img "Linux" [ref=e506]
+    - generic [ref=e511]:
+      - generic [ref=e512]:
+        - generic [ref=e513]:
+          - generic [ref=e514]: User-Friendly
+          - img "star" [ref=e515]
+        - generic [ref=e516]:
+          - generic [ref=e517]: Adaptive
+          - img "star" [ref=e518]
+        - generic [ref=e519]:
+          - generic [ref=e520]: Fluid
+          - img "star" [ref=e521]
+        - generic [ref=e522]:
+          - generic [ref=e523]: Future-Proof
+          - img "star" [ref=e524]
+        - generic [ref=e525]:
+          - generic [ref=e526]: SEO-Ready
+          - img "star" [ref=e527]
+        - generic [ref=e528]:
+          - generic [ref=e529]: Immersive
+          - img "star" [ref=e530]
+        - generic [ref=e531]:
+          - generic [ref=e532]: Protected
+          - img "star" [ref=e533]
+        - generic [ref=e534]:
+          - generic [ref=e535]: Dependable
+          - img "star" [ref=e536]
+        - generic [ref=e537]:
+          - generic [ref=e538]: Captivating
+          - img "star" [ref=e539]
+      - generic [ref=e540]:
+        - generic [ref=e541]:
+          - generic [ref=e542]: User-Friendly
+          - img "star" [ref=e543]
+        - generic [ref=e544]:
+          - generic [ref=e545]: Adaptive
+          - img "star" [ref=e546]
+        - generic [ref=e547]:
+          - generic [ref=e548]: Fluid
+          - img "star" [ref=e549]
+        - generic [ref=e550]:
+          - generic [ref=e551]: Future-Proof
+          - img "star" [ref=e552]
+        - generic [ref=e553]:
+          - generic [ref=e554]: SEO-Ready
+          - img "star" [ref=e555]
+        - generic [ref=e556]:
+          - generic [ref=e557]: Immersive
+          - img "star" [ref=e558]
+        - generic [ref=e559]:
+          - generic [ref=e560]: Protected
+          - img "star" [ref=e561]
+        - generic [ref=e562]:
+          - generic [ref=e563]: Dependable
+          - img "star" [ref=e564]
+        - generic [ref=e565]:
+          - generic [ref=e566]: Captivating
+          - img "star" [ref=e567]
+    - generic [ref=e569]:
+      - paragraph [ref=e570]: WHAT OTHERS SAY
+      - heading "The Voices Behind" [level=2] [ref=e571]:
+        - generic [ref=e572]: The Voices
+        - text: Behind

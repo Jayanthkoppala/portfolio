@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Watch from "@/components/Watch";
+import { Highlighter } from "@/components/ui/highlighter";
 import { identity, contactCloser } from "@/config/portfolio";
 
 /** The goodbye: the question, the connect card, and the watch still ticking. */
@@ -17,7 +18,18 @@ export default function ContactEnd() {
           Tell me where
           <br />
           <span className="serif-accent normal-case text-accent">
-            I&apos;m wrong.
+            <Highlighter
+              action="underline"
+              color="var(--annotation-ink)"
+              strokeWidth={2.25}
+              animationDuration={620}
+              iterations={1}
+              padding={2}
+              multiline={false}
+              isView
+            >
+              I&apos;m wrong.
+            </Highlighter>
           </span>
         </p>
         <p className="mt-6 max-w-md text-sm text-ink-dim">{contactCloser}</p>

@@ -1,0 +1,904 @@
+- generic [ref=f7e1]:
+  - main [ref=f7e2]:
+    - navigation "Primary navigation" [ref=f7e1490]:
+      - link "Now" [ref=f7e1491]:
+        - /url: "#now"
+      - link "Story" [ref=f7e1492]:
+        - /url: "#story"
+      - button "Switch to light theme" [active] [ref=f7e1609]
+      - link "Work" [ref=f7e1502]:
+        - /url: "#work"
+      - link "Receipts" [ref=f7e1503]:
+        - /url: "#receipts"
+    - generic [ref=f7e21]:
+      - paragraph [ref=f7e24]:
+        - text: Bengaluru · building
+        - link "BOSS!" [ref=f7e25]:
+          - /url: https://bosshq.in
+      - generic [ref=f7e27]:
+        - paragraph [ref=f7e28]:
+          - text: shipped with teams, led in production, built whole products
+          - generic [ref=f7e29]: solo
+          - text: —
+        - heading "Jayanth Koppala" [level=1] [ref=f7e30]: JayanthKoppala
+        - generic [ref=f7e31]:
+          - link "X" [ref=f7e32]:
+            - /url: https://x.com/JayBosshq
+          - link "GitHub" [ref=f7e33]:
+            - /url: https://github.com/Jayanthkoppala
+          - link "LinkedIn" [ref=f7e34]:
+            - /url: https://www.linkedin.com/in/jayanth-koppala-71a8091b9/
+          - link "Instagram" [ref=f7e35]:
+            - /url: https://www.instagram.com/jayanth_137/
+          - link "jay@bosshq.in" [ref=f7e36]:
+            - /url: mailto:jay@bosshq.in
+      - paragraph [ref=f7e37]: scroll ↓
+    - generic [ref=f7e40]:
+      - generic [ref=f7e41]: cooking season ✦
+      - generic [ref=f7e42]: end to end ✦
+      - generic [ref=f7e43]: still shipping ✦
+      - generic [ref=f7e44]: since sixteen ✦
+      - generic [ref=f7e45]: built in Bengaluru ✦
+      - generic [ref=f7e46]: cooking season ✦
+      - generic [ref=f7e47]: end to end ✦
+      - generic [ref=f7e48]: still shipping ✦
+      - generic [ref=f7e49]: since sixteen ✦
+      - generic [ref=f7e50]: built in Bengaluru ✦
+      - generic [ref=f7e51]: cooking season ✦
+      - generic [ref=f7e52]: end to end ✦
+      - generic [ref=f7e53]: still shipping ✦
+      - generic [ref=f7e54]: since sixteen ✦
+      - generic [ref=f7e55]: built in Bengaluru ✦
+    - generic [ref=f7e56]:
+      - heading "Where I've worked." [level=2] [ref=f7e57]:
+        - generic [ref=f7e58]: Where I've
+        - generic [ref=f7e59]: worked.
+      - generic [ref=f7e60]:
+        - generic [ref=f7e63]:
+          - paragraph [ref=f7e64]: now · jun 2026 — present
+          - paragraph [ref=f7e65]: BOSS!
+          - paragraph [ref=f7e66]: round-one hiring, done.
+          - paragraph [ref=f7e67]: A recruiter opens one role and gets 242 applications, most in the first hour. BOSS screens all of them, talks to the ones worth talking to, and hands back a top 5–10 with reasons in 48 hours. Runs on WhatsApp, reads the Naukri pile, holds a live voice call.
+          - generic [ref=f7e68]:
+            - link "bosshq.in ↗" [ref=f7e69]:
+              - /url: https://bosshq.in
+            - generic [ref=f7e70]: sarvam ai startup program
+            - generic [ref=f7e71]: · sole developer
+        - link "also now · part-time Qatobit founding engineer Crypto index investing for India — QSI indices, proof of reserves, INR rails. qatobit.com ↗" [ref=f7e88]:
+          - /url: https://qatobit.com
+          - paragraph [ref=f7e89]: also now · part-time
+          - paragraph [ref=f7e90]: Qatobit founding engineer
+          - paragraph [ref=f7e91]: Crypto index investing for India — QSI indices, proof of reserves, INR rails.
+          - generic [ref=f7e92]: qatobit.com ↗
+      - generic [ref=f7e93]:
+        - paragraph [ref=f7e94]: before — newest first
+        - generic [ref=f7e96]:
+          - generic [ref=f7e97]:
+            - generic [ref=f7e99]:
+              - paragraph [ref=f7e100]:
+                - text: Founding Engineer
+                - generic [ref=f7e101]: · Xtheo
+              - paragraph [ref=f7e102]: aug 2025 — mar 2026
+            - paragraph [ref=f7e103]: AI Web3/DeFi platform, zero to production. Audited leverage contracts holding user funds; led a team of 3.
+            - link "the competition that got me hired ↗" [ref=f7e104]:
+              - /url: https://x.com/JayBosshq/status/1953448415242723438
+          - generic [ref=f7e105]:
+            - generic [ref=f7e107]:
+              - paragraph [ref=f7e108]:
+                - text: Founder
+                - generic [ref=f7e109]: · NoHunt
+              - paragraph [ref=f7e110]: nov 2025 — may 2026
+            - paragraph [ref=f7e111]: AI job-application copilot — the candidate side of the same problem BOSS attacks from the recruiter side.
+          - generic [ref=f7e112]:
+            - generic [ref=f7e114]:
+              - paragraph [ref=f7e115]:
+                - text: Co-Founder
+                - generic [ref=f7e116]: · LEDGESYS · Souldem
+              - paragraph [ref=f7e117]: feb 2024 — jan 2025
+            - paragraph [ref=f7e118]: On-chain exam credentials. ₹15L MSME grant, incubated at ITNT, Anna University.
+            - link "incorporation record ↗" [ref=f7e119]:
+              - /url: https://tracxn.com/d/legal-entities/india/ledgesys-software-private-limited/__fqiPlCYIzq7GSQ0teygyeLP3MgCfmkhePuaoGAce3h4
+          - generic [ref=f7e120]:
+            - generic [ref=f7e122]:
+              - paragraph [ref=f7e123]:
+                - text: CTO
+                - generic [ref=f7e124]: · Imigrom Mediatech
+              - paragraph [ref=f7e125]: mar — jul 2023
+            - paragraph [ref=f7e126]: ₹5L revenue, 5+ clients; ran tech, design, sales and marketing at once.
+          - generic [ref=f7e127]:
+            - generic [ref=f7e129]:
+              - paragraph [ref=f7e130]:
+                - text: Full Stack Developer
+                - generic [ref=f7e131]: · Stabel → Securr
+              - paragraph [ref=f7e132]: dec 2022 — apr 2023
+            - paragraph [ref=f7e133]: Landing page that pulled 2,000 users in 30 days; shipped the bug-bounty platform front and back.
+          - generic [ref=f7e134]:
+            - generic [ref=f7e136]:
+              - paragraph [ref=f7e137]:
+                - text: Community
+                - generic [ref=f7e138]: · TPG · IEEE · Aleo
+              - paragraph [ref=f7e139]: 2023 — 2024
+            - paragraph [ref=f7e140]: Technical Director, The Phoenix Guild Chandigarh. IEEE CIS Webmaster. Speaker, Aleo zkMeetup.
+    - paragraph [ref=f7e141]: how it started, in my own words —
+    - generic [ref=f7e142]:
+      - heading "The story." [level=2] [ref=f7e143]:
+        - generic [ref=f7e144]: The
+        - generic [ref=f7e145]: story.
+      - generic [ref=f7e146]:
+        - paragraph [ref=f7e147]: The first thing anyone paid me for was marketing. ₹500, three months, I was 16. I freelanced after that and the money got real — and I noticed I was getting better at earning and not at building. So I stopped.
+        - paragraph [ref=f7e148]: At 17 I left home for a college on the other side of the country, in a state where I didn't speak the language. I picked it for that reason. Nothing there was handled for me. I had to talk to strangers to get anything done.
+        - paragraph [ref=f7e149]: College happened around the building, not the other way around. Somewhere in there I interned, worked full-time, ran a business of my own, won hackathons, started companies — stacked on top of classes. I've slept through exams I should have taken and events I wanted to attend because I coded till sunrise. I've been broke with a cracked mac screen, still shipping.
+        - paragraph [ref=f7e150]:
+          - text: When I go quiet, it's not rest. It's
+          - generic [ref=f7e151]: cooking season.
+        - paragraph [ref=f7e152]: "The pattern, honestly: I put myself somewhere I don't belong and let it change me. Comfort is the thing that's always made me worse. Right now that somewhere is Bengaluru — most nights, still up, building."
+    - generic [ref=f7e153]:
+      - heading "Meanwhile, at the desk." [level=2] [ref=f7e154]:
+        - generic [ref=f7e155]: Meanwhile,
+        - generic [ref=f7e156]: at the desk.
+      - generic [ref=f7e157]:
+        - generic [ref=f7e158]:
+          - generic [ref=f7e160]:
+            - paragraph [ref=f7e161]: JKfull-stack engineer · building BOSS!
+            - heading "Jayanth Koppala" [level=3] [ref=f7e162]
+            - paragraph [ref=f7e163]:
+              - text: Bengaluru, IN ·
+              - generic [ref=f7e167]: 02:36
+            - img "Obsidian cube visualization." [ref=f7e169]:
+              - generic: drag to rotate
+            - generic [ref=f7e172]:
+              - link "X profile" [ref=f7e173]:
+                - /url: https://x.com/JayBosshq
+                - generic: X
+              - link "GitHub profile" [ref=f7e176]:
+                - /url: https://github.com/Jayanthkoppala
+                - generic: GitHub
+              - link "LinkedIn profile" [ref=f7e179]:
+                - /url: https://www.linkedin.com/in/jayanth-koppala-71a8091b9/
+                - generic: LinkedIn
+              - link "Instagram profile" [ref=f7e182]:
+                - /url: https://www.instagram.com/jayanth_137/
+                - generic: Instagram
+          - generic [ref=f7e186]:
+            - generic [ref=f7e187]:
+              - generic [ref=f7e188]: products that act
+              - paragraph [ref=f7e193]: philosophy
+            - generic [ref=f7e197]:
+              - generic [ref=f7e198]:
+                - heading "Products" [level=3] [ref=f7e199]
+                - paragraph [ref=f7e200]: you can trust.
+                - paragraph [ref=f7e201]: I sweat the screening call, the contract audit, the deploy — the stuff that has to hold.
+              - generic [ref=f7e202]:
+                - tablist "Product philosophy" [ref=f7e203]:
+                  - tab "Agents" [selected] [ref=f7e204]
+                  - tab "Voice" [ref=f7e206]
+                  - tab "Contracts" [ref=f7e208]
+                  - tab "Product" [ref=f7e210]
+                - tabpanel "Agents" [ref=f7e213]:
+                  - paragraph [ref=f7e214]: Systems that act
+                  - paragraph [ref=f7e215]: Agents that do the work, not chatbots that describe it — running without me in the loop.
+          - generic [ref=f7e217]:
+            - generic [ref=f7e218]: shipping daily
+            - generic [ref=f7e226]:
+              - heading "LET'S BUILD SOMETHING" [level=3] [ref=f7e227]: LET'S BUILDSOMETHING
+              - paragraph [ref=f7e228]: that actually ships.
+            - button "jay@bosshq.in tap to copy email" [ref=f7e229]:
+              - generic [ref=f7e230]: jay@bosshq.in
+              - generic [ref=f7e237]: tap to copy email
+            - link "CONNECT NOW" [ref=f7e238]:
+              - /url: mailto:jay@bosshq.in
+        - generic [ref=f7e417]:
+          - generic [ref=f7e419]:
+            - paragraph [ref=f7e420]: available globally
+            - heading "Adaptable across time zones" [level=3] [ref=f7e421]: Adaptable acrosstime zones
+            - generic [ref=f7e425]: India
+            - group "Preferred collaboration timezone" [ref=f7e1508]:
+              - button "UK" [ref=f7e1509]
+              - button "India" [pressed] [ref=f7e1518]
+              - button "USA" [ref=f7e1526]
+          - generic [ref=f7e479]:
+            - heading [level=3] [ref=f7e480]:
+              - text: Founder of
+              - link "BOSS!" [ref=f7e481]:
+                - /url: https://bosshq.in
+            - paragraph [ref=f7e487]: < round-one hiring, done />
+      - region [ref=f7e489]:
+        - generic [ref=f7e490]:
+          - generic [ref=f7e491]:
+            - generic [ref=f7e492]: GitHub activity
+            - heading "1 , 0 1 5 contributions" [level=3] [ref=f7e497]:
+              - generic [ref=f7e502]:
+                - generic [ref=f7e503]: "1"
+                - generic [ref=f7e505]: ","
+                - generic [ref=f7e507]: "0"
+                - generic [ref=f7e509]: "1"
+                - generic [ref=f7e511]: "5"
+              - generic [ref=f7e513]: contributions
+            - paragraph [ref=f7e514]: A year of building in public and private, reflected directly from the contribution profile.
+          - link "@Jayanthkoppala" [ref=f7e515]:
+            - /url: https://github.com/Jayanthkoppala
+        - generic [ref=f7e523]:
+          - generic [ref=f7e524]:
+            - generic [ref=f7e525]: GitHub profile · hourly
+            - article [ref=f7e543]:
+              - img [ref=f7e545]:
+                - generic [ref=f7e546]:
+                  - generic [ref=f7e547]: Aug
+                  - generic [ref=f7e548]: Sep
+                  - generic [ref=f7e549]: Oct
+                  - generic [ref=f7e550]: Nov
+                  - generic [ref=f7e551]: Dec
+                  - generic [ref=f7e552]: Jan
+                  - generic [ref=f7e553]: Feb
+                  - generic [ref=f7e554]: Mar
+                  - generic [ref=f7e555]: Apr
+                  - generic [ref=f7e556]: May
+                  - generic [ref=f7e557]: Jun
+                  - generic [ref=f7e558]: Jul
+                - img "0 contributions on Aug 10, 2025" [ref=f7e560]
+                - generic [ref=f7e561]:
+                  - img "0 contributions on Aug 11, 2025" [ref=f7e562]
+                  - img "0 contributions on Aug 12, 2025" [ref=f7e563]
+                  - img "0 contributions on Aug 13, 2025" [ref=f7e564]
+                  - img "0 contributions on Aug 14, 2025" [ref=f7e565]
+                  - img "0 contributions on Aug 15, 2025" [ref=f7e566]
+                  - img "0 contributions on Aug 16, 2025" [ref=f7e567]
+                  - img "0 contributions on Aug 17, 2025" [ref=f7e568]
+                - generic [ref=f7e569]:
+                  - img "0 contributions on Aug 18, 2025" [ref=f7e570]
+                  - img "0 contributions on Aug 19, 2025" [ref=f7e571]
+                  - img "0 contributions on Aug 20, 2025" [ref=f7e572]
+                  - img "0 contributions on Aug 21, 2025" [ref=f7e573]
+                  - img "0 contributions on Aug 22, 2025" [ref=f7e574]
+                  - img "0 contributions on Aug 23, 2025" [ref=f7e575]
+                  - img "0 contributions on Aug 24, 2025" [ref=f7e576]
+                - generic [ref=f7e577]:
+                  - img "0 contributions on Aug 25, 2025" [ref=f7e578]
+                  - img "0 contributions on Aug 26, 2025" [ref=f7e579]
+                  - img "0 contributions on Aug 27, 2025" [ref=f7e580]
+                  - img "0 contributions on Aug 28, 2025" [ref=f7e581]
+                  - img "0 contributions on Aug 29, 2025" [ref=f7e582]
+                  - img "0 contributions on Aug 30, 2025" [ref=f7e583]
+                  - img "0 contributions on Aug 31, 2025" [ref=f7e584]
+                - generic [ref=f7e585]:
+                  - img "1 contribution on Sep 1, 2025" [ref=f7e586]
+                  - img "0 contributions on Sep 2, 2025" [ref=f7e587]
+                  - img "3 contributions on Sep 3, 2025" [ref=f7e588]
+                  - img "0 contributions on Sep 4, 2025" [ref=f7e589]
+                  - img "0 contributions on Sep 5, 2025" [ref=f7e590]
+                  - img "0 contributions on Sep 6, 2025" [ref=f7e591]
+                  - img "0 contributions on Sep 7, 2025" [ref=f7e592]
+                - generic [ref=f7e593]:
+                  - img "0 contributions on Sep 8, 2025" [ref=f7e594]
+                  - img "0 contributions on Sep 9, 2025" [ref=f7e595]
+                  - img "0 contributions on Sep 10, 2025" [ref=f7e596]
+                  - img "0 contributions on Sep 11, 2025" [ref=f7e597]
+                  - img "1 contribution on Sep 12, 2025" [ref=f7e598]
+                  - img "0 contributions on Sep 13, 2025" [ref=f7e599]
+                  - img "0 contributions on Sep 14, 2025" [ref=f7e600]
+                - generic [ref=f7e601]:
+                  - img "0 contributions on Sep 15, 2025" [ref=f7e602]
+                  - img "2 contributions on Sep 16, 2025" [ref=f7e603]
+                  - img "7 contributions on Sep 17, 2025" [ref=f7e604]
+                  - img "0 contributions on Sep 18, 2025" [ref=f7e605]
+                  - img "0 contributions on Sep 19, 2025" [ref=f7e606]
+                  - img "0 contributions on Sep 20, 2025" [ref=f7e607]
+                  - img "0 contributions on Sep 21, 2025" [ref=f7e608]
+                - generic [ref=f7e609]:
+                  - img "0 contributions on Sep 22, 2025" [ref=f7e610]
+                  - img "0 contributions on Sep 23, 2025" [ref=f7e611]
+                  - img "2 contributions on Sep 24, 2025" [ref=f7e612]
+                  - img "0 contributions on Sep 25, 2025" [ref=f7e613]
+                  - img "0 contributions on Sep 26, 2025" [ref=f7e614]
+                  - img "0 contributions on Sep 27, 2025" [ref=f7e615]
+                  - img "6 contributions on Sep 28, 2025" [ref=f7e616]
+                - generic [ref=f7e617]:
+                  - img "0 contributions on Sep 29, 2025" [ref=f7e618]
+                  - img "0 contributions on Sep 30, 2025" [ref=f7e619]
+                  - img "2 contributions on Oct 1, 2025" [ref=f7e620]
+                  - img "1 contribution on Oct 2, 2025" [ref=f7e621]
+                  - img "3 contributions on Oct 3, 2025" [ref=f7e622]
+                  - img "3 contributions on Oct 4, 2025" [ref=f7e623]
+                  - img "0 contributions on Oct 5, 2025" [ref=f7e624]
+                - generic [ref=f7e625]:
+                  - img "0 contributions on Oct 6, 2025" [ref=f7e626]
+                  - img "0 contributions on Oct 7, 2025" [ref=f7e627]
+                  - img "0 contributions on Oct 8, 2025" [ref=f7e628]
+                  - img "2 contributions on Oct 9, 2025" [ref=f7e1548]
+                  - img "5 contributions on Oct 10, 2025" [ref=f7e1549]
+                  - img "2 contributions on Oct 11, 2025" [ref=f7e631]
+                  - img "4 contributions on Oct 12, 2025" [ref=f7e632]
+                - generic [ref=f7e633]:
+                  - img "3 contributions on Oct 13, 2025" [ref=f7e634]
+                  - img "8 contributions on Oct 14, 2025" [ref=f7e635]
+                  - img "3 contributions on Oct 15, 2025" [ref=f7e636]
+                  - img "1 contribution on Oct 16, 2025" [ref=f7e637]
+                  - img "1 contribution on Oct 17, 2025" [ref=f7e638]
+                  - img "3 contributions on Oct 18, 2025" [ref=f7e639]
+                  - img "3 contributions on Oct 19, 2025" [ref=f7e640]
+                - generic [ref=f7e641]:
+                  - img "4 contributions on Oct 20, 2025" [ref=f7e642]
+                  - img "1 contribution on Oct 21, 2025" [ref=f7e643]
+                  - img "3 contributions on Oct 22, 2025" [ref=f7e644]
+                  - img "0 contributions on Oct 23, 2025" [ref=f7e645]
+                  - img "0 contributions on Oct 24, 2025" [ref=f7e646]
+                  - img "1 contribution on Oct 25, 2025" [ref=f7e647]
+                  - img "0 contributions on Oct 26, 2025" [ref=f7e648]
+                - generic [ref=f7e649]:
+                  - img "3 contributions on Oct 27, 2025" [ref=f7e650]
+                  - img "0 contributions on Oct 28, 2025" [ref=f7e651]
+                  - img "2 contributions on Oct 29, 2025" [ref=f7e652]
+                  - img "4 contributions on Oct 30, 2025" [ref=f7e653]
+                  - img "7 contributions on Oct 31, 2025" [ref=f7e654]
+                  - img "0 contributions on Nov 1, 2025" [ref=f7e655]
+                  - img "0 contributions on Nov 2, 2025" [ref=f7e656]
+                - generic [ref=f7e657]:
+                  - img "0 contributions on Nov 3, 2025" [ref=f7e658]
+                  - img "0 contributions on Nov 4, 2025" [ref=f7e659]
+                  - img "1 contribution on Nov 5, 2025" [ref=f7e660]
+                  - img "2 contributions on Nov 6, 2025" [ref=f7e661]
+                  - img "3 contributions on Nov 7, 2025" [ref=f7e662]
+                  - img "0 contributions on Nov 8, 2025" [ref=f7e663]
+                  - img "1 contribution on Nov 9, 2025" [ref=f7e664]
+                - generic [ref=f7e665]:
+                  - img "0 contributions on Nov 10, 2025" [ref=f7e666]
+                  - img "12 contributions on Nov 11, 2025" [ref=f7e667]
+                  - img "0 contributions on Nov 12, 2025" [ref=f7e668]
+                  - img "0 contributions on Nov 13, 2025" [ref=f7e669]
+                  - img "7 contributions on Nov 14, 2025" [ref=f7e670]
+                  - img "7 contributions on Nov 15, 2025" [ref=f7e671]
+                  - img "2 contributions on Nov 16, 2025" [ref=f7e672]
+                - generic [ref=f7e673]:
+                  - img "2 contributions on Nov 17, 2025" [ref=f7e674]
+                  - img "4 contributions on Nov 18, 2025" [ref=f7e675]
+                  - img "2 contributions on Nov 19, 2025" [ref=f7e676]
+                  - img "0 contributions on Nov 20, 2025" [ref=f7e677]
+                  - img "3 contributions on Nov 21, 2025" [ref=f7e678]
+                  - img "10 contributions on Nov 22, 2025" [ref=f7e679]
+                  - img "0 contributions on Nov 23, 2025" [ref=f7e680]
+                - generic [ref=f7e681]:
+                  - img "0 contributions on Nov 24, 2025" [ref=f7e682]
+                  - img "4 contributions on Nov 25, 2025" [ref=f7e683]
+                  - img "6 contributions on Nov 26, 2025" [ref=f7e684]
+                  - img "1 contribution on Nov 27, 2025" [ref=f7e685]
+                  - img "1 contribution on Nov 28, 2025" [ref=f7e686]
+                  - img "0 contributions on Nov 29, 2025" [ref=f7e687]
+                  - img "0 contributions on Nov 30, 2025" [ref=f7e688]
+                - generic [ref=f7e689]:
+                  - img "0 contributions on Dec 1, 2025" [ref=f7e690]
+                  - img "0 contributions on Dec 2, 2025" [ref=f7e691]
+                  - img "3 contributions on Dec 3, 2025" [ref=f7e692]
+                  - img "0 contributions on Dec 4, 2025" [ref=f7e693]
+                  - img "0 contributions on Dec 5, 2025" [ref=f7e694]
+                  - img "0 contributions on Dec 6, 2025" [ref=f7e695]
+                  - img "0 contributions on Dec 7, 2025" [ref=f7e696]
+                - generic [ref=f7e697]:
+                  - img "0 contributions on Dec 8, 2025" [ref=f7e698]
+                  - img "0 contributions on Dec 9, 2025" [ref=f7e699]
+                  - img "1 contribution on Dec 10, 2025" [ref=f7e700]
+                  - img "2 contributions on Dec 11, 2025" [ref=f7e701]
+                  - img "4 contributions on Dec 12, 2025" [ref=f7e702]
+                  - img "6 contributions on Dec 13, 2025" [ref=f7e703]
+                  - img "1 contribution on Dec 14, 2025" [ref=f7e704]
+                - generic [ref=f7e705]:
+                  - img "0 contributions on Dec 15, 2025" [ref=f7e706]
+                  - img "0 contributions on Dec 16, 2025" [ref=f7e707]
+                  - img "4 contributions on Dec 17, 2025" [ref=f7e708]
+                  - img "8 contributions on Dec 18, 2025" [ref=f7e709]
+                  - img "0 contributions on Dec 19, 2025" [ref=f7e710]
+                  - img "0 contributions on Dec 20, 2025" [ref=f7e711]
+                  - img "1 contribution on Dec 21, 2025" [ref=f7e712]
+                - generic [ref=f7e713]:
+                  - img "0 contributions on Dec 22, 2025" [ref=f7e714]
+                  - img "1 contribution on Dec 23, 2025" [ref=f7e715]
+                  - img "0 contributions on Dec 24, 2025" [ref=f7e716]
+                  - img "0 contributions on Dec 25, 2025" [ref=f7e717]
+                  - img "0 contributions on Dec 26, 2025" [ref=f7e718]
+                  - img "0 contributions on Dec 27, 2025" [ref=f7e719]
+                  - img "3 contributions on Dec 28, 2025" [ref=f7e720]
+                - generic [ref=f7e721]:
+                  - img "3 contributions on Dec 29, 2025" [ref=f7e722]
+                  - img "22 contributions on Dec 30, 2025" [ref=f7e723]
+                  - img "1 contribution on Dec 31, 2025" [ref=f7e724]
+                  - img "0 contributions on Jan 1, 2026" [ref=f7e725]
+                  - img "0 contributions on Jan 2, 2026" [ref=f7e726]
+                  - img "5 contributions on Jan 3, 2026" [ref=f7e727]
+                  - img "1 contribution on Jan 4, 2026" [ref=f7e728]
+                - generic [ref=f7e729]:
+                  - img "0 contributions on Jan 5, 2026" [ref=f7e730]
+                  - img "0 contributions on Jan 6, 2026" [ref=f7e731]
+                  - img "4 contributions on Jan 7, 2026" [ref=f7e732]
+                  - img "1 contribution on Jan 8, 2026" [ref=f7e733]
+                  - img "3 contributions on Jan 9, 2026" [ref=f7e734]
+                  - img "0 contributions on Jan 10, 2026" [ref=f7e735]
+                  - img "0 contributions on Jan 11, 2026" [ref=f7e736]
+                - generic [ref=f7e737]:
+                  - img "0 contributions on Jan 12, 2026" [ref=f7e738]
+                  - img "0 contributions on Jan 13, 2026" [ref=f7e739]
+                  - img "0 contributions on Jan 14, 2026" [ref=f7e740]
+                  - img "1 contribution on Jan 15, 2026" [ref=f7e741]
+                  - img "4 contributions on Jan 16, 2026" [ref=f7e742]
+                  - img "0 contributions on Jan 17, 2026" [ref=f7e743]
+                  - img "3 contributions on Jan 18, 2026" [ref=f7e744]
+                - generic [ref=f7e745]:
+                  - img "3 contributions on Jan 19, 2026" [ref=f7e746]
+                  - img "4 contributions on Jan 20, 2026" [ref=f7e747]
+                  - img "7 contributions on Jan 21, 2026" [ref=f7e748]
+                  - img "7 contributions on Jan 22, 2026" [ref=f7e749]
+                  - img "3 contributions on Jan 23, 2026" [ref=f7e750]
+                  - img "5 contributions on Jan 24, 2026" [ref=f7e751]
+                  - img "4 contributions on Jan 25, 2026" [ref=f7e752]
+                - generic [ref=f7e753]:
+                  - img "3 contributions on Jan 26, 2026" [ref=f7e754]
+                  - img "14 contributions on Jan 27, 2026" [ref=f7e755]
+                  - img "21 contributions on Jan 28, 2026" [ref=f7e756]
+                  - img "3 contributions on Jan 29, 2026" [ref=f7e757]
+                  - img "0 contributions on Jan 30, 2026" [ref=f7e758]
+                  - img "0 contributions on Jan 31, 2026" [ref=f7e759]
+                  - img "8 contributions on Feb 1, 2026" [ref=f7e760]
+                - generic [ref=f7e761]:
+                  - img "7 contributions on Feb 2, 2026" [ref=f7e762]
+                  - img "2 contributions on Feb 3, 2026" [ref=f7e763]
+                  - img "1 contribution on Feb 4, 2026" [ref=f7e764]
+                  - img "9 contributions on Feb 5, 2026" [ref=f7e765]
+                  - img "7 contributions on Feb 6, 2026" [ref=f7e766]
+                  - img "2 contributions on Feb 7, 2026" [ref=f7e767]
+                  - img "2 contributions on Feb 8, 2026" [ref=f7e768]
+                - generic [ref=f7e769]:
+                  - img "6 contributions on Feb 9, 2026" [ref=f7e770]
+                  - img "11 contributions on Feb 10, 2026" [ref=f7e771]
+                  - img "7 contributions on Feb 11, 2026" [ref=f7e772]
+                  - img "4 contributions on Feb 12, 2026" [ref=f7e773]
+                  - img "2 contributions on Feb 13, 2026" [ref=f7e774]
+                  - img "7 contributions on Feb 14, 2026" [ref=f7e775]
+                  - img "9 contributions on Feb 15, 2026" [ref=f7e776]
+                - generic [ref=f7e777]:
+                  - img "1 contribution on Feb 16, 2026" [ref=f7e778]
+                  - img "4 contributions on Feb 17, 2026" [ref=f7e779]
+                  - img "0 contributions on Feb 18, 2026" [ref=f7e780]
+                  - img "5 contributions on Feb 19, 2026" [ref=f7e781]
+                  - img "1 contribution on Feb 20, 2026" [ref=f7e782]
+                  - img "11 contributions on Feb 21, 2026" [ref=f7e783]
+                  - img "33 contributions on Feb 22, 2026" [ref=f7e784]
+                - generic [ref=f7e785]:
+                  - img "36 contributions on Feb 23, 2026" [ref=f7e786]
+                  - img "23 contributions on Feb 24, 2026" [ref=f7e787]
+                  - img "34 contributions on Feb 25, 2026" [ref=f7e788]
+                  - img "5 contributions on Feb 26, 2026" [ref=f7e789]
+                  - img "4 contributions on Feb 27, 2026" [ref=f7e790]
+                  - img "2 contributions on Feb 28, 2026" [ref=f7e791]
+                  - img "0 contributions on Mar 1, 2026" [ref=f7e792]
+                - generic [ref=f7e793]:
+                  - img "4 contributions on Mar 2, 2026" [ref=f7e794]
+                  - img "2 contributions on Mar 3, 2026" [ref=f7e795]
+                  - img "5 contributions on Mar 4, 2026" [ref=f7e796]
+                  - img "0 contributions on Mar 5, 2026" [ref=f7e797]
+                  - img "0 contributions on Mar 6, 2026" [ref=f7e798]
+                  - img "0 contributions on Mar 7, 2026" [ref=f7e799]
+                  - img "0 contributions on Mar 8, 2026" [ref=f7e800]
+                - generic [ref=f7e801]:
+                  - img "0 contributions on Mar 9, 2026" [ref=f7e802]
+                  - img "0 contributions on Mar 10, 2026" [ref=f7e803]
+                  - img "6 contributions on Mar 11, 2026" [ref=f7e804]
+                  - img "2 contributions on Mar 12, 2026" [ref=f7e805]
+                  - img "3 contributions on Mar 13, 2026" [ref=f7e806]
+                  - img "2 contributions on Mar 14, 2026" [ref=f7e807]
+                  - img "0 contributions on Mar 15, 2026" [ref=f7e808]
+                - generic [ref=f7e809]:
+                  - img "0 contributions on Mar 16, 2026" [ref=f7e810]
+                  - img "0 contributions on Mar 17, 2026" [ref=f7e811]
+                  - img "7 contributions on Mar 18, 2026" [ref=f7e812]
+                  - img "2 contributions on Mar 19, 2026" [ref=f7e813]
+                  - img "1 contribution on Mar 20, 2026" [ref=f7e814]
+                  - img "3 contributions on Mar 21, 2026" [ref=f7e815]
+                  - img "11 contributions on Mar 22, 2026" [ref=f7e816]
+                - generic [ref=f7e817]:
+                  - img "0 contributions on Mar 23, 2026" [ref=f7e818]
+                  - img "1 contribution on Mar 24, 2026" [ref=f7e819]
+                  - img "3 contributions on Mar 25, 2026" [ref=f7e820]
+                  - img "0 contributions on Mar 26, 2026" [ref=f7e821]
+                  - img "12 contributions on Mar 27, 2026" [ref=f7e822]
+                  - img "9 contributions on Mar 28, 2026" [ref=f7e823]
+                  - img "3 contributions on Mar 29, 2026" [ref=f7e824]
+                - generic [ref=f7e825]:
+                  - img "0 contributions on Mar 30, 2026" [ref=f7e826]
+                  - img "9 contributions on Mar 31, 2026" [ref=f7e827]
+                  - img "3 contributions on Apr 1, 2026" [ref=f7e828]
+                  - img "4 contributions on Apr 2, 2026" [ref=f7e829]
+                  - img "1 contribution on Apr 3, 2026" [ref=f7e830]
+                  - img "2 contributions on Apr 4, 2026" [ref=f7e831]
+                  - img "3 contributions on Apr 5, 2026" [ref=f7e832]
+                - generic [ref=f7e833]:
+                  - img "0 contributions on Apr 6, 2026" [ref=f7e834]
+                  - img "14 contributions on Apr 7, 2026" [ref=f7e835]
+                  - img "0 contributions on Apr 8, 2026" [ref=f7e836]
+                  - img "11 contributions on Apr 9, 2026" [ref=f7e837]
+                  - img "2 contributions on Apr 10, 2026" [ref=f7e838]
+                  - img "2 contributions on Apr 11, 2026" [ref=f7e839]
+                  - img "0 contributions on Apr 12, 2026" [ref=f7e840]
+                - generic [ref=f7e841]:
+                  - img "0 contributions on Apr 13, 2026" [ref=f7e842]
+                  - img "0 contributions on Apr 14, 2026" [ref=f7e843]
+                  - img "3 contributions on Apr 15, 2026" [ref=f7e844]
+                  - img "0 contributions on Apr 16, 2026" [ref=f7e845]
+                  - img "3 contributions on Apr 17, 2026" [ref=f7e846]
+                  - img "2 contributions on Apr 18, 2026" [ref=f7e847]
+                  - img "4 contributions on Apr 19, 2026" [ref=f7e848]
+                - generic [ref=f7e849]:
+                  - img "0 contributions on Apr 20, 2026" [ref=f7e850]
+                  - img "18 contributions on Apr 21, 2026" [ref=f7e851]
+                  - img "14 contributions on Apr 22, 2026" [ref=f7e852]
+                  - img "8 contributions on Apr 23, 2026" [ref=f7e853]
+                  - img "3 contributions on Apr 24, 2026" [ref=f7e854]
+                  - img "1 contribution on Apr 25, 2026" [ref=f7e855]
+                  - img "5 contributions on Apr 26, 2026" [ref=f7e856]
+                - generic [ref=f7e857]:
+                  - img "0 contributions on Apr 27, 2026" [ref=f7e858]
+                  - img "0 contributions on Apr 28, 2026" [ref=f7e859]
+                  - img "2 contributions on Apr 29, 2026" [ref=f7e860]
+                  - img "0 contributions on Apr 30, 2026" [ref=f7e861]
+                  - img "0 contributions on May 1, 2026" [ref=f7e862]
+                  - img "0 contributions on May 2, 2026" [ref=f7e863]
+                  - img "0 contributions on May 3, 2026" [ref=f7e864]
+                - generic [ref=f7e865]:
+                  - img "10 contributions on May 4, 2026" [ref=f7e866]
+                  - img "33 contributions on May 5, 2026" [ref=f7e867]
+                  - img "2 contributions on May 6, 2026" [ref=f7e868]
+                  - img "0 contributions on May 7, 2026" [ref=f7e869]
+                  - img "1 contribution on May 8, 2026" [ref=f7e870]
+                  - img "0 contributions on May 9, 2026" [ref=f7e871]
+                  - img "0 contributions on May 10, 2026" [ref=f7e872]
+                - generic [ref=f7e873]:
+                  - img "0 contributions on May 11, 2026" [ref=f7e874]
+                  - img "0 contributions on May 12, 2026" [ref=f7e875]
+                  - img "0 contributions on May 13, 2026" [ref=f7e876]
+                  - img "0 contributions on May 14, 2026" [ref=f7e877]
+                  - img "2 contributions on May 15, 2026" [ref=f7e878]
+                  - img "0 contributions on May 16, 2026" [ref=f7e879]
+                  - img "0 contributions on May 17, 2026" [ref=f7e880]
+                - generic [ref=f7e881]:
+                  - img "0 contributions on May 18, 2026" [ref=f7e882]
+                  - img "0 contributions on May 19, 2026" [ref=f7e883]
+                  - img "0 contributions on May 20, 2026" [ref=f7e884]
+                  - img "0 contributions on May 21, 2026" [ref=f7e885]
+                  - img "0 contributions on May 22, 2026" [ref=f7e886]
+                  - img "0 contributions on May 23, 2026" [ref=f7e887]
+                  - img "3 contributions on May 24, 2026" [ref=f7e888]
+                - generic [ref=f7e889]:
+                  - img "0 contributions on May 25, 2026" [ref=f7e890]
+                  - img "0 contributions on May 26, 2026" [ref=f7e891]
+                  - img "0 contributions on May 27, 2026" [ref=f7e892]
+                  - img "0 contributions on May 28, 2026" [ref=f7e893]
+                  - img "0 contributions on May 29, 2026" [ref=f7e894]
+                  - img "0 contributions on May 30, 2026" [ref=f7e895]
+                  - img "0 contributions on May 31, 2026" [ref=f7e896]
+                - generic [ref=f7e897]:
+                  - img "0 contributions on Jun 1, 2026" [ref=f7e898]
+                  - img "0 contributions on Jun 2, 2026" [ref=f7e899]
+                  - img "0 contributions on Jun 3, 2026" [ref=f7e900]
+                  - img "3 contributions on Jun 4, 2026" [ref=f7e901]
+                  - img "0 contributions on Jun 5, 2026" [ref=f7e902]
+                  - img "0 contributions on Jun 6, 2026" [ref=f7e903]
+                  - img "0 contributions on Jun 7, 2026" [ref=f7e904]
+                - generic [ref=f7e905]:
+                  - img "0 contributions on Jun 8, 2026" [ref=f7e906]
+                  - img "0 contributions on Jun 9, 2026" [ref=f7e907]
+                  - img "0 contributions on Jun 10, 2026" [ref=f7e908]
+                  - img "0 contributions on Jun 11, 2026" [ref=f7e909]
+                  - img "0 contributions on Jun 12, 2026" [ref=f7e910]
+                  - img "0 contributions on Jun 13, 2026" [ref=f7e911]
+                  - img "0 contributions on Jun 14, 2026" [ref=f7e912]
+                - generic [ref=f7e913]:
+                  - img "0 contributions on Jun 15, 2026" [ref=f7e914]
+                  - img "0 contributions on Jun 16, 2026" [ref=f7e915]
+                  - img "0 contributions on Jun 17, 2026" [ref=f7e916]
+                  - img "1 contribution on Jun 18, 2026" [ref=f7e917]
+                  - img "0 contributions on Jun 19, 2026" [ref=f7e918]
+                  - img "0 contributions on Jun 20, 2026" [ref=f7e919]
+                  - img "0 contributions on Jun 21, 2026" [ref=f7e920]
+                - generic [ref=f7e921]:
+                  - img "0 contributions on Jun 22, 2026" [ref=f7e922]
+                  - img "0 contributions on Jun 23, 2026" [ref=f7e923]
+                  - img "0 contributions on Jun 24, 2026" [ref=f7e924]
+                  - img "0 contributions on Jun 25, 2026" [ref=f7e925]
+                  - img "0 contributions on Jun 26, 2026" [ref=f7e926]
+                  - img "1 contribution on Jun 27, 2026" [ref=f7e1550]
+                  - img "2 contributions on Jun 28, 2026" [ref=f7e1551]
+                - generic [ref=f7e929]:
+                  - img "0 contributions on Jun 29, 2026" [ref=f7e930]
+                  - img "1 contribution on Jun 30, 2026" [ref=f7e931]
+                  - img "1 contribution on Jul 1, 2026" [ref=f7e932]
+                  - img "0 contributions on Jul 2, 2026" [ref=f7e933]
+                  - img "6 contributions on Jul 3, 2026" [ref=f7e934]
+                  - img "1 contribution on Jul 4, 2026" [ref=f7e935]
+                  - img "6 contributions on Jul 5, 2026" [ref=f7e936]
+                - generic [ref=f7e937]:
+                  - img "0 contributions on Jul 6, 2026" [ref=f7e938]
+                  - img "7 contributions on Jul 7, 2026" [ref=f7e939]
+                  - img "0 contributions on Jul 8, 2026" [ref=f7e940]
+                  - img "15 contributions on Jul 9, 2026" [ref=f7e941]
+                  - img "12 contributions on Jul 10, 2026" [ref=f7e942]
+                  - img "2 contributions on Jul 11, 2026" [ref=f7e943]
+                  - img "0 contributions on Jul 12, 2026" [ref=f7e944]
+                - generic [ref=f7e945]:
+                  - img "0 contributions on Jul 13, 2026" [ref=f7e946]
+                  - img "0 contributions on Jul 14, 2026" [ref=f7e947]
+                  - img "0 contributions on Jul 15, 2026" [ref=f7e948]
+                  - img "11 contributions on Jul 16, 2026" [ref=f7e949]
+                  - img "4 contributions on Jul 17, 2026" [ref=f7e950]
+                  - img "0 contributions on Jul 18, 2026" [ref=f7e951]
+                  - img "0 contributions on Jul 19, 2026" [ref=f7e952]
+                - generic [ref=f7e953]:
+                  - img "5 contributions on Jul 20, 2026" [ref=f7e954]
+                  - img "12 contributions on Jul 21, 2026" [ref=f7e955]
+                  - img "0 contributions on Jul 22, 2026" [ref=f7e956]
+                  - img "0 contributions on Jul 23, 2026" [ref=f7e957]
+                  - img "0 contributions on Jul 24, 2026" [ref=f7e958]
+                  - img "0 contributions on Jul 25, 2026" [ref=f7e959]
+                  - img "0 contributions on Jul 26, 2026" [ref=f7e960]
+                - generic [ref=f7e961]:
+                  - img "4 contributions on Jul 27, 2026" [ref=f7e962]
+                  - img "37 contributions on Jul 28, 2026" [ref=f7e963]
+                  - img "33 contributions on Jul 29, 2026" [ref=f7e964]
+                  - img "48 contributions on Jul 30, 2026" [ref=f7e965]
+                  - img "3 contributions on Jul 31, 2026" [ref=f7e966]
+                  - img "0 contributions on Aug 1, 2026" [ref=f7e967]
+                  - img "0 contributions on Aug 2, 2026" [ref=f7e968]
+                - generic [ref=f7e969]:
+                  - img "0 contributions on Aug 3, 2026" [ref=f7e970]
+                  - img "1 contribution on Aug 4, 2026" [ref=f7e971]
+                  - img "0 contributions on Aug 5, 2026" [ref=f7e972]
+                  - img "0 contributions on Aug 6, 2026" [ref=f7e973]
+                  - img "0 contributions on Aug 7, 2026" [ref=f7e974]
+                  - img "0 contributions on Aug 8, 2026" [ref=f7e975]
+                  - img "0 contributions on Aug 9, 2026" [ref=f7e976]
+                - generic [ref=f7e977]:
+                  - img "0 contributions on Aug 10, 2026" [ref=f7e978]
+                  - img "0 contributions on Aug 11, 2026" [ref=f7e979]
+                  - img "0 contributions on Aug 12, 2026" [ref=f7e980]
+                  - img "0 contributions on Aug 13, 2026" [ref=f7e981]
+                  - img "0 contributions on Aug 14, 2026" [ref=f7e982]
+            - paragraph [ref=f7e983]: Swipe to explore · arrow keys move between days
+          - complementary "Contribution insights" [ref=f7e984]:
+            - paragraph [ref=f7e986]: Year at a glance
+            - generic [ref=f7e989]:
+              - generic [ref=f7e990]:
+                - generic [ref=f7e991]: Active days
+                - paragraph [ref=f7e996]:
+                  - generic [ref=f7e1000]:
+                    - generic [ref=f7e1001]: "1"
+                    - generic [ref=f7e1003]: "7"
+                    - generic [ref=f7e1005]: "4"
+                - paragraph [ref=f7e1553]: days with shipped work
+              - generic [ref=f7e1007]:
+                - generic [ref=f7e1008]: Longest run
+                - paragraph [ref=f7e1013]:
+                  - generic [ref=f7e1017]:
+                    - generic [ref=f7e1018]: "1"
+                    - generic [ref=f7e1020]: "7"
+                - paragraph [ref=f7e1554]: consecutive active days
+              - generic [ref=f7e1022]:
+                - generic [ref=f7e1023]: Peak day
+                - paragraph [ref=f7e1028]:
+                  - generic [ref=f7e1032]:
+                    - generic [ref=f7e1033]: "4"
+                    - generic [ref=f7e1035]: "8"
+                - paragraph [ref=f7e1555]: Jul 30
+    - generic [ref=f7e1038]:
+      - generic [ref=f7e1039]:
+        - paragraph [ref=f7e1040]: My skillset
+        - heading "The Magic Behind" [level=2] [ref=f7e1041]
+      - list "Technologies I build with" [ref=f7e1556]:
+        - listitem [ref=f7e1557]: ReactJS
+        - listitem [ref=f7e1559]: NextJS
+        - listitem [ref=f7e1561]: TypeScript
+        - listitem [ref=f7e1563]: Tailwind CSS
+        - listitem [ref=f7e1565]: Motion
+        - listitem [ref=f7e1567]: Sanity
+        - listitem [ref=f7e1569]: Contentful
+        - listitem [ref=f7e1571]: NodeJS
+        - listitem [ref=f7e1573]: ExpressJS
+        - listitem [ref=f7e1575]: PostgreSQL
+        - listitem [ref=f7e1577]: MongoDB
+        - listitem [ref=f7e1579]: Prisma
+        - listitem [ref=f7e1581]:
+          - generic [ref=f7e1582]: Z
+          - text: Zustand
+        - listitem [ref=f7e1583]: Zod
+        - listitem [ref=f7e1585]: pnpm
+        - listitem [ref=f7e1587]: Bun
+        - listitem [ref=f7e1589]: Git
+        - listitem [ref=f7e1591]: GitHub
+        - listitem [ref=f7e1593]: Vercel
+        - listitem [ref=f7e1595]:
+          - generic [ref=f7e1596]: aws
+          - text: AWS
+        - listitem [ref=f7e1597]: Docker
+        - listitem [ref=f7e1599]: Expo
+        - listitem [ref=f7e1601]: Clerk
+        - listitem [ref=f7e1603]: Linux
+    - generic [ref=f7e1095]:
+      - heading "What I've built." [level=2] [ref=f7e1096]:
+        - generic [ref=f7e1097]: What I've
+        - generic [ref=f7e1098]: built.
+      - generic [ref=f7e1100]:
+        - link "NoHunt 2025–26● live Job seekers burn 11 hours a week on applications that mostly go nowhere. One resume upload, then it finds roles, tailors, applies, and tracks. The candidate side of the same problem BOSS now attacks from the other end. nohunt.ai ↗" [ref=f7e1102]:
+          - /url: https://nohunt.ai
+          - generic [ref=f7e1103]:
+            - heading "NoHunt" [level=3] [ref=f7e1104]
+            - paragraph [ref=f7e1105]: 2025–26● live
+          - paragraph [ref=f7e1106]: Job seekers burn 11 hours a week on applications that mostly go nowhere.
+          - paragraph [ref=f7e1107]: One resume upload, then it finds roles, tailors, applies, and tracks. The candidate side of the same problem BOSS now attacks from the other end.
+          - generic [ref=f7e1108]: nohunt.ai ↗
+        - link "VixDex 2025● live You can't trade volatility on-chain the way TradFi trades the VIX. A Uniswap V4 hook that prices volatility with no LPs and no oracles — it took the Uniswap Foundation prize at the Hook Incubator. Built with Abdul Haq; I owned the trading interface end to end. vixdex.vercel.app ↗ uniswap foundation prize ↗" [ref=f7e1111]:
+          - /url: https://vixdex.vercel.app
+          - generic [ref=f7e1112]:
+            - heading "VixDex" [level=3] [ref=f7e1113]
+            - paragraph [ref=f7e1114]: 2025● live
+          - paragraph [ref=f7e1115]: You can't trade volatility on-chain the way TradFi trades the VIX.
+          - paragraph [ref=f7e1116]: A Uniswap V4 hook that prices volatility with no LPs and no oracles — it took the Uniswap Foundation prize at the Hook Incubator. Built with Abdul Haq; I owned the trading interface end to end.
+          - generic [ref=f7e1117]:
+            - generic [ref=f7e1118]: vixdex.vercel.app ↗
+            - generic [ref=f7e1119]: uniswap foundation prize ↗
+        - link "The Hash Pit 2025 Crypto price charts are boring to watch. NFT fighters bound to real coins battle in a 3D arena driven by live price feeds. Lose the death match and your fighter burns. github.com/Jayanthkoppala/The_Hash_Pit ↗" [ref=f7e1121]:
+          - /url: https://github.com/Jayanthkoppala/The_Hash_Pit
+          - generic [ref=f7e1122]:
+            - heading "The Hash Pit" [level=3] [ref=f7e1123]
+            - paragraph [ref=f7e1124]: "2025"
+          - paragraph [ref=f7e1125]: Crypto price charts are boring to watch.
+          - paragraph [ref=f7e1126]: NFT fighters bound to real coins battle in a 3D arena driven by live price feeds. Lose the death match and your fighter burns.
+          - generic [ref=f7e1127]: github.com/Jayanthkoppala/The_Hash_Pit ↗
+        - link "Credibly 2024● live Course certificates are screenshots anyone can fake. Turns YouTube videos into courses with a fresh quiz per learner and a certificate you can check on-chain. Built at the BASED INDIA hackathon. credibly-teal.vercel.app ↗" [ref=f7e1130]:
+          - /url: https://credibly-teal.vercel.app
+          - generic [ref=f7e1131]:
+            - heading "Credibly" [level=3] [ref=f7e1132]
+            - paragraph [ref=f7e1133]: 2024● live
+          - paragraph [ref=f7e1134]: Course certificates are screenshots anyone can fake.
+          - paragraph [ref=f7e1135]: Turns YouTube videos into courses with a fresh quiz per learner and a certificate you can check on-chain. Built at the BASED INDIA hackathon.
+          - generic [ref=f7e1136]: credibly-teal.vercel.app ↗
+        - link "Jackdot 2024● live On-chain lotteries still ask you to trust the operator's dice. A Polkadot lottery that runs inside Telegram with provably fair draws. Picked up a bounty at the Polkadot Hacker House. jackdot-jayanth137s-projects.vercel.app ↗ polkadot bounty ↗" [ref=f7e1139]:
+          - /url: https://jackdot-jayanth137s-projects.vercel.app
+          - generic [ref=f7e1140]:
+            - heading "Jackdot" [level=3] [ref=f7e1141]
+            - paragraph [ref=f7e1142]: 2024● live
+          - paragraph [ref=f7e1143]: On-chain lotteries still ask you to trust the operator's dice.
+          - paragraph [ref=f7e1144]: A Polkadot lottery that runs inside Telegram with provably fair draws. Picked up a bounty at the Polkadot Hacker House.
+          - generic [ref=f7e1145]:
+            - generic [ref=f7e1146]: jackdot-jayanth137s-projects.vercel.app ↗
+            - generic [ref=f7e1147]: polkadot bounty ↗
+    - paragraph [ref=f7e1148]: don't take my word for any of it —
+    - generic [ref=f7e1150]:
+      - heading "The receipts." [level=2] [ref=f7e1151]:
+        - generic [ref=f7e1152]: The
+        - generic [ref=f7e1153]: receipts.
+      - generic [ref=f7e1155]:
+        - article [ref=f7e1158]:
+          - generic [ref=f7e1159]:
+            - link [ref=f7e1160]:
+              - /url: https://x.com/JayBosshq/status/1850824819966669220
+              - img "Jay" [ref=f7e1162]
+            - generic [ref=f7e1165]:
+              - link "Jay Verified account" [ref=f7e1166]:
+                - /url: https://x.com/JayBosshq/status/1850824819966669220
+                - generic [ref=f7e1167]: Jay
+                - img "Verified account" [ref=f7e1169]
+              - generic [ref=f7e1172]:
+                - link "@JayBosshq" [ref=f7e1173]:
+                  - /url: https://x.com/JayBosshq/status/1850824819966669220
+                - generic [ref=f7e1175]:
+                  - generic [ref=f7e1176]: ·
+                  - link "Follow" [ref=f7e1177]:
+                    - /url: https://x.com/intent/follow?screen_name=JayBosshq
+            - link "View on Twitter" [ref=f7e1178]:
+              - /url: https://x.com/JayBosshq/status/1850824819966669220
+          - paragraph [ref=f7e1182]:
+            - text: 🥈 Won 2nd place and $1500 at the TON Hackathon Bootcamp with our project, TonMate! An intense 3-day journey from Chandigarh to Gurgaon filled with insights, team building, and unforgettable moments. Here’s how it went ⬇️
+            - link "@TON_SocietyIND" [ref=f7e1183]:
+              - /url: https://x.com/TON_SocietyIND
+            - link "@ton_society" [ref=f7e1184]:
+              - /url: https://x.com/ton_society
+            - link "@ton_blockchain" [ref=f7e1185]:
+              - /url: https://x.com/ton_blockchain
+          - link [ref=f7e1188]:
+            - /url: https://x.com/JayBosshq/status/1850824819966669220
+            - img "Image" [ref=f7e1190]
+          - generic [ref=f7e1191]:
+            - link "2:29 PM · Oct 28, 2024" [ref=f7e1192]:
+              - /url: https://x.com/JayBosshq/status/1850824819966669220
+              - time [ref=f7e1193]: 2:29 PM · Oct 28, 2024
+            - link "Twitter for Websites, Ads Information and Privacy" [ref=f7e1194]:
+              - /url: https://help.x.com/en/x-for-websites-ads-info-and-privacy
+          - generic [ref=f7e1198]:
+            - link "Like. This Tweet has 8 likes" [ref=f7e1199]:
+              - /url: https://x.com/intent/like?tweet_id=1850824819966669220
+              - generic [ref=f7e1204]: "8"
+            - link "Reply to this Tweet on Twitter" [ref=f7e1205]:
+              - /url: https://x.com/intent/tweet?in_reply_to=1850824819966669220
+              - generic [ref=f7e1210]: Reply
+            - button "Copy link" [ref=f7e1211]
+          - link "Read 1 reply" [ref=f7e1218]:
+            - /url: https://x.com/JayBosshq/status/1850824819966669220
+        - article [ref=f7e1222]:
+          - generic [ref=f7e1223]:
+            - link [ref=f7e1224]:
+              - /url: https://x.com/JayBosshq/status/1908253253730500716
+              - img "Jay" [ref=f7e1226]
+            - generic [ref=f7e1229]:
+              - link "Jay Verified account" [ref=f7e1230]:
+                - /url: https://x.com/JayBosshq/status/1908253253730500716
+                - generic [ref=f7e1231]: Jay
+                - img "Verified account" [ref=f7e1233]
+              - generic [ref=f7e1236]:
+                - link "@JayBosshq" [ref=f7e1237]:
+                  - /url: https://x.com/JayBosshq/status/1908253253730500716
+                - generic [ref=f7e1239]:
+                  - generic [ref=f7e1240]: ·
+                  - link "Follow" [ref=f7e1241]:
+                    - /url: https://x.com/intent/follow?screen_name=JayBosshq
+            - link "View on Twitter" [ref=f7e1242]:
+              - /url: https://x.com/JayBosshq/status/1908253253730500716
+          - paragraph [ref=f7e1246]: Vix.Dex takes the win!🎉 All those sleepless nights and relentless learning finally paid off. But this is just the beginning, we’re only getting started. More builds coming soon!
+          - article [ref=f7e1248]:
+            - generic [ref=f7e1249]:
+              - link "Atrium Academy":
+                - /url: https://x.com/AtriumAcademy/status/1908207881486475538
+                - generic:
+                  - img "Atrium Academy"
+              - generic [ref=f7e1250]:
+                - generic [ref=f7e1251]: Atrium Academy
+                - img "Verified account" [ref=f7e1253]
+                - generic "@AtriumAcademy" [ref=f7e1257]
+            - paragraph [ref=f7e1258]: "Congratulations to these devs for winning the @UniswapFND prize for their UHI4 hooks 👏 - Bond Marketplace AMM: @1a35e1 & @jkm__eth - DexProfitWars: @0x_flwr - Liquidity Oracle: @SuriPuri23 & @0xEricselvig - Priority is all you need: @hugoapps & @siosw_ - VixDex: @FakeName137 &"
+            - link [ref=f7e1261]:
+              - /url: https://x.com/AtriumAcademy/status/1908207881486475538
+              - img "Image" [ref=f7e1263]
+          - generic [ref=f7e1264]:
+            - link "1:50 AM · Apr 5, 2025" [ref=f7e1265]:
+              - /url: https://x.com/JayBosshq/status/1908253253730500716
+              - time [ref=f7e1266]: 1:50 AM · Apr 5, 2025
+            - link "Twitter for Websites, Ads Information and Privacy" [ref=f7e1267]:
+              - /url: https://help.x.com/en/x-for-websites-ads-info-and-privacy
+          - generic [ref=f7e1271]:
+            - link "Like. This Tweet has 6 likes" [ref=f7e1272]:
+              - /url: https://x.com/intent/like?tweet_id=1908253253730500716
+              - generic [ref=f7e1277]: "6"
+            - link "Reply to this Tweet on Twitter" [ref=f7e1278]:
+              - /url: https://x.com/intent/tweet?in_reply_to=1908253253730500716
+              - generic [ref=f7e1283]: Reply
+            - button "Copy link" [ref=f7e1284]
+          - link "Read 2 replies" [ref=f7e1291]:
+            - /url: https://x.com/JayBosshq/status/1908253253730500716
+        - link "@JayBosshq Built an AI agent to trade memecoins on Solana using @recallnet + @Gaianet_AI Landed 9th place &amp; won $1500 🏆 Even better it got me a full-time Job Where I'm building AI agents that help users trade memecoins effortlessly https://t.co/RMx9YFDjzc view on X ↗" [ref=f7e1293]:
+          - /url: https://x.com/JayBosshq/status/1953448415242723438
+          - paragraph [ref=f7e1294]: "@JayBosshq"
+          - paragraph [ref=f7e1295]: Built an AI agent to trade memecoins on Solana using @recallnet + @Gaianet_AI Landed 9th place &amp; won $1500 🏆 Even better it got me a full-time Job Where I'm building AI agents that help users trade memecoins effortlessly https://t.co/RMx9YFDjzc
+          - generic [ref=f7e1296]: view on X ↗
+        - link "@JayBosshq Just secured another bounty—$300 for my product at the @Polkadot Hacker House! Excited to refine it further and aim for a market launch within the next 10 days. Stay tuned for updates, and thanks for the support, Web3 community! @PolkadotNow https://t.co/RBcnWqANBP view on X ↗" [ref=f7e1297]:
+          - /url: https://x.com/JayBosshq/status/1864403099470975119
+          - paragraph [ref=f7e1298]: "@JayBosshq"
+          - paragraph [ref=f7e1299]: Just secured another bounty—$300 for my product at the @Polkadot Hacker House! Excited to refine it further and aim for a market launch within the next 10 days. Stay tuned for updates, and thanks for the support, Web3 community! @PolkadotNow https://t.co/RBcnWqANBP
+          - generic [ref=f7e1300]: view on X ↗
+        - link "₹15 lakh MSME Idea Hackathon grant Souldem (LEDGESYS) pre-twitter era — the incorporation record is the receipt MCA record ↗" [ref=f7e1301]:
+          - /url: https://tracxn.com/d/legal-entities/india/ledgesys-software-private-limited/__fqiPlCYIzq7GSQ0teygyeLP3MgCfmkhePuaoGAce3h4
+          - paragraph [ref=f7e1302]: ₹15 lakh MSME Idea Hackathon grantSouldem (LEDGESYS)
+          - paragraph [ref=f7e1303]: pre-twitter era — the incorporation record is the receipt
+          - generic [ref=f7e1304]: MCA record ↗
+      - paragraph [ref=f7e1305]: Plus a few smaller ones I never posted about.
+    - generic [ref=f7e1307]:
+      - generic [ref=f7e1309]:
+        - paragraph [ref=f7e1310]:
+          - text: Tell me where
+          - generic [ref=f7e1311]: I'm wrong.
+        - paragraph [ref=f7e1313]: Building something in hiring? Tell me where you think I'm wrong.
+        - generic [ref=f7e1314]:
+          - button "jay@bosshq.in — tap to copy" [ref=f7e1315]
+          - link "X" [ref=f7e1316]:
+            - /url: https://x.com/JayBosshq
+          - link "GitHub" [ref=f7e1317]:
+            - /url: https://github.com/Jayanthkoppala
+          - link "LinkedIn" [ref=f7e1318]:
+            - /url: https://www.linkedin.com/in/jayanth-koppala-71a8091b9/
+          - link "Instagram" [ref=f7e1319]:
+            - /url: https://www.instagram.com/jayanth_137/
+      - paragraph [ref=f7e1487]: © 2026 Jayanth Koppala · set in Anton & Instrument Serif · built end to end, obviously
+  - alert [ref=f7e1488]

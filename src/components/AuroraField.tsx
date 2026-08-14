@@ -35,7 +35,7 @@ export default function AuroraField({
           top: -18vw;
           background: radial-gradient(
             circle at 40% 40%,
-            rgba(16, 185, 129, 0.32),
+            var(--aurora-one),
             transparent 65%
           );
           border-radius: 42% 58% 61% 39% / 45% 40% 60% 55%;
@@ -47,7 +47,7 @@ export default function AuroraField({
           top: 4vw;
           background: radial-gradient(
             circle at 60% 40%,
-            rgba(5, 150, 105, 0.2),
+            var(--aurora-two),
             transparent 65%
           );
           border-radius: 58% 42% 39% 61% / 50% 60% 40% 50%;
@@ -61,7 +61,7 @@ export default function AuroraField({
           bottom: -22vw;
           background: radial-gradient(
             circle at 50% 50%,
-            rgba(56, 130, 246, 0.13),
+            var(--aurora-three),
             transparent 65%
           );
           border-radius: 39% 61% 58% 42% / 60% 45% 55% 40%;

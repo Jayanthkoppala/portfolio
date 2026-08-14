@@ -9,8 +9,13 @@ import ReceiptTweets from "@/components/ReceiptTweets";
 import ContactEnd from "@/components/ContactEnd";
 import Board from "@/components/Board";
 import ActivityGrid from "@/components/ActivityGrid";
-import LightRays from "@/components/LightRays";
+import MoltenMetal from "@/components/MoltenMetal";
+import MoltenName from "@/components/MoltenName";
+import StatusLine from "@/components/HeroBits";
+import ProfileCard from "@/components/ProfileCard";
+import GradientWaves from "@/components/GradientWaves";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { Highlighter } from "@/components/ui/highlighter";
 import { identity, about } from "@/config/portfolio";
 
 function Head({ caps, serif }: { caps: string; serif: string }) {
@@ -43,24 +48,24 @@ export default function Home() {
       <ScrollProgress className="h-[2px] !bg-gradient-to-r !from-accent !via-accent !to-accent-dim" />
       <Nav />
 
-      {/* ══ HERO — left-axis monument ═════════════════════════ */}
+      {/* ══ HERO — molten monument (mode D + ripple) ══════════ */}
       <section className="relative flex min-h-screen flex-col overflow-hidden">
-        <div className="absolute inset-0">
-          <LightRays
-            raysOrigin="top-center"
-            raysColor="#10b981"
-            raysSpeed={0.6}
+        <div className="absolute inset-0 opacity-40">
+          <MoltenMetal
+            color1="#10b981"
+            color2="#065f46"
+            color3="#0a0c0b"
+            speed={0.5}
+            scale={1.1}
+            glow={0.5}
+            swirl={0.6}
+            grain
+            grainIntensity={0.08}
+            mouseInteraction
+            mouseStrength={0.35}
           />
         </div>
-        <AuroraField dim />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-[40vh]"
-          style={{
-            background:
-              "radial-gradient(120% 100% at 30% 115%, rgba(16,185,129,0.35), rgba(16,185,129,0.08) 45%, transparent 70%)",
-          }}
-        />
+        <MoltenName />
         <header className="relative z-10 flex items-start justify-between px-6 pt-6 sm:px-10">
           <p className="kicker">
             Bengaluru · building{" "}
@@ -78,31 +83,20 @@ export default function Home() {
           </p>
         </header>
 
-        <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-6 pb-24 pt-10">
-          <p className="serif-accent mb-4 text-xl text-ink-dim sm:text-3xl">
+        <div className="relative z-10 mt-auto flex flex-col items-center gap-4 px-6 pb-16">
+          <p className="serif-accent text-lg text-ink-dim sm:text-2xl">
             shipped with teams, led in production, built whole products{" "}
             <span className="text-accent">solo</span> —
           </p>
-          <h1
-            className="hero-name uppercase leading-[0.84] text-ink"
-            style={{
-              fontFamily: "var(--font-anton)",
-              fontSize: "clamp(3.6rem, 12.5vw, 12rem)",
-              textShadow: "0 10px 80px rgba(16,185,129,0.3)",
-            }}
-          >
-            Jayanth
-            <br />
-            Koppala
-          </h1>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <StatusLine />
+          <div className="mt-3 flex flex-wrap justify-center gap-3">
             {identity.socials.map((s) => (
               <a
                 key={s.label}
                 href={s.href}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-line px-4 py-1.5 text-sm text-ink-dim transition-colors hover:border-accent hover:text-ink focus-visible:ring-1 focus-visible:ring-accent"
+                className="rounded-full border border-line bg-bg/50 px-4 py-1.5 text-sm text-ink-dim backdrop-blur transition-colors hover:border-accent hover:text-ink focus-visible:ring-1 focus-visible:ring-accent"
               >
                 {s.label}
               </a>
@@ -147,33 +141,56 @@ export default function Home() {
               key={i}
               className={i === 3 ? "serif-accent text-3xl text-accent" : ""}
             >
-              {p}
+              {i === 3 && p.endsWith("cooking season.") ? (
+                <>
+                  {p.slice(0, -"cooking season.".length)}
+                  <Highlighter
+                    action="underline"
+                    color="var(--annotation-ink)"
+                    strokeWidth={2.25}
+                    animationDuration={620}
+                    iterations={1}
+                    padding={2}
+                    multiline={false}
+                    isView
+                  >
+                    cooking season.
+                  </Highlighter>
+                </>
+              ) : (
+                p
+              )}
             </p>
           ))}
         </div>
       </section>
 
       {/* ══ II.5 · THE DESK — live bento ══════════════════════ */}
-      <section className="mx-auto max-w-[1400px] px-6 py-24" id="desk">
+      <section
+        className="mx-auto max-w-[1400px] px-6 pb-12 pt-24 xl:px-12"
+        id="desk"
+      >
         <Head caps="Meanwhile," serif="at the desk." />
         <Board />
-        <div className="mt-4">
+        <div className="mt-8">
           <ActivityGrid />
         </div>
       </section>
 
-      {/* ══ III · WHAT I'VE BUILT ═════════════════════════════ */}
+      {/* ══ III · HOW I BUILD — directly after GitHub activity ═ */}
+      <section
+        className="mx-auto max-w-[1400px] px-6 pb-24 pt-2 xl:px-12"
+        id="stack"
+      >
+        <TechSplit />
+      </section>
+
+      {/* ══ IV · WHAT I'VE BUILT ══════════════════════════════ */}
       <section className="mx-auto max-w-6xl px-6 py-24" id="work">
         <Head caps="What I've" serif="built." />
         <div className="mx-auto max-w-4xl">
           <ProjectStack />
         </div>
-      </section>
-
-      {/* ══ IV · HOW I BUILD — tech globe + philosophy ════════ */}
-      <section className="mx-auto max-w-6xl px-6 py-24" id="stack">
-        <Head caps="How I" serif="build." />
-        <TechSplit />
       </section>
 
       {/* ══ V · THE RECEIPTS ══════════════════════════════════ */}
@@ -199,7 +216,7 @@ export default function Home() {
           className="pointer-events-none absolute inset-x-0 bottom-0 h-[30vh]"
           style={{
             background:
-              "radial-gradient(120% 100% at 50% 115%, rgba(16,185,129,0.28), transparent 65%)",
+              "radial-gradient(120% 100% at 50% 115%, var(--hero-glow-soft), transparent 65%)",
           }}
         />
         <div className="relative mx-auto max-w-6xl px-6 py-24">

@@ -1,12 +1,14 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useCallback, useEffect, useRef } from "react"
 import createGlobe, { type COBEOptions } from "cobe"
-import { useMotionValue, useSpring } from "motion/react"
 
 import { cn } from "@/lib/utils"
 
 const MOVEMENT_DAMPING = 1400
+const AUTO_ROTATION_SPEED = 0.06
+const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)"
+const COARSE_POINTER_QUERY = "(pointer: coarse)"
 
 const GLOBE_CONFIG: COBEOptions = {
   width: 800,
@@ -46,59 +48,178 @@ export function Globe({
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const phiRef = useRef(0)
   const widthRef = useRef(0)
-  const pointerInteracting = useRef<number | null>(null)
-  const pointerInteractionMovement = useRef(0)
+  const activePointerIdRef = useRef<number | null>(null)
+  const previousPointerXRef = useRef(0)
+  const rotationTargetRef = useRef(0)
+  const rotationCurrentRef = useRef(0)
+  const reducedMotionRef = useRef(false)
+  const coarsePointerRef = useRef(false)
+  const renderOnDemandRef = useRef<() => void>(() => {})
 
-  const r = useMotionValue(0)
-  const rs = useSpring(r, {
-    mass: 1,
-    damping: 30,
-    stiffness: 100,
-  })
+  const updateCursor = useCallback(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
 
-  const updatePointerInteraction = (value: number | null) => {
-    pointerInteracting.current = value
-    if (canvasRef.current) {
-      canvasRef.current.style.cursor = value !== null ? "grabbing" : "grab"
+    if (coarsePointerRef.current) {
+      canvas.style.cursor = "default"
+    } else if (activePointerIdRef.current !== null) {
+      canvas.style.cursor = "grabbing"
+    } else {
+      canvas.style.cursor = "grab"
     }
-  }
+  }, [])
 
-  const updateMovement = (clientX: number) => {
-    if (pointerInteracting.current !== null) {
-      const delta = clientX - pointerInteracting.current
-      pointerInteractionMovement.current = delta
-      r.set(r.get() + delta / MOVEMENT_DAMPING)
+  const endPointerInteraction = useCallback((pointerId?: number) => {
+    if (
+      pointerId !== undefined &&
+      activePointerIdRef.current !== null &&
+      pointerId !== activePointerIdRef.current
+    ) {
+      return
     }
-  }
+
+    const canvas = canvasRef.current
+    const capturedPointerId = activePointerIdRef.current
+    activePointerIdRef.current = null
+    updateCursor()
+
+    if (
+      canvas &&
+      capturedPointerId !== null &&
+      canvas.hasPointerCapture(capturedPointerId)
+    ) {
+      canvas.releasePointerCapture(capturedPointerId)
+    }
+  }, [updateCursor])
 
   useEffect(() => {
-    const onResize = () => {
-      if (canvasRef.current) {
-        widthRef.current = canvasRef.current.offsetWidth
-      }
-    }
+    const canvas = canvasRef.current
+    if (!canvas) return
 
-    window.addEventListener("resize", onResize)
-    onResize()
+    const reducedMotion = window.matchMedia(REDUCED_MOTION_QUERY)
+    const coarsePointer = window.matchMedia(COARSE_POINTER_QUERY)
+    reducedMotionRef.current = reducedMotion.matches
+    coarsePointerRef.current = coarsePointer.matches
+    phiRef.current = config.phi
+    updateCursor()
 
-    const globe = createGlobe(canvasRef.current!, {
+    widthRef.current = canvas.offsetWidth
+    const rect = canvas.getBoundingClientRect()
+    let isInView =
+      rect.bottom > 0 &&
+      rect.right > 0 &&
+      rect.top < window.innerHeight &&
+      rect.left < window.innerWidth
+    let isDocumentVisible = document.visibilityState === "visible"
+    let lastFrameTime = 0
+    let globeIsRunning = true
+    let destroyed = false
+
+    const shouldAnimate = () =>
+      !reducedMotionRef.current && isInView && isDocumentVisible
+
+    const globe = createGlobe(canvas, {
       ...config,
-      width: widthRef.current * 2,
-      height: widthRef.current * 2,
+      width: widthRef.current * config.devicePixelRatio,
+      height: widthRef.current * config.devicePixelRatio,
       onRender: (state) => {
-        if (!pointerInteracting.current) phiRef.current += 0.005
-        state.phi = phiRef.current + rs.get()
-        state.width = widthRef.current * 2
-        state.height = widthRef.current * 2
+        const now = performance.now()
+        const delta = lastFrameTime
+          ? Math.min((now - lastFrameTime) / 1000, 0.05)
+          : 0
+        lastFrameTime = now
+
+        if (shouldAnimate()) {
+          if (activePointerIdRef.current === null) {
+            phiRef.current += delta * AUTO_ROTATION_SPEED
+          }
+
+          const follow = 1 - Math.exp(-10 * delta)
+          rotationCurrentRef.current +=
+            (rotationTargetRef.current - rotationCurrentRef.current) * follow
+        } else {
+          rotationCurrentRef.current = rotationTargetRef.current
+        }
+
+        state.phi = phiRef.current + rotationCurrentRef.current
+        state.width = widthRef.current * config.devicePixelRatio
+        state.height = widthRef.current * config.devicePixelRatio
+        config.onRender(state)
       },
     })
 
-    setTimeout(() => (canvasRef.current!.style.opacity = "1"), 0)
-    return () => {
-      globe.destroy()
-      window.removeEventListener("resize", onResize)
+    const renderOnDemand = () => {
+      if (!destroyed && !globeIsRunning) globe.render()
     }
-  }, [rs, config])
+    renderOnDemandRef.current = renderOnDemand
+
+    const syncRendering = () => {
+      const nextRunningState = shouldAnimate()
+      if (nextRunningState === globeIsRunning) {
+        if (!nextRunningState) renderOnDemand()
+        return
+      }
+
+      globeIsRunning = nextRunningState
+      lastFrameTime = 0
+      globe.toggle(nextRunningState)
+      if (!nextRunningState) renderOnDemand()
+    }
+
+    const onVisibilityChange = () => {
+      isDocumentVisible = document.visibilityState === "visible"
+      if (!isDocumentVisible) endPointerInteraction()
+      syncRendering()
+    }
+
+    const onReducedMotionChange = () => {
+      reducedMotionRef.current = reducedMotion.matches
+      syncRendering()
+    }
+
+    const onPointerCapabilityChange = () => {
+      coarsePointerRef.current = coarsePointer.matches
+      if (coarsePointer.matches) endPointerInteraction()
+      updateCursor()
+    }
+
+    const resizeObserver = new ResizeObserver(() => {
+      widthRef.current = canvas.offsetWidth
+      renderOnDemand()
+    })
+
+    const intersectionObserver = new IntersectionObserver(
+      ([entry]) => {
+        isInView = entry.isIntersecting
+        if (!isInView) endPointerInteraction()
+        syncRendering()
+      },
+      { threshold: 0.01 },
+    )
+
+    document.addEventListener("visibilitychange", onVisibilityChange)
+    reducedMotion.addEventListener("change", onReducedMotionChange)
+    coarsePointer.addEventListener("change", onPointerCapabilityChange)
+    resizeObserver.observe(canvas)
+    intersectionObserver.observe(canvas)
+    syncRendering()
+
+    const revealTimer = window.setTimeout(() => {
+      if (!destroyed) canvas.style.opacity = "1"
+    }, 0)
+
+    return () => {
+      destroyed = true
+      window.clearTimeout(revealTimer)
+      renderOnDemandRef.current = () => {}
+      intersectionObserver.disconnect()
+      resizeObserver.disconnect()
+      document.removeEventListener("visibilitychange", onVisibilityChange)
+      reducedMotion.removeEventListener("change", onReducedMotionChange)
+      coarsePointer.removeEventListener("change", onPointerCapabilityChange)
+      globe.destroy()
+    }
+  }, [config, endPointerInteraction, updateCursor])
 
   return (
     <div
@@ -109,18 +230,40 @@ export function Globe({
     >
       <canvas
         className={cn(
-          "size-full opacity-0 transition-opacity duration-500 contain-[layout_paint_size]"
+          "size-full cursor-grab touch-auto select-none opacity-0 transition-opacity duration-500 active:cursor-grabbing motion-reduce:transition-none contain-[layout_paint_size]"
         )}
         ref={canvasRef}
-        onPointerDown={(e) => {
-          pointerInteracting.current = e.clientX
-          updatePointerInteraction(e.clientX)
+        onPointerDown={(event) => {
+          if (
+            event.button !== 0 ||
+            !event.isPrimary ||
+            event.pointerType === "touch" ||
+            coarsePointerRef.current
+          ) {
+            return
+          }
+
+          activePointerIdRef.current = event.pointerId
+          previousPointerXRef.current = event.clientX
+          event.currentTarget.setPointerCapture(event.pointerId)
+          updateCursor()
         }}
-        onPointerUp={() => updatePointerInteraction(null)}
-        onPointerOut={() => updatePointerInteraction(null)}
-        onMouseMove={(e) => updateMovement(e.clientX)}
-        onTouchMove={(e) =>
-          e.touches[0] && updateMovement(e.touches[0].clientX)
+        onPointerMove={(event) => {
+          if (event.pointerId !== activePointerIdRef.current) return
+
+          const delta = event.clientX - previousPointerXRef.current
+          previousPointerXRef.current = event.clientX
+          rotationTargetRef.current += delta / MOVEMENT_DAMPING
+
+          if (reducedMotionRef.current) {
+            rotationCurrentRef.current = rotationTargetRef.current
+          }
+          renderOnDemandRef.current()
+        }}
+        onPointerUp={(event) => endPointerInteraction(event.pointerId)}
+        onPointerCancel={(event) => endPointerInteraction(event.pointerId)}
+        onLostPointerCapture={(event) =>
+          endPointerInteraction(event.pointerId)
         }
       />
     </div>

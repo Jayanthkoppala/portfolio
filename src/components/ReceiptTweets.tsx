@@ -2,6 +2,7 @@ import { EmbeddedTweet } from "react-tweet";
 import type { Tweet } from "react-tweet/api";
 import tweets from "@/data/tweets.json";
 import "react-tweet/theme.css";
+import ThemeAwareTweetZone from "@/components/ThemeAwareTweetZone";
 
 /**
  * Receipts as the actual tweets, from the committed build-time snapshot.
@@ -35,7 +36,7 @@ function QuoteCard({ id }: { id: string }) {
 
 export default function ReceiptTweets() {
   return (
-    <div data-theme="dark" className="tweet-zone">
+    <ThemeAwareTweetZone>
       <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
         {PHOTO_TWEETS.map((id) => (
           <div
@@ -67,6 +68,6 @@ export default function ReceiptTweets() {
           </span>
         </a>
       </div>
-    </div>
+    </ThemeAwareTweetZone>
   );
 }

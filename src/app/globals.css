@@ -2,9 +2,59 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@custom-variant dark (&:is(.dark *));
-
 :root {
+  color-scheme: light;
+  --bg: #f4f4f2;
+  --bg-raised: #fbfbf9;
+  --bg-card: #ffffff;
+  --line: #d9dcda;
+  --ink: #121413;
+  --ink-dim: #505753;
+  --ink-faint: #737b76;
+  --accent: #087f5b;
+  --accent-soft: rgba(16, 185, 129, 0.12);
+  --accent-dim: #066949;
+  --good: #16803f;
+  --surface-highlight: rgba(255, 255, 255, 0.88);
+  --surface-hover: rgba(18, 20, 19, 0.055);
+  --glass-border: rgba(18, 20, 19, 0.1);
+  --glass-bg: rgba(252, 252, 249, 0.78);
+  --glass-bg-strong: rgba(255, 255, 253, 0.88);
+  --glass-spot: rgba(255, 255, 255, 0.94);
+  --glass-spot-mid: rgba(255, 255, 255, 0.28);
+  --glass-shadow: 0 20px 50px rgba(22, 29, 25, 0.12);
+  --overlay: rgba(7, 12, 9, 0.38);
+  --desk-surface: rgba(255, 255, 253, 0.84);
+  --desk-border: rgba(18, 20, 19, 0.1);
+  --desk-light-near: rgba(255, 255, 255, 0.78);
+  --desk-light-mid: rgba(255, 255, 255, 0.18);
+  --desk-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82),
+    0 30px 80px -50px rgba(26, 36, 30, 0.32);
+  --desk-shadow-hover: inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 34px 90px -48px rgba(26, 36, 30, 0.4);
+  --surface-inset: rgba(18, 20, 19, 0.028);
+  --surface-control: rgba(18, 20, 19, 0.04);
+  --surface-tooltip: rgba(255, 255, 253, 0.96);
+  --tweet-hover: rgba(18, 20, 19, 0.04);
+  --annotation-accent: #087f5b;
+  --annotation-ink: rgba(18, 20, 19, 0.52);
+  --activity-empty: #e6e9e6;
+  --activity-level-1: #b8dcca;
+  --activity-level-2: #6ebc98;
+  --activity-level-3: #29966d;
+  --activity-level-4: #087f5b;
+  --activity-inset: #f7f8f5;
+  --activity-label: #68716c;
+  --hero-glow-soft: rgba(8, 127, 91, 0.09);
+  --hero-glow-faint: rgba(8, 127, 91, 0.025);
+  --title-glow: rgba(8, 127, 91, 0.14);
+  --aurora-one: rgba(8, 127, 91, 0.1);
+  --aurora-two: rgba(8, 127, 91, 0.055);
+  --aurora-three: rgba(37, 99, 235, 0.04);
+}
+
+.dark {
+  color-scheme: dark;
   --bg: #0a0c0b;
   --bg-raised: #111514;
   --bg-card: #131816;
@@ -16,6 +66,42 @@
   --accent-soft: rgba(16, 185, 129, 0.12);
   --accent-dim: #059669;
   --good: #4ade80;
+  --surface-highlight: rgba(255, 255, 255, 0.08);
+  --surface-hover: rgba(255, 255, 255, 0.055);
+  --glass-border: rgba(255, 255, 255, 0.07);
+  --glass-bg: rgba(15, 19, 17, 0.55);
+  --glass-bg-strong: rgba(15, 19, 17, 0.68);
+  --glass-spot: rgba(255, 255, 255, 0.09);
+  --glass-spot-mid: rgba(255, 255, 255, 0.02);
+  --glass-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  --overlay: rgba(0, 0, 0, 0.6);
+  --desk-surface: rgba(13, 16, 15, 0.8);
+  --desk-border: rgba(255, 255, 255, 0.075);
+  --desk-light-near: rgba(255, 255, 255, 0.068);
+  --desk-light-mid: rgba(255, 255, 255, 0.018);
+  --desk-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    0 30px 80px -50px rgba(0, 0, 0, 0.95);
+  --desk-shadow-hover: inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    0 34px 90px -48px rgba(0, 0, 0, 1);
+  --surface-inset: rgba(0, 0, 0, 0.16);
+  --surface-control: rgba(255, 255, 255, 0.03);
+  --surface-tooltip: rgba(17, 22, 20, 0.96);
+  --tweet-hover: rgba(255, 255, 255, 0.03);
+  --annotation-accent: #34d399;
+  --annotation-ink: rgba(233, 238, 234, 0.62);
+  --activity-empty: rgba(255, 255, 255, 0.045);
+  --activity-level-1: #15382d;
+  --activity-level-2: #176044;
+  --activity-level-3: #139366;
+  --activity-level-4: #2ee59d;
+  --activity-inset: #0c100e;
+  --activity-label: #737d77;
+  --hero-glow-soft: rgba(16, 185, 129, 0.35);
+  --hero-glow-faint: rgba(16, 185, 129, 0.08);
+  --title-glow: rgba(16, 185, 129, 0.3);
+  --aurora-one: rgba(16, 185, 129, 0.32);
+  --aurora-two: rgba(5, 150, 105, 0.2);
+  --aurora-three: rgba(56, 130, 246, 0.13);
 }
 
 @theme inline {
@@ -56,6 +142,20 @@ html {
   scroll-padding-top: 6rem;
 }
 
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+html[data-magicui-theme-vt="active"]::view-transition-group(root) {
+  animation-duration: var(--magicui-theme-toggle-vt-duration);
+}
+
+html[data-magicui-theme-vt="active"]::view-transition-new(root) {
+  clip-path: var(--magicui-theme-vt-clip-from);
+}
+
 section[id] {
   scroll-margin-top: 6rem;
 }
@@ -66,6 +166,14 @@ body {
   font-family: var(--font-archivo), -apple-system, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+}
+
+.theme-light-rays {
+  opacity: 0.28;
+}
+
+.dark .theme-light-rays {
+  opacity: 1;
 }
 
 ::selection {
@@ -104,48 +212,94 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+
+  .desk-status-halo::after {
+    animation: none !important;
+    opacity: 0.28;
+    transform: none;
+  }
 }
 
 /* ── Premium glass ─────────────────────────────────────── */
 .glass {
   border-radius: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--glass-border);
   background:
     radial-gradient(
       120% 90% at var(--spot-x, 25%) var(--spot-y, 0%),
-      rgba(255, 255, 255, 0.09),
-      rgba(255, 255, 255, 0.02) 45%,
-      rgba(255, 255, 255, 0) 70%
+      var(--glass-spot),
+      var(--glass-spot-mid) 45%,
+      transparent 70%
     ),
-    rgba(15, 19, 17, 0.55);
+    var(--glass-bg);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 20px 50px rgba(0, 0, 0, 0.45);
+    inset 0 1px 0 var(--surface-highlight),
+    var(--glass-shadow);
 }
 .glass-ember {
-  --spot-x: 30%;
-  --spot-y: -10%;
+  background: var(--glass-bg-strong);
+}
+
+/* ── Desk board: stationary geometry, moving light ────────── */
+.desk-card-light {
+  --desk-spot-x: 28%;
+  --desk-spot-y: -4%;
+  --desk-spot-opacity: 0.72;
+  opacity: var(--desk-spot-opacity);
   background:
     radial-gradient(
-      120% 90% at var(--spot-x) var(--spot-y),
-      rgba(52, 211, 153, 0.16),
-      rgba(16, 185, 129, 0.04) 45%,
-      rgba(255, 255, 255, 0) 70%
-    ),
-    rgba(13, 19, 16, 0.6);
+      420px circle at var(--desk-spot-x) var(--desk-spot-y),
+      var(--desk-light-near),
+      var(--desk-light-mid) 42%,
+      transparent 68%
+    );
+  transition: opacity 260ms cubic-bezier(0.2, 0, 0, 1);
 }
+
+.desk-surface {
+  background: var(--desk-surface);
+  box-shadow: var(--desk-shadow);
+  --tw-ring-color: var(--desk-border);
+}
+
+.desk-surface:hover {
+  box-shadow: var(--desk-shadow-hover);
+}
+
+.desk-status-halo::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  background: rgba(16, 185, 129, 0.2);
+  opacity: 0.3;
+  animation: desk-status-breathe 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes desk-status-breathe {
+  0%,
+  100% {
+    opacity: 0.18;
+    transform: scale(0.86);
+  }
+  50% {
+    opacity: 0.52;
+    transform: scale(1.18);
+  }
+}
+
 /* ── react-tweet emerald-on-dark reskin ────────────────── */
 .tweet-zone .react-tweet-theme {
   --tweet-bg-color: transparent;
-  --tweet-bg-color-hover: rgba(255, 255, 255, 0.03);
+  --tweet-bg-color-hover: var(--tweet-hover);
   --tweet-border: 1px solid transparent;
   --tweet-font-color: var(--ink);
   --tweet-font-color-secondary: var(--ink-dim);
   --tweet-color-blue-primary: var(--accent);
   --tweet-color-blue-primary-hover: rgba(16, 185, 129, 0.15);
-  --tweet-quoted-bg-color-hover: rgba(255, 255, 255, 0.03);
+  --tweet-quoted-bg-color-hover: var(--tweet-hover);
   --tweet-font-family: inherit;
   margin: 0;
 }
@@ -159,52 +313,43 @@ body {
   to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
-/* Carved cuts around the watch — desktop only, concentric with the
-   measured watch center (top-row height + 8px). Collar r=201, bite r=213. */
-@media (min-width: 1024px) {
+/* One 187px circle governs all three cutouts. The top row's centre is 25px
+   below its edge; the lower row begins 7px below that same centre. */
+@media (min-width: 1280px) {
   .bite-mid {
     -webkit-mask-image: radial-gradient(
-      circle 258px at 50% calc(100% + 7px),
-      transparent 257px,
-      #000 258px
+      circle 187px at 50% calc(100% + 25px),
+      transparent 186px,
+      #000 187px
     );
     mask-image: radial-gradient(
-      circle 258px at 50% calc(100% + 7px),
-      transparent 257px,
-      #000 258px
+      circle 187px at 50% calc(100% + 25px),
+      transparent 186px,
+      #000 187px
     );
   }
   .bite-corner-r {
     -webkit-mask-image: radial-gradient(
-      circle 258px at calc(100% + 115px) -7px,
-      transparent 257px,
-      #000 258px
+      circle 187px at calc(100% + 16px) -7px,
+      transparent 186px,
+      #000 187px
     );
     mask-image: radial-gradient(
-      circle 258px at calc(100% + 115px) -7px,
-      transparent 257px,
-      #000 258px
+      circle 187px at calc(100% + 16px) -7px,
+      transparent 186px,
+      #000 187px
     );
   }
   .bite-corner-l {
     -webkit-mask-image: radial-gradient(
-      circle 258px at -115px -7px,
-      transparent 257px,
-      #000 258px
+      circle 187px at -16px -7px,
+      transparent 186px,
+      #000 187px
     );
     mask-image: radial-gradient(
-      circle 258px at -115px -7px,
-      transparent 257px,
-      #000 258px
+      circle 187px at -16px -7px,
+      transparent 186px,
+      #000 187px
     );
-  }
-}
-
-@media (pointer: fine) and (min-width: 1024px) {
-  .custom-cursor,
-  .custom-cursor a,
-  .custom-cursor button,
-  .custom-cursor [role="button"] {
-    cursor: none;
   }
 }

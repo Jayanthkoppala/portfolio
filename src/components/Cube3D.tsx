@@ -9,6 +9,9 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeometry.js";
 
+const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+const COARSE_POINTER_QUERY = "(pointer: coarse)";
+
 export default function Cube3D() {
   const hostRef = useRef<HTMLDivElement>(null);
 
@@ -16,20 +19,29 @@ export default function Cube3D() {
     const host = hostRef.current;
     if (!host) return;
 
-    const w = host.clientWidth || 300;
-    const h = host.clientHeight || 300;
+    const initialWidth = host.clientWidth || 300;
+    const initialHeight = host.clientHeight || 300;
+    const reducedMotion = window.matchMedia(REDUCED_MOTION_QUERY);
+    const coarsePointer = window.matchMedia(COARSE_POINTER_QUERY);
 
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
       alpha: true,
-      preserveDrawingBuffer: true,
     });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setSize(w, h);
+    renderer.setSize(initialWidth, initialHeight);
+    renderer.domElement.style.cursor = coarsePointer.matches ? "default" : "grab";
+    renderer.domElement.style.touchAction = "auto";
+    renderer.domElement.style.userSelect = "none";
     host.appendChild(renderer.domElement);
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(30, w / h, 0.1, 100);
+    const camera = new THREE.PerspectiveCamera(
+      30,
+      initialWidth / initialHeight,
+      0.1,
+      100,
+    );
     camera.position.set(4.6, 3.4, 5.4);
     camera.lookAt(0, 0, 0);
 
@@ -45,76 +57,211 @@ export default function Cube3D() {
     scene.add(fill);
 
     const group = new THREE.Group();
-    const geo = new RoundedBoxGeometry(0.93, 0.93, 0.93, 5, 0.14);
-    const mat = new THREE.MeshPhysicalMaterial({
+    const geometry = new RoundedBoxGeometry(0.93, 0.93, 0.93, 5, 0.14);
+    const material = new THREE.MeshPhysicalMaterial({
       color: 0x0a0a0b,
       roughness: 0.16,
       metalness: 0.4,
       clearcoat: 1,
       clearcoatRoughness: 0.1,
     });
-    for (let x = -1; x <= 1; x++)
-      for (let y = -1; y <= 1; y++)
-        for (let z = -1; z <= 1; z++) {
-          const m = new THREE.Mesh(geo, mat);
-          m.position.set(x, y, z);
-          group.add(m);
+    for (let x = -1; x <= 1; x += 1) {
+      for (let y = -1; y <= 1; y += 1) {
+        for (let z = -1; z <= 1; z += 1) {
+          const mesh = new THREE.Mesh(geometry, material);
+          mesh.position.set(x, y, z);
+          group.add(mesh);
         }
+      }
+    }
     scene.add(group);
 
-    // drag to spin
-    let dragging = false;
-    let px = 0,
-      py = 0;
-    let userX = 0,
-      userY = 0;
-    const onDown = (e: PointerEvent) => {
-      dragging = true;
-      px = e.clientX;
-      py = e.clientY;
-    };
-    const onMove = (e: PointerEvent) => {
-      if (!dragging) return;
-      userY += (e.clientX - px) * 0.008;
-      userX += (e.clientY - py) * 0.008;
-      px = e.clientX;
-      py = e.clientY;
-    };
-    const onUp = () => (dragging = false);
-    renderer.domElement.addEventListener("pointerdown", onDown);
-    window.addEventListener("pointermove", onMove);
-    window.addEventListener("pointerup", onUp);
+    let activePointerId: number | null = null;
+    let previousX = 0;
+    let previousY = 0;
+    let userX = 0;
+    let userY = 0;
+    let elapsed = 0;
+    let lastFrameTime = 0;
+    let animationFrame = 0;
+    let isInView = false;
+    let isDocumentVisible = document.visibilityState === "visible";
 
-    let raf = 0;
-    const clock = new THREE.Clock();
-    const loop = () => {
-      const t = clock.getElapsedTime();
-      group.rotation.y = 0.65 + Math.sin(t * 0.22) * 0.45 + userY;
-      group.rotation.x = 0.5 + Math.sin(t * 0.17) * 0.07 + userX;
-      group.position.y = Math.sin(t * 0.8) * 0.08;
+    const renderFrame = () => {
+      const idleTime = reducedMotion.matches ? 0 : elapsed;
+
+      // The long, low-amplitude cycles read as ambient light movement rather
+      // than a looping animation competing with the card content.
+      group.rotation.y = 0.65 + Math.sin(idleTime * 0.16) * 0.28 + userY;
+      group.rotation.x = 0.5 + Math.sin(idleTime * 0.12) * 0.055 + userX;
+      group.position.y = Math.sin(idleTime * 0.34) * 0.045;
       renderer.render(scene, camera);
-      raf = requestAnimationFrame(loop);
     };
-    loop();
 
-    const onResize = () => {
-      const nw = host.clientWidth || 300;
-      const nh = host.clientHeight || 300;
-      renderer.setSize(nw, nh);
-      camera.aspect = nw / nh;
-      camera.updateProjectionMatrix();
+    const shouldAnimate = () =>
+      !reducedMotion.matches && isInView && isDocumentVisible;
+
+    const stopAnimation = () => {
+      if (animationFrame) cancelAnimationFrame(animationFrame);
+      animationFrame = 0;
+      lastFrameTime = 0;
     };
-    window.addEventListener("resize", onResize);
+
+    const loop = (now: number) => {
+      if (!shouldAnimate()) {
+        stopAnimation();
+        return;
+      }
+
+      if (lastFrameTime) {
+        elapsed += Math.min((now - lastFrameTime) / 1000, 0.05);
+      }
+      lastFrameTime = now;
+      renderFrame();
+      animationFrame = requestAnimationFrame(loop);
+    };
+
+    const syncAnimation = () => {
+      if (shouldAnimate()) {
+        if (!animationFrame) animationFrame = requestAnimationFrame(loop);
+        return;
+      }
+
+      stopAnimation();
+      renderFrame();
+    };
+
+    const endPointerInteraction = (pointerId?: number) => {
+      if (
+        pointerId !== undefined &&
+        activePointerId !== null &&
+        pointerId !== activePointerId
+      ) {
+        return;
+      }
+
+      const capturedPointerId = activePointerId;
+      activePointerId = null;
+      renderer.domElement.style.cursor = coarsePointer.matches
+        ? "default"
+        : "grab";
+
+      if (
+        capturedPointerId !== null &&
+        renderer.domElement.hasPointerCapture(capturedPointerId)
+      ) {
+        renderer.domElement.releasePointerCapture(capturedPointerId);
+      }
+    };
+
+    const onPointerDown = (event: PointerEvent) => {
+      if (
+        event.button !== 0 ||
+        !event.isPrimary ||
+        event.pointerType === "touch" ||
+        coarsePointer.matches
+      ) {
+        return;
+      }
+
+      activePointerId = event.pointerId;
+      previousX = event.clientX;
+      previousY = event.clientY;
+      renderer.domElement.setPointerCapture(event.pointerId);
+      renderer.domElement.style.cursor = "grabbing";
+    };
+
+    const onPointerMove = (event: PointerEvent) => {
+      if (event.pointerId !== activePointerId) return;
+
+      userY += (event.clientX - previousX) * 0.008;
+      userX = THREE.MathUtils.clamp(
+        userX + (event.clientY - previousY) * 0.008,
+        -0.55,
+        0.55,
+      );
+      previousX = event.clientX;
+      previousY = event.clientY;
+
+      // Reduced-motion and paused states have no RAF, so direct manipulation
+      // explicitly paints one frame without starting a background loop.
+      if (!animationFrame) renderFrame();
+    };
+
+    const onPointerEnd = (event: PointerEvent) => {
+      endPointerInteraction(event.pointerId);
+    };
+
+    const onVisibilityChange = () => {
+      isDocumentVisible = document.visibilityState === "visible";
+      if (!isDocumentVisible) endPointerInteraction();
+      syncAnimation();
+    };
+
+    const onReducedMotionChange = () => {
+      if (reducedMotion.matches) elapsed = 0;
+      syncAnimation();
+    };
+    const onPointerCapabilityChange = () => {
+      if (coarsePointer.matches) endPointerInteraction();
+      renderer.domElement.style.cursor = coarsePointer.matches
+        ? "default"
+        : "grab";
+    };
+
+    const resizeObserver = new ResizeObserver(() => {
+      const width = host.clientWidth || 300;
+      const height = host.clientHeight || 300;
+      renderer.setSize(width, height);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      if (!animationFrame) renderFrame();
+    });
+
+    const intersectionObserver = new IntersectionObserver(
+      ([entry]) => {
+        isInView = entry.isIntersecting;
+        if (!isInView) endPointerInteraction();
+        syncAnimation();
+      },
+      { threshold: 0.01 },
+    );
+
+    renderer.domElement.addEventListener("pointerdown", onPointerDown);
+    renderer.domElement.addEventListener("pointermove", onPointerMove);
+    renderer.domElement.addEventListener("pointerup", onPointerEnd);
+    renderer.domElement.addEventListener("pointercancel", onPointerEnd);
+    renderer.domElement.addEventListener(
+      "lostpointercapture",
+      onPointerEnd,
+    );
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    reducedMotion.addEventListener("change", onReducedMotionChange);
+    coarsePointer.addEventListener("change", onPointerCapabilityChange);
+    resizeObserver.observe(host);
+    intersectionObserver.observe(host);
+    renderFrame();
 
     return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("resize", onResize);
-      window.removeEventListener("pointermove", onMove);
-      window.removeEventListener("pointerup", onUp);
-      renderer.domElement.removeEventListener("pointerdown", onDown);
-      host.removeChild(renderer.domElement);
-      geo.dispose();
-      mat.dispose();
+      stopAnimation();
+      intersectionObserver.disconnect();
+      resizeObserver.disconnect();
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+      reducedMotion.removeEventListener("change", onReducedMotionChange);
+      coarsePointer.removeEventListener("change", onPointerCapabilityChange);
+      renderer.domElement.removeEventListener("pointerdown", onPointerDown);
+      renderer.domElement.removeEventListener("pointermove", onPointerMove);
+      renderer.domElement.removeEventListener("pointerup", onPointerEnd);
+      renderer.domElement.removeEventListener("pointercancel", onPointerEnd);
+      renderer.domElement.removeEventListener(
+        "lostpointercapture",
+        onPointerEnd,
+      );
+      if (host.contains(renderer.domElement)) {
+        host.removeChild(renderer.domElement);
+      }
+      geometry.dispose();
+      material.dispose();
       renderer.dispose();
     };
   }, []);

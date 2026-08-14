@@ -3,6 +3,7 @@ import { Anton, Archivo, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Cursor from "@/components/Cursor";
+import ThemeProvider from "@/components/ThemeProvider";
 
 const anton = Anton({
   subsets: ["latin"],
@@ -35,10 +36,12 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${anton.variable} ${archivo.variable} ${instrument.variable}`}>
-        <SmoothScroll>{children}</SmoothScroll>
-        <Cursor />
+        <ThemeProvider>
+          <SmoothScroll>{children}</SmoothScroll>
+          <Cursor />
+        </ThemeProvider>
       </body>
     </html>
   );

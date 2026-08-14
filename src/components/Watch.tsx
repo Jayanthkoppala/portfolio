@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 
+const stableCoordinate = (value: number) =>
+  Math.round(value * 1_000_000) / 1_000_000;
+
 /**
  * Analog IST watch, v2 — reference-grade dial: metallic bezel, fine minute
  * track, rotated 24-hour numeral chapter ring, applied polished indices,
@@ -73,13 +76,17 @@ export default function Watch({ size = 380 }: { size?: number }) {
         const major = i % 10 === 0;
         const r1 = c - (major ? 22 : 17);
         const r2 = c - 11;
+        const x1 = stableCoordinate(c + r1 * Math.sin(a));
+        const y1 = stableCoordinate(c - r1 * Math.cos(a));
+        const x2 = stableCoordinate(c + r2 * Math.sin(a));
+        const y2 = stableCoordinate(c - r2 * Math.cos(a));
         return (
           <line
             key={`t${i}`}
-            x1={c + r1 * Math.sin(a)}
-            y1={c - r1 * Math.cos(a)}
-            x2={c + r2 * Math.sin(a)}
-            y2={c - r2 * Math.cos(a)}
+            x1={x1}
+            y1={y1}
+            x2={x2}
+            y2={y2}
             stroke={major ? "#d7dcd6" : "#3c423e"}
             strokeWidth={major ? 2.4 : 1}
             strokeLinecap="round"
