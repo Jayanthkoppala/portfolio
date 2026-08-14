@@ -1,7 +1,6 @@
 import AuroraField from "@/components/AuroraField";
 import Ribbon from "@/components/Ribbon";
 import Nav from "@/components/Nav";
-import Flagship from "@/components/Flagship";
 import ExperienceSection from "@/components/ExperienceSection";
 import TechSplit from "@/components/TechSplit";
 import ReceiptTweets from "@/components/ReceiptTweets";
@@ -168,7 +167,6 @@ export default function Home() {
       {/* ══ I · WHERE I'VE WORKED — now, then before ══════════ */}
       <section className="mx-auto max-w-6xl px-6 py-24" id="now">
         <Head caps="Where I've" serif="worked." />
-        <Flagship />
         <ExperienceSection />
       </section>
 
