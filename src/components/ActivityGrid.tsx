@@ -357,7 +357,7 @@ export default function ActivityGrid() {
         >
           <div>
             <div className="mb-3 flex items-center gap-2.5 text-ink-faint">
-              <span className="grid h-8 w-8 place-items-center rounded-full border border-ink/[0.08] bg-ink/[0.03] text-accent shadow-[inset_0_1px_0_var(--surface-highlight)]">
+              <span className="grid h-8 w-8 place-items-center rounded-full border border-ink/[0.08] bg-ink/[0.03] text-ink shadow-[inset_0_1px_0_var(--surface-highlight)]">
                 <GitHubMark className="h-[15px] w-[15px]" />
               </span>
               <span className="text-[10px] font-semibold uppercase tracking-[0.19em]">
@@ -394,7 +394,7 @@ export default function ActivityGrid() {
             transition={{ duration: 0.2, ease: [0.2, 0.8, 0.2, 1] }}
             className="group/link inline-flex min-h-11 w-fit items-center gap-3 rounded-full border border-ink/[0.09] bg-ink/[0.035] py-2 pl-3 pr-2.5 text-xs font-medium text-ink-dim shadow-[inset_0_1px_0_var(--surface-highlight),0_10px_24px_rgba(0,0,0,0.12)] transition-[border-color,background-color,color,box-shadow] duration-200 hover:border-accent/[0.3] hover:bg-ink/[0.065] hover:text-ink hover:shadow-[inset_0_1px_0_var(--surface-highlight),0_12px_30px_rgba(0,0,0,0.16)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
           >
-            <span className="grid h-7 w-7 place-items-center rounded-full bg-accent/[0.09] text-accent">
+            <span className="grid h-7 w-7 place-items-center rounded-full bg-accent/[0.09] text-ink">
               <GitHubMark className="h-3.5 w-3.5" />
             </span>
             <span>@{GITHUB_HANDLE}</span>
