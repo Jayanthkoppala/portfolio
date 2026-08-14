@@ -189,9 +189,9 @@ void main(){
  vec3 oc; float oa;
  if(MODE<.5){ oc=col*edge; oa=edge*rise; }
  else if(MODE<1.5){ oc=col*.30; oa=rise; }
- else if(MODE<2.5){ float inv=1.-edge; oc=col*inv*.9;
+ else if(MODE<2.5){ float inv=1.-edge; oc=col*inv*.34;
    float rim=smoothstep(.3,.5,mask)*(1.-smoothstep(.5,.8,mask));
-   oc+=vec3(.43,.91,.72)*rim*.8; oa=rise; }
+   oc+=vec3(.43,.91,.72)*rim*.9; oa=rise; }
  else { oc=col*(.15+.85*edge); oa=rise; }
  gl_FragColor=vec4(oc,oa);
 }`;
