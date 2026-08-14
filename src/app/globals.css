@@ -130,3 +130,16 @@ body {
     ),
     rgba(13, 19, 16, 0.6);
 }
+/* ── react-tweet emerald-on-dark reskin ────────────────── */
+.tweet-zone .react-tweet-theme {
+  --tweet-bg-color: transparent;
+  --tweet-bg-color-hover: rgba(255, 255, 255, 0.03);
+  --tweet-border: 1px solid transparent;
+  --tweet-font-color: var(--ink);
+  --tweet-font-color-secondary: var(--ink-dim);
+  --tweet-color-blue-primary: var(--accent);
+  --tweet-color-blue-primary-hover: rgba(16, 185, 129, 0.15);
+  --tweet-quoted-bg-color-hover: rgba(255, 255, 255, 0.03);
+  --tweet-font-family: inherit;
+  margin: 0;
+}

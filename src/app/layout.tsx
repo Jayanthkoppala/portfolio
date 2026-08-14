@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Anton, Archivo, Instrument_Serif } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const anton = Anton({
   subsets: ["latin"],
@@ -35,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${anton.variable} ${archivo.variable} ${instrument.variable}`}>
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );

@@ -1,36 +1,41 @@
+"use client";
+
+import { ActivityCalendar } from "react-activity-calendar";
+import NumberFlow from "@number-flow/react";
 import contributions from "@/data/contributions.json";
 
 /**
- * GitHub-style contribution wall from a build-time snapshot of the real
- * GraphQL contribution calendar (private contributions included in counts).
+ * Real contribution wall from the committed GraphQL snapshot (private counts
+ * included). colorScheme is forced dark to avoid the light-flash-on-prerender
+ * gotcha in react-activity-calendar's useColorScheme hook.
  */
 export default function ActivityGrid() {
-  const days = contributions.days as { date: string; count: number }[];
-  // Chunk into weeks of 7, oldest first (data arrives day-ordered).
-  const weeks: { date: string; count: number }[][] = [];
-  for (let i = 0; i < days.length; i += 7) weeks.push(days.slice(i, i + 7));
-
-  const max = Math.max(...days.map((d) => d.count), 1);
-  const level = (c: number) =>
-    c === 0 ? 0 : c <= max * 0.15 ? 1 : c <= max * 0.4 ? 2 : c <= max * 0.7 ? 3 : 4;
-  const colors = [
-    "rgba(255,255,255,0.05)",
-    "rgba(16,185,129,0.25)",
-    "rgba(16,185,129,0.45)",
-    "rgba(16,185,129,0.7)",
-    "#10b981",
-  ];
+  const max = Math.max(...contributions.days.map((d) => d.count), 1);
+  const data = contributions.days.map((d) => ({
+    date: d.date,
+    count: d.count,
+    level:
+      d.count === 0
+        ? 0
+        : d.count <= max * 0.15
+          ? 1
+          : d.count <= max * 0.4
+            ? 2
+            : d.count <= max * 0.7
+              ? 3
+              : 4,
+  }));
 
   const privatePct = Math.round(
     (contributions.restricted / Math.max(contributions.total, 1)) * 100
   );
 
   return (
-    <div className="rounded-xl border border-line bg-bg-card p-5">
-      <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
+    <div className="glass !rounded-3xl p-6">
+      <div className="mb-5 flex flex-wrap items-baseline justify-between gap-2">
         <p className="text-sm text-ink-dim">
-          <span className="text-xl font-bold text-ink tabular-nums">
-            {contributions.total.toLocaleString()}
+          <span className="text-2xl font-bold tabular-nums text-ink">
+            <NumberFlow value={contributions.total} />
           </span>{" "}
           contributions in the last year
         </p>
@@ -39,21 +44,20 @@ export default function ActivityGrid() {
           lives
         </p>
       </div>
-      <div className="overflow-x-auto pb-1">
-        <div className="flex w-max gap-[3px]">
-          {weeks.map((week, wi) => (
-            <div key={wi} className="flex flex-col gap-[3px]">
-              {week.map((d) => (
-                <div
-                  key={d.date}
-                  title={`${d.date}: ${d.count}`}
-                  className="h-[10px] w-[10px] rounded-[2px]"
-                  style={{ background: colors[level(d.count)] }}
-                />
-              ))}
-            </div>
-          ))}
-        </div>
+      <div className="overflow-x-auto pb-1 [&_svg]:mx-auto">
+        <ActivityCalendar
+          data={data}
+          colorScheme="dark"
+          theme={{ dark: ["rgba(255,255,255,0.05)", "#10b981"] }}
+          blockSize={11}
+          blockMargin={3}
+          blockRadius={2}
+          fontSize={11}
+          showColorLegend={false}
+          showTotalCount={false}
+          weekStart={1}
+          labels={{ legend: { less: "less", more: "more" } }}
+        />
       </div>
     </div>
   );

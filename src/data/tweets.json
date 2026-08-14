@@ -1,0 +1,885 @@
+{
+ "1850824819966669220": {
+  "__typename": "Tweet",
+  "favorite_count": 8,
+  "lang": "en",
+  "possibly_sensitive": false,
+  "created_at": "2024-10-28T08:59:58.000Z",
+  "display_text_range": [
+   0,
+   267
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/lEu35SF6bG",
+     "expanded_url": "https://x.com/JayanthKoppala/status/1850824819966669220/photo/1",
+     "indices": [
+      267,
+      290
+     ],
+     "url": "https://t.co/lEu35SF6bG"
+    }
+   ],
+   "user_mentions": [
+    {
+     "id_str": "1600194367184113664",
+     "indices": [
+      222,
+      237
+     ],
+     "name": "TON Society India",
+     "screen_name": "TON_SocietyIND"
+    },
+    {
+     "id_str": "1930223628123004928",
+     "indices": [
+      238,
+      250
+     ],
+     "name": "TON Society",
+     "screen_name": "ton_society"
+    },
+    {
+     "id_str": "1442437262663319565",
+     "indices": [
+      251,
+      266
+     ],
+     "name": "TON 💎",
+     "screen_name": "ton_blockchain"
+    }
+   ]
+  },
+  "id_str": "1850824819966669220",
+  "text": "🥈 Won 2nd place and $1500 at the TON Hackathon Bootcamp with our project, TonMate! An intense 3-day journey from Chandigarh to Gurgaon filled with insights, team building, and unforgettable moments. Here’s how it went ⬇️\n\n@TON_SocietyIND @ton_society @ton_blockchain https://t.co/lEu35SF6bG",
+  "user": {
+   "id_str": "1540167296693727233",
+   "name": "Jay",
+   "screen_name": "JayBosshq",
+   "is_blue_verified": true,
+   "profile_image_shape": "Circle",
+   "verified": false,
+   "profile_image_url_https": "https://pbs.twimg.com/profile_images/2048397821905379328/2gj5PUM2_normal.jpg"
+  },
+  "edit_control": {
+   "edit_tweet_ids": [
+    "1850824819966669220"
+   ],
+   "editable_until_msecs": "1730109598000",
+   "edits_remaining": "5",
+   "is_edit_eligible": false
+  },
+  "mediaDetails": [
+   {
+    "display_url": "pic.x.com/lEu35SF6bG",
+    "expanded_url": "https://x.com/JayanthKoppala/status/1850824819966669220/photo/1",
+    "ext_media_availability": {
+     "status": "Available"
+    },
+    "indices": [
+     267,
+     290
+    ],
+    "media_url_https": "https://pbs.twimg.com/media/Ga9zV-MagAAMf2q.jpg",
+    "original_info": {
+     "focus_rects": [
+      {
+       "h": 1147,
+       "w": 2048,
+       "x": 0,
+       "y": 5
+      },
+      {
+       "h": 1152,
+       "w": 1152,
+       "x": 0,
+       "y": 0
+      },
+      {
+       "h": 1152,
+       "w": 1011,
+       "x": 0,
+       "y": 0
+      },
+      {
+       "h": 1152,
+       "w": 576,
+       "x": 0,
+       "y": 0
+      },
+      {
+       "h": 1152,
+       "w": 2048,
+       "x": 0,
+       "y": 0
+      }
+     ],
+     "height": 1152,
+     "width": 2048
+    },
+    "sizes": {
+     "large": {
+      "h": 1152,
+      "resize": "fit",
+      "w": 2048
+     },
+     "medium": {
+      "h": 675,
+      "resize": "fit",
+      "w": 1200
+     },
+     "small": {
+      "h": 383,
+      "resize": "fit",
+      "w": 680
+     },
+     "thumb": {
+      "h": 150,
+      "resize": "crop",
+      "w": 150
+     }
+    },
+    "type": "photo",
+    "url": "https://t.co/lEu35SF6bG"
+   }
+  ],
+  "photos": [
+   {
+    "backgroundColor": {
+     "red": 204,
+     "green": 214,
+     "blue": 221
+    },
+    "cropCandidates": [
+     {
+      "h": 1147,
+      "w": 2048,
+      "x": 0,
+      "y": 5
+     },
+     {
+      "h": 1152,
+      "w": 1152,
+      "x": 0,
+      "y": 0
+     },
+     {
+      "h": 1152,
+      "w": 1011,
+      "x": 0,
+      "y": 0
+     },
+     {
+      "h": 1152,
+      "w": 576,
+      "x": 0,
+      "y": 0
+     },
+     {
+      "h": 1152,
+      "w": 2048,
+      "x": 0,
+      "y": 0
+     }
+    ],
+    "expandedUrl": "https://x.com/JayanthKoppala/status/1850824819966669220/photo/1",
+    "url": "https://pbs.twimg.com/media/Ga9zV-MagAAMf2q.jpg",
+    "width": 2048,
+    "height": 1152
+   }
+  ],
+  "conversation_count": 1,
+  "news_action_type": "conversation",
+  "isEdited": false,
+  "isStaleEdit": false
+ },
+ "1908253253730500716": {
+  "__typename": "Tweet",
+  "favorite_count": 6,
+  "lang": "en",
+  "created_at": "2025-04-04T20:20:03.000Z",
+  "display_text_range": [
+   0,
+   179
+  ],
+  "entities": {},
+  "id_str": "1908253253730500716",
+  "text": "Vix.Dex takes the win!🎉\nAll those sleepless nights and relentless learning finally paid off.\nBut this is just the beginning,\nwe’re only getting started. \nMore builds coming soon!",
+  "user": {
+   "id_str": "1540167296693727233",
+   "name": "Jay",
+   "screen_name": "JayBosshq",
+   "is_blue_verified": true,
+   "profile_image_shape": "Circle",
+   "verified": false,
+   "profile_image_url_https": "https://pbs.twimg.com/profile_images/2048397821905379328/2gj5PUM2_normal.jpg"
+  },
+  "edit_control": {
+   "edit_tweet_ids": [
+    "1908253253730500716"
+   ],
+   "editable_until_msecs": "1743801603000",
+   "edits_remaining": "5",
+   "is_edit_eligible": true
+  },
+  "conversation_count": 2,
+  "news_action_type": "conversation",
+  "quoted_tweet": {
+   "favorite_count": 12,
+   "in_reply_to_screen_name": "AtriumAcademy",
+   "in_reply_to_status_id_str": "1908207864940056973",
+   "in_reply_to_user_id_str": "1762600390673956864",
+   "lang": "en",
+   "possibly_sensitive": false,
+   "reply_count": 0,
+   "retweet_count": 3,
+   "created_at": "2025-04-04T17:19:46.000Z",
+   "display_text_range": [
+    0,
+    296
+   ],
+   "entities": {
+    "media": [
+     {
+      "display_url": "pic.x.com/M9JcXfLBpl",
+      "expanded_url": "https://x.com/AtriumAcademy/status/1908207881486475538/photo/1",
+      "indices": [
+       296,
+       319
+      ],
+      "url": "https://t.co/M9JcXfLBpl"
+     }
+    ],
+    "user_mentions": [
+     {
+      "id_str": "1527389221379506177",
+      "indices": [
+       46,
+       57
+      ],
+      "name": "Uniswap Foundation",
+      "screen_name": "UniswapFND"
+     },
+     {
+      "id_str": "1354735528957124608",
+      "indices": [
+       112,
+       119
+      ],
+      "name": "Arnold#1a35e1",
+      "screen_name": "1a35e1"
+     },
+     {
+      "id_str": "2462577751",
+      "indices": [
+       126,
+       135
+      ],
+      "name": "James M",
+      "screen_name": "jkm__eth"
+     },
+     {
+      "id_str": "1749478969018085376",
+      "indices": [
+       153,
+       161
+      ],
+      "name": "Mouz",
+      "screen_name": "0x_flwr"
+     },
+     {
+      "id_str": "947709391750307840",
+      "indices": [
+       182,
+       193
+      ],
+      "name": "Suri",
+      "screen_name": "SuriPuri23"
+     },
+     {
+      "id_str": "32658122",
+      "indices": [
+       243,
+       252
+      ],
+      "name": "Hugo Masclet",
+      "screen_name": "HugoApps"
+     },
+     {
+      "id_str": "780712067770691584",
+      "indices": [
+       259,
+       266
+      ],
+      "name": "siosw",
+      "screen_name": "siosw_"
+     }
+    ]
+   },
+   "id_str": "1908207881486475538",
+   "text": "Congratulations to these devs for winning the @UniswapFND prize for their UHI4 hooks 👏\n\n- Bond Marketplace AMM: @1a35e1 &amp; @jkm__eth\n- DexProfitWars: @0x_flwr\n- Liquidity Oracle: @SuriPuri23 &amp; @0xEricselvig\n- Priority is all you need:  @hugoapps &amp; @siosw_\n- VixDex: @FakeName137 &amp; https://t.co/M9JcXfLBpl",
+   "user": {
+    "id_str": "1762600390673956864",
+    "name": "Atrium Academy",
+    "screen_name": "AtriumAcademy",
+    "is_blue_verified": true,
+    "profile_image_shape": "Circle",
+    "verified": false,
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1905358343562014720/cq2gUmSq_normal.jpg"
+   },
+   "edit_control": {
+    "edit_tweet_ids": [
+     "1908207881486475538"
+    ],
+    "editable_until_msecs": "1743790786000",
+    "edits_remaining": "5",
+    "is_edit_eligible": false
+   },
+   "mediaDetails": [
+    {
+     "display_url": "pic.x.com/M9JcXfLBpl",
+     "expanded_url": "https://x.com/AtriumAcademy/status/1908207881486475538/photo/1",
+     "ext_media_availability": {
+      "status": "Available"
+     },
+     "indices": [
+      296,
+      319
+     ],
+     "media_url_https": "https://pbs.twimg.com/media/GntQ9HgbYAAfQqf.jpg",
+     "original_info": {
+      "focus_rects": [
+       {
+        "h": 672,
+        "w": 1200,
+        "x": 0,
+        "y": 54
+       },
+       {
+        "h": 1200,
+        "w": 1200,
+        "x": 0,
+        "y": 0
+       },
+       {
+        "h": 1200,
+        "w": 1053,
+        "x": 0,
+        "y": 0
+       },
+       {
+        "h": 1200,
+        "w": 600,
+        "x": 0,
+        "y": 0
+       },
+       {
+        "h": 1200,
+        "w": 1200,
+        "x": 0,
+        "y": 0
+       }
+      ],
+      "height": 1200,
+      "width": 1200
+     },
+     "sizes": {
+      "large": {
+       "h": 1200,
+       "resize": "fit",
+       "w": 1200
+      },
+      "medium": {
+       "h": 1200,
+       "resize": "fit",
+       "w": 1200
+      },
+      "small": {
+       "h": 680,
+       "resize": "fit",
+       "w": 680
+      },
+      "thumb": {
+       "h": 150,
+       "resize": "crop",
+       "w": 150
+      }
+     },
+     "type": "photo",
+     "url": "https://t.co/M9JcXfLBpl"
+    }
+   ],
+   "photos": [
+    {
+     "backgroundColor": {
+      "red": 204,
+      "green": 214,
+      "blue": 221
+     },
+     "cropCandidates": [
+      {
+       "h": 672,
+       "w": 1200,
+       "x": 0,
+       "y": 54
+      },
+      {
+       "h": 1200,
+       "w": 1200,
+       "x": 0,
+       "y": 0
+      },
+      {
+       "h": 1200,
+       "w": 1053,
+       "x": 0,
+       "y": 0
+      },
+      {
+       "h": 1200,
+       "w": 600,
+       "x": 0,
+       "y": 0
+      },
+      {
+       "h": 1200,
+       "w": 1200,
+       "x": 0,
+       "y": 0
+      }
+     ],
+     "expandedUrl": "https://x.com/AtriumAcademy/status/1908207881486475538/photo/1",
+     "url": "https://pbs.twimg.com/media/GntQ9HgbYAAfQqf.jpg",
+     "width": 1200,
+     "height": 1200
+    }
+   ],
+   "isEdited": false,
+   "isStaleEdit": false
+  },
+  "isEdited": false,
+  "isStaleEdit": false
+ },
+ "1953448415242723438": {
+  "__typename": "Tweet",
+  "favorite_count": 2,
+  "lang": "en",
+  "possibly_sensitive": false,
+  "created_at": "2025-08-07T13:29:30.000Z",
+  "display_text_range": [
+   0,
+   227
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/RMx9YFDjzc",
+     "expanded_url": "https://x.com/FakeName137/status/1953448415242723438/photo/1",
+     "indices": [
+      227,
+      250
+     ],
+     "url": "https://t.co/RMx9YFDjzc"
+    }
+   ],
+   "user_mentions": [
+    {
+     "id_str": "1201627105085329411",
+     "indices": [
+      53,
+      63
+     ],
+     "name": "Recall",
+     "screen_name": "recallnet"
+    },
+    {
+     "id_str": "900267964737478656",
+     "indices": [
+      67,
+      78
+     ],
+     "name": "Gaia 🌱",
+     "screen_name": "Gaianet_AI"
+    }
+   ]
+  },
+  "id_str": "1953448415242723438",
+  "text": "Built an AI agent to trade memecoins on Solana using @recallnet  + @Gaianet_AI \nLanded 9th place &amp; won $1500 🏆\nEven better it got me a full-time Job Where I'm building AI agents that help users trade memecoins effortlessly https://t.co/RMx9YFDjzc",
+  "user": {
+   "id_str": "1540167296693727233",
+   "name": "Jay",
+   "screen_name": "JayBosshq",
+   "is_blue_verified": true,
+   "profile_image_shape": "Circle",
+   "verified": false,
+   "profile_image_url_https": "https://pbs.twimg.com/profile_images/2048397821905379328/2gj5PUM2_normal.jpg"
+  },
+  "edit_control": {
+   "edit_tweet_ids": [
+    "1953448415242723438"
+   ],
+   "editable_until_msecs": "1754576970000",
+   "edits_remaining": "5",
+   "is_edit_eligible": true
+  },
+  "mediaDetails": [
+   {
+    "display_url": "pic.x.com/RMx9YFDjzc",
+    "expanded_url": "https://x.com/FakeName137/status/1953448415242723438/photo/1",
+    "ext_alt_text": "Duko Dukocoin GIF",
+    "ext_media_availability": {
+     "status": "Available"
+    },
+    "indices": [
+     227,
+     250
+    ],
+    "media_url_https": "https://pbs.twimg.com/tweet_video_thumb/GxwK9-KaQAEavmf.jpg",
+    "original_info": {
+     "focus_rects": [],
+     "height": 498,
+     "width": 498
+    },
+    "sizes": {
+     "large": {
+      "h": 498,
+      "resize": "fit",
+      "w": 498
+     },
+     "medium": {
+      "h": 498,
+      "resize": "fit",
+      "w": 498
+     },
+     "small": {
+      "h": 498,
+      "resize": "fit",
+      "w": 498
+     },
+     "thumb": {
+      "h": 150,
+      "resize": "crop",
+      "w": 150
+     }
+    },
+    "type": "animated_gif",
+    "url": "https://t.co/RMx9YFDjzc",
+    "video_info": {
+     "aspect_ratio": [
+      1,
+      1
+     ],
+     "variants": [
+      {
+       "bitrate": 0,
+       "content_type": "video/mp4",
+       "url": "https://video.twimg.com/tweet_video/GxwK9-KaQAEavmf.mp4"
+      }
+     ]
+    }
+   }
+  ],
+  "photos": [],
+  "video": {
+   "aspectRatio": [
+    1,
+    1
+   ],
+   "contentType": "gif",
+   "durationMs": 0,
+   "mediaAvailability": {
+    "status": "available"
+   },
+   "poster": "https://pbs.twimg.com/tweet_video_thumb/GxwK9-KaQAEavmf.jpg",
+   "variants": [
+    {
+     "type": "video/mp4",
+     "src": "https://video.twimg.com/tweet_video/GxwK9-KaQAEavmf.mp4"
+    }
+   ],
+   "videoId": {
+    "type": "tweet",
+    "id": "1953448415242723438"
+   },
+   "viewCount": 0
+  },
+  "conversation_count": 0,
+  "news_action_type": "conversation",
+  "isEdited": false,
+  "isStaleEdit": false
+ },
+ "1864403099470975119": {
+  "__typename": "Tweet",
+  "favorite_count": 7,
+  "lang": "en",
+  "possibly_sensitive": false,
+  "created_at": "2024-12-04T20:15:12.000Z",
+  "display_text_range": [
+   0,
+   244
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/RBcnWqANBP",
+     "expanded_url": "https://x.com/jayanth_137/status/1864403099470975119/video/1",
+     "indices": [
+      245,
+      268
+     ],
+     "url": "https://t.co/RBcnWqANBP"
+    }
+   ],
+   "user_mentions": [
+    {
+     "id_str": "1595615893",
+     "indices": [
+      55,
+      64
+     ],
+     "name": "Polkadot",
+     "screen_name": "Polkadot"
+    }
+   ]
+  },
+  "id_str": "1864403099470975119",
+  "text": "Just secured another bounty—$300 for my product at the @Polkadot Hacker House! \n\nExcited to refine it further and aim for a market launch within the next 10 days. Stay tuned for updates, and thanks for the support, Web3 community!\n\n@PolkadotNow https://t.co/RBcnWqANBP",
+  "user": {
+   "id_str": "1540167296693727233",
+   "name": "Jay",
+   "screen_name": "JayBosshq",
+   "is_blue_verified": true,
+   "profile_image_shape": "Circle",
+   "verified": false,
+   "profile_image_url_https": "https://pbs.twimg.com/profile_images/2048397821905379328/2gj5PUM2_normal.jpg"
+  },
+  "edit_control": {
+   "edit_tweet_ids": [
+    "1864403099470975119"
+   ],
+   "editable_until_msecs": "1733346912000",
+   "edits_remaining": "5",
+   "is_edit_eligible": true
+  },
+  "mediaDetails": [
+   {
+    "display_url": "pic.x.com/RBcnWqANBP",
+    "expanded_url": "https://x.com/jayanth_137/status/1864403099470975119/video/1",
+    "ext_media_availability": {
+     "status": "Available"
+    },
+    "indices": [
+     245,
+     268
+    ],
+    "media_url_https": "https://pbs.twimg.com/media/Gd-wttja0AITK3P.jpg",
+    "original_info": {
+     "focus_rects": [
+      {
+       "h": 647,
+       "w": 1156,
+       "x": 0,
+       "y": 0
+      },
+      {
+       "h": 867,
+       "w": 867,
+       "x": 173,
+       "y": 0
+      },
+      {
+       "h": 867,
+       "w": 761,
+       "x": 226,
+       "y": 0
+      },
+      {
+       "h": 867,
+       "w": 434,
+       "x": 389,
+       "y": 0
+      },
+      {
+       "h": 867,
+       "w": 1156,
+       "x": 0,
+       "y": 0
+      }
+     ],
+     "height": 867,
+     "width": 1156
+    },
+    "sizes": {
+     "large": {
+      "h": 867,
+      "resize": "fit",
+      "w": 1156
+     },
+     "medium": {
+      "h": 867,
+      "resize": "fit",
+      "w": 1156
+     },
+     "small": {
+      "h": 510,
+      "resize": "fit",
+      "w": 680
+     },
+     "thumb": {
+      "h": 150,
+      "resize": "crop",
+      "w": 150
+     }
+    },
+    "type": "photo",
+    "url": "https://t.co/RBcnWqANBP"
+   },
+   {
+    "additional_media_info": {},
+    "display_url": "pic.x.com/RBcnWqANBP",
+    "expanded_url": "https://x.com/jayanth_137/status/1864403099470975119/video/1",
+    "ext_media_availability": {
+     "status": "Available"
+    },
+    "indices": [
+     245,
+     268
+    ],
+    "media_url_https": "https://pbs.twimg.com/ext_tw_video_thumb/1864403070136061952/pu/img/ZS5ZoRlAfYEX5LgI.jpg",
+    "original_info": {
+     "focus_rects": [],
+     "height": 640,
+     "width": 360
+    },
+    "sizes": {
+     "large": {
+      "h": 640,
+      "resize": "fit",
+      "w": 360
+     },
+     "medium": {
+      "h": 640,
+      "resize": "fit",
+      "w": 360
+     },
+     "small": {
+      "h": 640,
+      "resize": "fit",
+      "w": 360
+     },
+     "thumb": {
+      "h": 150,
+      "resize": "crop",
+      "w": 150
+     }
+    },
+    "type": "video",
+    "url": "https://t.co/RBcnWqANBP",
+    "video_info": {
+     "aspect_ratio": [
+      9,
+      16
+     ],
+     "duration_millis": 7336,
+     "variants": [
+      {
+       "content_type": "application/x-mpegURL",
+       "url": "https://video.twimg.com/ext_tw_video/1864403070136061952/pu/pl/dPWTMC9Oe82hT56N.m3u8?tag=12"
+      },
+      {
+       "bitrate": 632000,
+       "content_type": "video/mp4",
+       "url": "https://video.twimg.com/ext_tw_video/1864403070136061952/pu/vid/avc1/320x568/A9JcBAcpnb-wneGU.mp4?tag=12"
+      },
+      {
+       "bitrate": 950000,
+       "content_type": "video/mp4",
+       "url": "https://video.twimg.com/ext_tw_video/1864403070136061952/pu/vid/avc1/360x640/8Xj2TJuF5TNfmq4h.mp4?tag=12"
+      }
+     ]
+    }
+   }
+  ],
+  "photos": [
+   {
+    "backgroundColor": {
+     "red": 204,
+     "green": 214,
+     "blue": 221
+    },
+    "cropCandidates": [
+     {
+      "h": 647,
+      "w": 1156,
+      "x": 0,
+      "y": 0
+     },
+     {
+      "h": 867,
+      "w": 867,
+      "x": 173,
+      "y": 0
+     },
+     {
+      "h": 867,
+      "w": 761,
+      "x": 226,
+      "y": 0
+     },
+     {
+      "h": 867,
+      "w": 434,
+      "x": 389,
+      "y": 0
+     },
+     {
+      "h": 867,
+      "w": 1156,
+      "x": 0,
+      "y": 0
+     }
+    ],
+    "expandedUrl": "https://x.com/jayanth_137/status/1864403099470975119/video/1",
+    "url": "https://pbs.twimg.com/media/Gd-wttja0AITK3P.jpg",
+    "width": 1156,
+    "height": 867
+   }
+  ],
+  "video": {
+   "aspectRatio": [
+    9,
+    16
+   ],
+   "contentType": "media_entity",
+   "durationMs": 7336,
+   "mediaAvailability": {
+    "status": "available"
+   },
+   "poster": "https://pbs.twimg.com/ext_tw_video_thumb/1864403070136061952/pu/img/ZS5ZoRlAfYEX5LgI.jpg",
+   "variants": [
+    {
+     "type": "application/x-mpegURL",
+     "src": "https://video.twimg.com/ext_tw_video/1864403070136061952/pu/pl/dPWTMC9Oe82hT56N.m3u8?tag=12"
+    },
+    {
+     "type": "video/mp4",
+     "src": "https://video.twimg.com/ext_tw_video/1864403070136061952/pu/vid/avc1/320x568/A9JcBAcpnb-wneGU.mp4?tag=12"
+    },
+    {
+     "type": "video/mp4",
+     "src": "https://video.twimg.com/ext_tw_video/1864403070136061952/pu/vid/avc1/360x640/8Xj2TJuF5TNfmq4h.mp4?tag=12"
+    }
+   ],
+   "videoId": {
+    "type": "tweet",
+    "id": "1864403099470975119"
+   },
+   "viewCount": 0
+  },
+  "conversation_count": 1,
+  "news_action_type": "conversation",
+  "isEdited": false,
+  "isStaleEdit": false
+ }
+}
