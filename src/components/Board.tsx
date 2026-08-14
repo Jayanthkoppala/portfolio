@@ -296,32 +296,27 @@ export default function Board() {
           {/* stroke tracing the carved edge — exactly 12px outside the collar */}
           <div
             aria-hidden
-            className="pointer-events-none absolute left-1/2 top-1/2 h-[426px] w-[426px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.08]"
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[452px] w-[452px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.08]"
           />
-          {/* stem up into the middle card */}
+          {/* stem up: bridges exactly the carve gap into the middle card */}
           <div
             aria-hidden
-            className="absolute bottom-full left-1/2 h-8 w-4 -translate-x-1/2"
-            style={{
-              background: "#0c0e0d",
-              borderLeft: "1px solid rgba(255,255,255,0.06)",
-              borderRight: "1px solid rgba(255,255,255,0.06)",
-            }}
-          />
-          {/* stem: long channel dropping past the pills, handle at its end */}
-          <div
-            aria-hidden
-            className="absolute left-1/2 top-full h-[230px] w-5 -translate-x-1/2"
+            className="absolute bottom-full left-1/2 h-[13px] w-5 -translate-x-1/2"
             style={{
               background: "var(--bg)",
               borderLeft: "1px solid rgba(255,255,255,0.06)",
               borderRight: "1px solid rgba(255,255,255,0.06)",
             }}
           />
+          {/* stem down: bridges into the carved column */}
           <div
             aria-hidden
-            className="absolute left-1/2 top-[calc(100%+226px)] h-1.5 w-16 -translate-x-1/2 rounded-full border border-white/[0.09]"
-            style={{ background: "#11140f" }}
+            className="absolute left-1/2 top-full h-[44px] w-5 -translate-x-1/2"
+            style={{
+              background: "var(--bg)",
+              borderLeft: "1px solid rgba(255,255,255,0.06)",
+              borderRight: "1px solid rgba(255,255,255,0.06)",
+            }}
           />
           {/* collar — stepped rings */}
           <div
@@ -339,7 +334,7 @@ export default function Board() {
                 className="rounded-full p-4 transition-shadow duration-500 group-hover:shadow-[0_0_60px_rgba(16,185,129,0.12)]"
                 style={{
                   background:
-                    "radial-gradient(70% 70% at 40% 30%, #141715, #0a0c0b 72%)",
+                    "radial-gradient(75% 75% at 50% 42%, #131614, #0a0c0b 74%)",
                   boxShadow:
                     "inset 0 1px 0 rgba(255,255,255,0.06), 0 40px 100px rgba(0,0,0,0.9)",
                 }}
@@ -351,11 +346,11 @@ export default function Board() {
         </div>
       )}
 
-      {/* ── bottom row ──────────────────────────────────────── */}
-      <div className={`${CARD} bite-bot mt-10`} style={SPOT}>
-        <div className="grid gap-6 p-7 lg:grid-cols-[1.15fr_auto_1.3fr] lg:gap-10">
-          {/* globe zone */}
-          <div className="relative min-h-[340px] overflow-hidden">
+      {/* ── bottom row: two cards, pills live in the carved column ── */}
+      <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_210px_1fr] lg:gap-0">
+        {/* globe card */}
+        <div className={`${CARD} bite-corner-r`} style={SPOT}>
+          <div className="relative min-h-[400px] overflow-hidden p-7">
             <p className="kicker">available globally</p>
             <p className="mt-2 text-3xl font-bold leading-tight">
               Adaptable across
@@ -369,49 +364,52 @@ export default function Board() {
               className="absolute z-10 rounded-md border border-line bg-bg/90 px-2.5 py-1 font-mono text-xs text-ink backdrop-blur transition-all duration-500"
               style={
                 zone === "India"
-                  ? { bottom: "6rem", left: "38%" }
+                  ? { bottom: "6rem", left: "42%" }
                   : zone === "UK"
-                    ? { top: "9rem", left: "12%" }
-                    : { top: "13rem", left: "2%" }
+                    ? { top: "11rem", left: "10%" }
+                    : { top: "15rem", left: "2%" }
               }
             >
               {zone === "India" ? "🇮🇳 India" : zone === "UK" ? "🇬🇧 UK" : "🇺🇸 USA"}
             </span>
           </div>
+        </div>
 
-          {/* timezone pill column */}
-          <div className="relative z-10 flex flex-row items-center gap-3 lg:-translate-x-14 lg:flex-col lg:justify-start lg:pt-[224px]">
-            {[
-              { flag: "🇬🇧", name: "UK", time: uk },
-              { flag: "🇮🇳", name: "India", time: ist },
-              { flag: "🇺🇸", name: "USA", time: "" },
-            ].map((z) => (
-              <button
-                key={z.name}
-                onClick={() => setZone(z.name)}
-                className={`w-fit min-w-[130px] rounded-full border px-4 py-2.5 text-center text-sm transition-all duration-300 ${
-                  zone === z.name
-                    ? "scale-105 border-transparent bg-ink font-semibold text-bg shadow-[0_8px_24px_rgba(233,238,234,0.15)]"
-                    : "border-line bg-bg/70 text-ink-dim hover:border-ink-faint hover:text-ink"
-                }`}
-              >
-                {z.name} {z.flag}
-                {z.time && (
-                  <span className={`ml-1 font-mono text-xs ${zone === z.name ? "text-bg/60" : "text-ink-faint"}`}>
-                    {z.time}
-                  </span>
-                )}
-              </button>
-            ))}
-            <p className="kicker mt-2 hidden text-center lg:block">
-              📍 remote
-              <br />
-              <span className="text-ink">India</span>
-            </p>
-          </div>
+        {/* carved column — pills float in page-black */}
+        <div className="relative z-10 flex flex-row items-center justify-center gap-3 lg:flex-col lg:justify-start lg:pt-[210px]">
+          {[
+            { flag: "🇬🇧", name: "UK", time: uk },
+            { flag: "🇮🇳", name: "India", time: ist },
+            { flag: "🇺🇸", name: "USA", time: "" },
+          ].map((z) => (
+            <button
+              key={z.name}
+              onClick={() => setZone(z.name)}
+              className={`w-fit min-w-[128px] rounded-full border px-4 py-2.5 text-center text-sm transition-all duration-300 ${
+                zone === z.name
+                  ? "scale-105 border-transparent bg-ink font-semibold text-bg shadow-[0_8px_24px_rgba(233,238,234,0.15)]"
+                  : "border-line bg-bg/70 text-ink-dim hover:border-ink-faint hover:text-ink"
+              }`}
+            >
+              {z.name} {z.flag}
+              {z.time && (
+                <span className={`ml-1 font-mono text-xs ${zone === z.name ? "text-bg/60" : "text-ink-faint"}`}>
+                  {z.time}
+                </span>
+              )}
+            </button>
+          ))}
+          <p className="kicker mt-4 hidden text-center lg:block">
+            📍 remote
+            <br />
+            <span className="text-ink">India</span>
+          </p>
+          <span className="mt-auto mb-1 hidden h-1.5 w-14 rounded-full border border-white/[0.09] bg-[#11140f] lg:block" />
+        </div>
 
-          {/* founder + phones */}
-          <div className="relative min-h-[340px] overflow-hidden text-right">
+        {/* founder + phones card */}
+        <div className={`${CARD} bite-corner-l`} style={SPOT}>
+          <div className="relative min-h-[400px] overflow-hidden p-7 text-right">
             <p className="text-4xl font-bold tracking-tight">
               Founder of{" "}
               <a
@@ -427,7 +425,7 @@ export default function Board() {
               &lt; round-one hiring, done /&gt;
             </p>
             <div className="pointer-events-none absolute -bottom-24 right-0 flex justify-end gap-3">
-              <div className="w-[135px] -rotate-12 opacity-70 transition-transform">
+              <div className="w-[135px] -rotate-12 opacity-70">
                 <Iphone src="/shots/boss-hero.png" className="size-full" />
               </div>
               <div className="z-10 w-[155px]">

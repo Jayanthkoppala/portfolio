@@ -164,26 +164,38 @@ body {
 @media (min-width: 1024px) {
   .bite-mid {
     -webkit-mask-image: radial-gradient(
-      circle 213px at 50% calc(100% + 20px),
-      transparent 212px,
-      #000 213px
+      circle 240px at 50% calc(100% + 20px),
+      transparent 239px,
+      #000 240px
     );
     mask-image: radial-gradient(
-      circle 213px at 50% calc(100% + 20px),
-      transparent 212px,
-      #000 213px
+      circle 240px at 50% calc(100% + 20px),
+      transparent 239px,
+      #000 240px
     );
   }
-  .bite-bot {
+  .bite-corner-r {
     -webkit-mask-image: radial-gradient(
-      circle 213px at 50% -20px,
-      transparent 212px,
-      #000 213px
+      circle 240px at calc(100% + 105px) -20px,
+      transparent 239px,
+      #000 240px
     );
     mask-image: radial-gradient(
-      circle 213px at 50% -20px,
-      transparent 212px,
-      #000 213px
+      circle 240px at calc(100% + 105px) -20px,
+      transparent 239px,
+      #000 240px
+    );
+  }
+  .bite-corner-l {
+    -webkit-mask-image: radial-gradient(
+      circle 240px at -105px -20px,
+      transparent 239px,
+      #000 240px
+    );
+    mask-image: radial-gradient(
+      circle 240px at -105px -20px,
+      transparent 239px,
+      #000 240px
     );
   }
 }
