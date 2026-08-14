@@ -12,8 +12,6 @@ import ActivityGrid from "@/components/ActivityGrid";
 import MoltenMetal from "@/components/MoltenMetal";
 import MoltenName from "@/components/MoltenName";
 import StatusLine from "@/components/HeroBits";
-import ProfileCard from "@/components/ProfileCard";
-import GradientWaves from "@/components/GradientWaves";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { Highlighter } from "@/components/ui/highlighter";
 import { identity, about } from "@/config/portfolio";
