@@ -3,7 +3,6 @@ import Ribbon from "@/components/Ribbon";
 import Nav from "@/components/Nav";
 import Flagship from "@/components/Flagship";
 import PastTimeline from "@/components/PastTimeline";
-import WorkShowcase from "@/components/WorkShowcase";
 import TechSplit from "@/components/TechSplit";
 import ReceiptTweets from "@/components/ReceiptTweets";
 import ContactEnd from "@/components/ContactEnd";
@@ -203,11 +202,6 @@ export default function Home() {
       </section>
 
       {/* ══ IV · WHAT I'VE BUILT ══════════════════════════════ */}
-      <section className="mx-auto max-w-6xl px-6 py-24" id="work">
-        <Head caps="What I've" serif="built." />
-        <WorkShowcase />
-      </section>
-
       {/* ══ V · THE RECEIPTS ══════════════════════════════════ */}
       <Bridge text="don't take my word for any of it —" />
       <section className="relative overflow-hidden pb-24 pt-8" id="receipts">

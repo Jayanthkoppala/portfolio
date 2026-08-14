@@ -8,7 +8,6 @@ import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 const LINKS = [
   { label: "Now", href: "#now" },
   { label: "Story", href: "#story" },
-  { label: "Work", href: "#work" },
   { label: "Receipts", href: "#receipts" },
   { label: "Contact", href: "#contact" },
 ];
