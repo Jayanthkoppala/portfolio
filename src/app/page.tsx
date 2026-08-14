@@ -2,6 +2,8 @@ import AuroraField from "@/components/AuroraField";
 import Marquee from "@/components/Marquee";
 import ActivityGrid from "@/components/ActivityGrid";
 import VoiceOrb from "@/components/VoiceOrb";
+import Ribbon from "@/components/Ribbon";
+import { ClockWidget, TerminalWidget } from "@/components/widgets";
 import {
   identity,
   about,
@@ -14,118 +16,208 @@ import {
   contactCloser,
 } from "@/config/portfolio";
 
-function SectionHead({ no, title }: { no: string; title: string }) {
+/** Display/serif collision section head: WHAT I'VE built */
+function Head({ caps, serif }: { caps: string; serif: string }) {
   return (
-    <div className="mb-10 flex items-baseline gap-4">
-      <span className="kicker !text-accent">{no}</span>
-      <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">{title}</h2>
-      <div className="ml-4 h-px flex-1 bg-line" />
-    </div>
+    <h2 className="mb-12 leading-none">
+      <span
+        className="block text-5xl uppercase text-ink sm:text-7xl"
+        style={{ fontFamily: "var(--font-anton)", letterSpacing: "0.01em" }}
+      >
+        {caps}
+      </span>
+      <span className="serif-accent -mt-2 block text-4xl text-accent sm:-mt-4 sm:text-6xl">
+        {serif}
+      </span>
+    </h2>
   );
 }
 
 export default function Home() {
   return (
-    <main className="relative">
-      {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative flex min-h-[92vh] flex-col justify-center overflow-hidden px-6">
+    <main className="relative overflow-x-hidden">
+      {/* ══ HERO — the monument ═══════════════════════════════ */}
+      <section className="relative flex min-h-screen flex-col justify-between overflow-hidden">
         <AuroraField />
-        <div className="relative z-10 mx-auto w-full max-w-4xl">
-          <p className="kicker mb-6">
+        {/* ember floor under the name */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[45vh]"
+          style={{
+            background:
+              "radial-gradient(120% 100% at 50% 110%, rgba(255,92,31,0.5), rgba(255,92,31,0.12) 45%, transparent 70%)",
+          }}
+        />
+        <header className="relative z-10 flex items-start justify-between px-6 pt-6 sm:px-10">
+          <p className="kicker">
             Bengaluru · building{" "}
             <a
               href="https://bosshq.in"
-              className="text-accent hover:underline"
               target="_blank"
               rel="noreferrer"
+              className="text-accent hover:underline"
             >
               BOSS!
-            </a>{" "}
-            · Sarvam AI Startup Program
+            </a>
           </p>
-          <h1 className="text-5xl font-black leading-[0.95] tracking-tight sm:text-7xl md:text-8xl">
-            Jayanth
-            <br />
-            <span className="serif-accent text-accent">Koppala</span>
-          </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-dim sm:text-xl">
-            I&apos;ve shipped with hackathon teams, led engineers in
-            production, and built whole products{" "}
-            <span className="serif-accent text-ink">solo</span>.
-          </p>
-          <p className="mt-2 text-base text-ink-faint">
-            Full-stack engineer &amp; founder.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="flex gap-4">
             {identity.socials.map((s) => (
               <a
                 key={s.label}
                 href={s.href}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-line px-4 py-1.5 text-sm text-ink-dim transition-colors hover:border-accent hover:text-ink"
+                className="kicker transition-colors hover:!text-accent"
               >
                 {s.label}
               </a>
             ))}
-            <a
-              href={`mailto:${identity.email}`}
-              className="rounded-full bg-accent px-4 py-1.5 text-sm font-semibold text-bg transition-transform hover:scale-105"
+          </div>
+        </header>
+
+        <div className="relative z-10 px-4 pb-2 sm:px-6">
+          <p className="serif-accent mb-2 pl-2 text-xl text-ink-dim sm:text-3xl">
+            shipped with teams, led in production, built whole products{" "}
+            <span className="text-accent">solo</span> —
+          </p>
+          <h1
+            className="w-full text-center uppercase leading-[0.82] text-ink"
+            style={{
+              fontFamily: "var(--font-anton)",
+              fontSize: "clamp(4rem, 17.5vw, 17rem)",
+              textShadow: "0 10px 80px rgba(255,92,31,0.35)",
+            }}
+          >
+            Jayanth
+            <br />
+            Koppala
+          </h1>
+        </div>
+      </section>
+
+      <Ribbon
+        phrases={[
+          "cooking season",
+          "end to end",
+          "still shipping",
+          "since sixteen",
+          "built in Bengaluru",
+        ]}
+      />
+
+      {/* ══ NOW — the board ═══════════════════════════════════ */}
+      <section className="mx-auto max-w-5xl px-6 py-24" id="now">
+        <Head caps="Right" serif="now." />
+        <div className="grid gap-4 sm:grid-cols-3">
+          {/* BOSS tile */}
+          <a
+            href="https://bosshq.in"
+            target="_blank"
+            rel="noreferrer"
+            className="group relative overflow-hidden rounded-2xl border border-line p-6 sm:col-span-2"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(255,92,31,0.16), rgba(255,92,31,0.03) 60%)",
+            }}
+          >
+            <p className="kicker !text-accent">currently building</p>
+            <p
+              className="mt-3 text-5xl uppercase text-ink"
+              style={{ fontFamily: "var(--font-anton)" }}
             >
-              {identity.email}
-            </a>
+              BOSS!
+            </p>
+            <p className="mt-3 max-w-md text-sm leading-relaxed text-ink-dim">
+              AI round-one screening for India recruiters. 242 applications in,
+              a shortlist of 5–10 out, with reasons, in 48 hours. Sarvam AI
+              Startup Program. One developer: me.
+            </p>
+            <p className="mt-4 text-xs text-ink-faint transition-colors group-hover:text-accent">
+              bosshq.in ↗
+            </p>
+          </a>
+
+          {/* Clock tile */}
+          <div className="rounded-2xl border border-line bg-bg-card p-6">
+            <ClockWidget />
+          </div>
+
+          {/* Terminal tile */}
+          <div className="rounded-2xl border border-line bg-bg-card p-2 sm:row-span-2">
+            <TerminalWidget />
+          </div>
+
+          {/* Receipts tile */}
+          <a
+            href="#receipts"
+            className="group rounded-2xl border border-line bg-bg-card p-6"
+          >
+            <p className="kicker">documented wins</p>
+            <p
+              className="mt-2 text-6xl text-ink"
+              style={{ fontFamily: "var(--font-anton)" }}
+            >
+              5
+            </p>
+            <p className="mt-2 text-sm text-ink-dim">
+              every one links to a public receipt{" "}
+              <span className="text-accent transition-transform group-hover:translate-y-1 inline-block">
+                ↓
+              </span>
+            </p>
+          </a>
+
+          {/* Voice teaser tile */}
+          <a
+            href="#voice"
+            className="group flex flex-col justify-between rounded-2xl border border-line bg-bg-card p-6"
+          >
+            <p className="kicker">voice layer</p>
+            <div className="mx-auto my-3 h-14 w-14 rounded-full transition-transform group-hover:scale-110"
+              style={{
+                background:
+                  "radial-gradient(circle at 50% 40%, rgba(255,140,90,0.9), rgba(255,92,31,0.4) 60%, transparent)",
+                boxShadow: "0 0 40px rgba(255,92,31,0.4)",
+              }}
+            />
+            <p className="text-sm text-ink-dim">
+              don&apos;t read the page. <span className="text-accent">ask it.</span>
+            </p>
+          </a>
+
+          {/* GitHub wall — full width */}
+          <div className="sm:col-span-3">
+            <ActivityGrid />
           </div>
         </div>
       </section>
 
-      <Marquee items={marqueeItems} />
-
-      {/* ── About ────────────────────────────────────────────── */}
-      <section className="mx-auto max-w-3xl px-6 py-28" id="about">
-        <SectionHead no="01" title="The story" />
+      {/* ══ STORY ═════════════════════════════════════════════ */}
+      <section className="mx-auto max-w-3xl px-6 py-24" id="story">
+        <Head caps="The" serif="story." />
         <div className="space-y-6 text-lg leading-relaxed text-ink-dim">
           {about.map((p, i) => (
-            <p key={i} className={i === 3 ? "serif-accent text-2xl text-ink" : ""}>
+            <p key={i} className={i === 3 ? "serif-accent text-3xl text-accent" : ""}>
               {p}
             </p>
           ))}
         </div>
       </section>
 
-      {/* ── Experience ───────────────────────────────────────── */}
-      <section className="mx-auto max-w-3xl px-6 py-28" id="experience">
-        <SectionHead no="02" title="Where I've worked" />
-        <div className="space-y-0">
-          {experience.map((e) => (
-            <div
-              key={`${e.role}-${e.org}`}
-              className="group grid gap-1 border-b border-line py-6 sm:grid-cols-[1fr_2fr] sm:gap-6"
-            >
-              <div>
-                <p className="font-semibold text-ink">
-                  {e.role}{" "}
-                  <span className="text-accent">
-                    ·{" "}
-                    {e.href ? (
-                      <a href={e.href} target="_blank" rel="noreferrer" className="hover:underline">
-                        {e.org}
-                      </a>
-                    ) : (
-                      e.org
-                    )}
-                  </span>
-                </p>
-                <p className="kicker mt-1">{e.period}</p>
-              </div>
-              <p className="text-sm leading-relaxed text-ink-dim">{e.note}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <Ribbon
+        phrases={[
+          "slept through exams",
+          "coded till sunrise",
+          "cracked mac screen",
+          "kept building",
+        ]}
+        angle={2.5}
+        reverse
+      />
 
-      {/* ── Projects — stacking cards ────────────────────────── */}
-      <section className="mx-auto max-w-4xl px-6 py-28" id="work">
-        <SectionHead no="03" title="What I've built" />
+      {/* ══ BUILT ═════════════════════════════════════════════ */}
+      <section className="mx-auto max-w-4xl px-6 py-24" id="work">
+        <Head caps="What I've" serif="built." />
         <div className="space-y-6">
           {projects.map((p, i) => (
             <a
@@ -133,11 +225,21 @@ export default function Home() {
               href={p.href}
               target="_blank"
               rel="noreferrer"
-              className="group relative block overflow-hidden rounded-2xl border border-line bg-bg-card p-8 transition-colors hover:border-accent/60 sm:sticky"
-              style={{ top: `${88 + i * 14}px` }}
+              className="group relative block overflow-hidden rounded-2xl border border-line bg-bg-card p-8 transition-all hover:-translate-y-1 hover:border-accent/70 sm:sticky"
+              style={{ top: `${80 + i * 16}px` }}
             >
-              <div className="flex items-baseline justify-between gap-4">
-                <h3 className="text-2xl font-bold tracking-tight sm:text-3xl">
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -right-4 -top-10 select-none text-[9rem] uppercase leading-none text-ink opacity-[0.04] transition-opacity group-hover:opacity-[0.08]"
+                style={{ fontFamily: "var(--font-anton)" }}
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div className="relative flex items-baseline justify-between gap-4">
+                <h3
+                  className="text-4xl uppercase tracking-tight sm:text-5xl"
+                  style={{ fontFamily: "var(--font-anton)" }}
+                >
                   {p.name}
                 </h3>
                 <p className="kicker whitespace-nowrap">
@@ -145,11 +247,13 @@ export default function Home() {
                   {p.live && <span className="ml-2 text-good">● live</span>}
                 </p>
               </div>
-              <p className="serif-accent mt-4 text-xl text-ink">{p.problem}</p>
-              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-dim">
+              <p className="serif-accent relative mt-4 text-2xl text-ink">
+                {p.problem}
+              </p>
+              <p className="relative mt-3 max-w-2xl text-sm leading-relaxed text-ink-dim">
                 {p.shipped}
               </p>
-              <p className="mt-5 text-xs text-ink-faint transition-colors group-hover:text-accent">
+              <p className="relative mt-5 text-xs text-ink-faint transition-colors group-hover:text-accent">
                 {p.href.replace("https://", "")} ↗
               </p>
             </a>
@@ -157,13 +261,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Wins — receipts ──────────────────────────────────── */}
-      <section className="relative overflow-hidden py-28" id="wins">
+      {/* ══ RECEIPTS ══════════════════════════════════════════ */}
+      <section className="relative overflow-hidden py-24" id="receipts">
         <AuroraField dim />
         <div className="relative z-10 mx-auto max-w-3xl px-6">
-          <SectionHead no="04" title="Receipts" />
-          <p className="mb-8 -mt-4 text-sm text-ink-faint">
-            Every claim links to its public artifact. No badges, just links.
+          <Head caps="The" serif="receipts." />
+          <p className="-mt-6 mb-8 text-sm text-ink-faint">
+            No badges. Links.
           </p>
           <div className="overflow-hidden rounded-xl border border-line bg-bg-card">
             {wins.map((w) => (
@@ -181,19 +285,51 @@ export default function Home() {
               </a>
             ))}
           </div>
-          <p className="serif-accent mt-6 text-lg text-ink-dim">{winsCloser}</p>
+          <p className="serif-accent mt-6 text-xl text-ink-dim">{winsCloser}</p>
         </div>
       </section>
 
-      {/* ── GitHub wall ──────────────────────────────────────── */}
-      <section className="mx-auto max-w-3xl px-6 py-28" id="activity">
-        <SectionHead no="05" title="Still shipping" />
-        <ActivityGrid />
+      {/* ══ WORKED ════════════════════════════════════════════ */}
+      <section className="mx-auto max-w-3xl px-6 py-24" id="experience">
+        <Head caps="Where I've" serif="worked." />
+        <div>
+          {experience.map((e) => (
+            <div
+              key={`${e.role}-${e.org}`}
+              className="grid gap-1 border-b border-line py-6 sm:grid-cols-[1fr_2fr] sm:gap-6"
+            >
+              <div>
+                <p className="font-semibold text-ink">
+                  {e.role}{" "}
+                  <span className="text-accent">
+                    ·{" "}
+                    {e.href ? (
+                      <a
+                        href={e.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="hover:underline"
+                      >
+                        {e.org}
+                      </a>
+                    ) : (
+                      e.org
+                    )}
+                  </span>
+                </p>
+                <p className="kicker mt-1">{e.period}</p>
+              </div>
+              <p className="text-sm leading-relaxed text-ink-dim">{e.note}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
-      {/* ── Thinking ─────────────────────────────────────────── */}
-      <section className="mx-auto max-w-3xl px-6 py-28" id="thinking">
-        <SectionHead no="06" title="How I think" />
+      <Marquee items={marqueeItems} />
+
+      {/* ══ THINKING ══════════════════════════════════════════ */}
+      <section className="mx-auto max-w-3xl px-6 py-24" id="thinking">
+        <Head caps="How I" serif="think." />
         <div className="grid gap-6 sm:grid-cols-2">
           {thinking.map((t) => (
             <a
@@ -201,10 +337,10 @@ export default function Home() {
               href={t.href}
               target="_blank"
               rel="noreferrer"
-              className="group rounded-xl border border-line bg-bg-card p-6 transition-colors hover:border-accent/60"
+              className="group rounded-xl border border-line bg-bg-card p-6 transition-all hover:-translate-y-1 hover:border-accent/70"
             >
               <p className="font-semibold">{t.title}</p>
-              <p className="serif-accent mt-3 text-lg leading-snug text-ink-dim">
+              <p className="serif-accent mt-3 text-xl leading-snug text-ink-dim">
                 &ldquo;{t.quote}&rdquo;
               </p>
               <p className="kicker mt-4 transition-colors group-hover:!text-accent">
@@ -215,18 +351,34 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Voice ────────────────────────────────────────────── */}
-      <section className="mx-auto max-w-3xl px-6 py-28" id="voice">
-        <SectionHead no="07" title="Don't read. Ask." />
+      {/* ══ VOICE ═════════════════════════════════════════════ */}
+      <section className="mx-auto max-w-3xl px-6 py-24" id="voice">
+        <Head caps="Don't read." serif="ask." />
         <VoiceOrb />
       </section>
 
-      {/* ── Contact ──────────────────────────────────────────── */}
+      {/* ══ CONTACT ═══════════════════════════════════════════ */}
       <footer className="relative overflow-hidden border-t border-line">
-        <div className="mx-auto max-w-4xl px-6 py-24">
-          <p className="serif-accent text-3xl leading-snug sm:text-4xl">
-            {contactCloser}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[30vh]"
+          style={{
+            background:
+              "radial-gradient(120% 100% at 50% 115%, rgba(255,92,31,0.35), transparent 65%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-4xl px-6 py-24">
+          <p
+            className="text-4xl uppercase leading-[0.9] sm:text-6xl"
+            style={{ fontFamily: "var(--font-anton)" }}
+          >
+            Tell me where
+            <br />
+            <span className="serif-accent normal-case text-accent">
+              I&apos;m wrong.
+            </span>
           </p>
+          <p className="mt-6 max-w-md text-sm text-ink-dim">{contactCloser}</p>
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <a
               href={`mailto:${identity.email}`}
@@ -247,7 +399,8 @@ export default function Home() {
             ))}
           </div>
           <p className="kicker mt-16">
-            © {new Date().getFullYear()} Jayanth Koppala · built end to end, obviously
+            © {new Date().getFullYear()} Jayanth Koppala · built end to end,
+            obviously
           </p>
         </div>
       </footer>

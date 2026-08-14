@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
-import { Archivo, Instrument_Serif } from "next/font/google";
+import { Anton, Archivo, Instrument_Serif } from "next/font/google";
 import "./globals.css";
+
+const anton = Anton({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-anton",
+  display: "swap",
+});
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -27,7 +34,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${archivo.variable} ${instrument.variable}`}>
+      <body className={`${anton.variable} ${archivo.variable} ${instrument.variable}`}>
         {children}
       </body>
     </html>
