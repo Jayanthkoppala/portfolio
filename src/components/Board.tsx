@@ -128,7 +128,7 @@ export default function Board() {
   useLayoutEffect(() => {
     const el = topRef.current;
     if (!el) return;
-    const update = () => setCy(el.offsetHeight + 20);
+    const update = () => setCy(el.offsetHeight + 7);
     update();
     const ro = new ResizeObserver(update);
     ro.observe(el);
@@ -190,7 +190,7 @@ export default function Board() {
               philosophy <span className="text-accent">✦</span>
             </p>
           </div>
-          <div className="mt-8 grid gap-8 sm:grid-cols-2">
+          <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:gap-x-44">
             <div>
               <h3 className="text-4xl font-bold leading-none tracking-tight sm:text-5xl">
                 Products
@@ -294,7 +294,7 @@ export default function Board() {
           {/* neck under the disc, opening into the column */}
           <div
             aria-hidden
-            className="absolute left-1/2 top-full h-14 w-10 -translate-x-1/2"
+            className="absolute left-1/2 top-full h-16 w-4 -translate-x-1/2"
             style={{
               background: "var(--bg)",
               borderLeft: "1px solid rgba(255,255,255,0.06)",
@@ -330,7 +330,7 @@ export default function Board() {
       )}
 
       {/* ── bottom row: two cards, pills live in the carved column ── */}
-      <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_230px_1fr] lg:gap-0">
+      <div className="mt-3.5 grid gap-6 lg:grid-cols-[1fr_230px_1fr] lg:gap-0">
         {/* globe card */}
         <div className={`${CARD} bite-corner-r`} style={SPOT}>
           <div className="relative min-h-[400px] overflow-hidden p-7">
