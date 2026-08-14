@@ -158,3 +158,41 @@ body {
   from { opacity: 0; transform: translateY(48px); filter: blur(10px); }
   to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
+
+/* Carved cuts around the watch — desktop only, concentric with the
+   measured watch center (top-row height + 8px). Collar r=201, bite r=213. */
+@media (min-width: 1024px) {
+  .bite-mid {
+    -webkit-mask-image: radial-gradient(
+      circle 213px at 50% calc(100% + 8px),
+      transparent 212px,
+      #000 213px
+    );
+    mask-image: radial-gradient(
+      circle 213px at 50% calc(100% + 8px),
+      transparent 212px,
+      #000 213px
+    );
+  }
+  .bite-bot {
+    -webkit-mask-image: radial-gradient(
+      circle 213px at 50% -8px,
+      transparent 212px,
+      #000 213px
+    );
+    mask-image: radial-gradient(
+      circle 213px at 50% -8px,
+      transparent 212px,
+      #000 213px
+    );
+  }
+}
+
+@media (pointer: fine) and (min-width: 1024px) {
+  .custom-cursor,
+  .custom-cursor a,
+  .custom-cursor button,
+  .custom-cursor [role="button"] {
+    cursor: none;
+  }
+}

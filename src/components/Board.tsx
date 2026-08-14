@@ -6,7 +6,7 @@
  * globe + founder phone-fan below. The cube is a pre-rendered image
  * (the reference site fakes its 3D too).
  */
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 
 const Cube3D = dynamic(() => import("@/components/Cube3D"), {
@@ -109,11 +109,6 @@ function SocialIcon({ name }: { name: string }) {
   );
 }
 
-/* Carved cuts — the cards' edges curve around the watch circle. */
-const BITE_MID =
-  "radial-gradient(circle 218px at 50% calc(100% + 38px), transparent 217px, #000 218px)";
-const BITE_BOT =
-  "radial-gradient(circle 218px at 50% -56px, transparent 217px, #000 218px)";
 const SPOT = {
   background:
     "radial-gradient(90% 60% at 30% -5%, rgba(255,255,255,0.09), rgba(255,255,255,0.015) 45%, transparent 70%)",
@@ -123,11 +118,27 @@ export default function Board() {
   const [tab, setTab] = useState(0);
   const [copied, setCopied] = useState(false);
   const { ist, uk } = useTimes();
+  const topRef = useRef<HTMLDivElement>(null);
+  const [cy, setCy] = useState<number | null>(null);
+  const [zone, setZone] = useState("India");
+
+  // Watch center sits exactly on the boundary between the two rows
+  // (top-row height + half the 16px gap). Measured, so the carved cuts
+  // stay concentric at every viewport width.
+  useLayoutEffect(() => {
+    const el = topRef.current;
+    if (!el) return;
+    const update = () => setCy(el.offsetHeight + 8);
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   return (
     <div className="relative">
       {/* ── top row ─────────────────────────────────────────── */}
-      <div className="grid gap-4 lg:grid-cols-[365px_1fr_365px] [&>*]:min-w-0">
+      <div ref={topRef} className="grid gap-4 lg:grid-cols-[365px_1fr_365px] [&>*]:min-w-0">
         {/* identity */}
         <div className={`${CARD} flex flex-col p-7`} style={SPOT}>
           <p className="kicker">
@@ -142,14 +153,6 @@ export default function Board() {
           </p>
           <p className="kicker mt-2">📍 Bengaluru, IN · {ist}</p>
           <div className="relative my-6 flex flex-1 items-center justify-center">
-            <div
-              aria-hidden
-              className="absolute inset-0"
-              style={{
-                background:
-                  "radial-gradient(65% 60% at 42% 30%, rgba(255,255,255,0.17), transparent 70%)",
-              }}
-            />
             <div className="relative h-[230px] w-[230px] cursor-grab active:cursor-grabbing">
               <Cube3D />
             </div>
@@ -173,20 +176,18 @@ export default function Board() {
         </div>
 
         {/* philosophy */}
-        <div
-          className={`${CARD} p-7 pb-40`}
-          style={{
-            ...SPOT,
-            WebkitMaskImage: BITE_MID,
-            maskImage: BITE_MID,
-          }}
-        >
+        <div className={`${CARD} bite-mid p-7 pb-40`} style={SPOT}>
           <div className="flex items-start justify-between gap-4">
-            <p className="kicker rounded-full border border-line px-3 py-1.5">
-              ⌁ products that act
-            </p>
+            <span className="flex items-center gap-3">
+              <span className="grid h-9 w-9 place-items-center rounded-full border border-line transition-colors hover:border-accent">
+                <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-ink-dim" strokeWidth="1.6">
+                  <path d="M5 3l14 8-6.5 1.5L9 19 5 3Z" strokeLinejoin="round" />
+                </svg>
+              </span>
+              <span className="kicker">products that act</span>
+            </span>
             <p className="kicker">
-              philosophy <span className="text-accent">+</span>
+              philosophy <span className="text-accent">✦</span>
             </p>
           </div>
           <div className="mt-8 grid gap-8 sm:grid-cols-2">
@@ -231,6 +232,11 @@ export default function Board() {
         {/* connect */}
         <div className={`${CARD} flex flex-col p-7`} style={SPOT}>
           <div className="flex items-center justify-between">
+            <span className="grid h-10 w-10 place-items-center rounded-full border border-line transition-colors hover:border-accent">
+              <span className="grid h-4 w-4 place-items-center rounded-full border-2 border-ink">
+                <span className="h-1.5 w-1.5 rounded-full bg-ink" />
+              </span>
+            </span>
             <span className="flex items-center gap-2 rounded-full border border-line px-3 py-1.5">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
@@ -238,7 +244,6 @@ export default function Board() {
               </span>
               <span className="kicker">shipping daily</span>
             </span>
-
           </div>
           <div className="mt-6">
             <p className="text-3xl font-black leading-[1.05] tracking-tight">
@@ -261,6 +266,7 @@ export default function Board() {
             <p className="text-xl font-semibold text-ink transition-colors group-hover:text-accent">
               ⬡ {identity.email}
             </p>
+            <span className="mt-2 block h-[2px] w-full origin-left scale-x-0 rounded bg-gradient-to-r from-accent to-[#6ee7b7] transition-transform duration-300 group-hover:scale-x-100" />
             <p className="kicker mt-2 tracking-[0.3em]">
               {copied ? "copied ✓" : "tap to copy email"}
             </p>
@@ -274,59 +280,62 @@ export default function Board() {
         </div>
       </div>
 
-      {/* ── the watch: collar plate + stand, carved between rows ── */}
-      <div className="relative z-20 mx-auto -my-[168px] hidden w-fit lg:block">
-        {/* stroke that traces the carved cut edge on both cards */}
+      {/* ── the watch: measured center, concentric cuts, no arch ── */}
+      {cy !== null && (
         <div
-          aria-hidden
-          className="pointer-events-none absolute left-1/2 top-1/2 h-[416px] w-[416px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.08]"
-        />
-        {/* arch rising toward the middle card */}
-        <div
-          aria-hidden
-          className="absolute bottom-full left-1/2 h-14 w-24 -translate-x-1/2 rounded-t-full border-x border-t border-white/[0.06]"
-          style={{ background: "#0c0e0d" }}
-        />
-        {/* stem + foot into the bottom card */}
-        <div
-          aria-hidden
-          className="absolute left-1/2 top-full h-10 w-5 -translate-x-1/2"
-          style={{ background: "#0c0e0d", borderLeft: "1px solid rgba(255,255,255,0.06)", borderRight: "1px solid rgba(255,255,255,0.06)" }}
-        />
-        <div
-          aria-hidden
-          className="absolute left-1/2 top-[calc(100%+36px)] h-2 w-16 -translate-x-1/2 rounded-full border border-white/[0.08]"
-          style={{ background: "#11140f" }}
-        />
-        {/* collar plate — stepped rings */}
-        <div
-          className="group relative rounded-full p-3 transition-transform duration-500 hover:scale-[1.015]"
-          style={{ background: "var(--bg)" }}
+          className="absolute left-1/2 z-20 hidden lg:block"
+          style={{ top: cy, transform: "translate(-50%, -50%)" }}
         >
+          {/* stroke tracing the carved edge — exactly 12px outside the collar */}
           <div
-            className="rounded-full p-2"
+            aria-hidden
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[426px] w-[426px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.08]"
+          />
+          {/* stem + foot into the bottom card */}
+          <div
+            aria-hidden
+            className="absolute left-1/2 top-full h-8 w-4 -translate-x-1/2"
             style={{
-              background:
-                "linear-gradient(145deg, rgba(255,255,255,0.09), rgba(255,255,255,0.01) 55%)",
+              background: "#0c0e0d",
+              borderLeft: "1px solid rgba(255,255,255,0.06)",
+              borderRight: "1px solid rgba(255,255,255,0.06)",
             }}
+          />
+          <div
+            aria-hidden
+            className="absolute left-1/2 top-[calc(100%+28px)] h-2 w-14 -translate-x-1/2 rounded-full border border-white/[0.08]"
+            style={{ background: "#11140f" }}
+          />
+          {/* collar — stepped rings */}
+          <div
+            className="group relative rounded-full p-3 transition-transform duration-500 hover:scale-[1.01]"
+            style={{ background: "var(--bg)" }}
           >
             <div
-              className="rounded-full p-4 transition-shadow duration-500 group-hover:shadow-[0_0_60px_rgba(16,185,129,0.12)]"
+              className="rounded-full p-2"
               style={{
                 background:
-                  "radial-gradient(70% 70% at 40% 30%, #141715, #0a0c0b 72%)",
-                boxShadow:
-                  "inset 0 1px 0 rgba(255,255,255,0.06), 0 40px 100px rgba(0,0,0,0.9)",
+                  "linear-gradient(145deg, rgba(255,255,255,0.09), rgba(255,255,255,0.01) 55%)",
               }}
             >
-              <Watch size={330} />
+              <div
+                className="rounded-full p-4 transition-shadow duration-500 group-hover:shadow-[0_0_60px_rgba(16,185,129,0.12)]"
+                style={{
+                  background:
+                    "radial-gradient(70% 70% at 40% 30%, #141715, #0a0c0b 72%)",
+                  boxShadow:
+                    "inset 0 1px 0 rgba(255,255,255,0.06), 0 40px 100px rgba(0,0,0,0.9)",
+                }}
+              >
+                <Watch size={330} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* ── bottom row ──────────────────────────────────────── */}
-      <div className={`${CARD} mt-4`} style={SPOT}>
+      <div className={`${CARD} bite-bot mt-4`} style={SPOT}>
         <div className="grid gap-6 p-7 lg:grid-cols-[1.15fr_auto_1.3fr] lg:gap-10">
           {/* globe zone */}
           <div className="relative min-h-[340px] overflow-hidden">
@@ -339,28 +348,43 @@ export default function Board() {
             <div className="pointer-events-none absolute -bottom-[220px] -left-[100px] h-[520px] w-[520px]">
               <Globe config={GLOBE_CFG} className="!max-w-none" />
             </div>
-            <span className="absolute bottom-24 left-[38%] z-10 rounded-md border border-line bg-bg/90 px-2.5 py-1 font-mono text-xs text-ink backdrop-blur">
-              🇮🇳 India
+            <span
+              className="absolute z-10 rounded-md border border-line bg-bg/90 px-2.5 py-1 font-mono text-xs text-ink backdrop-blur transition-all duration-500"
+              style={
+                zone === "India"
+                  ? { bottom: "6rem", left: "38%" }
+                  : zone === "UK"
+                    ? { top: "9rem", left: "12%" }
+                    : { top: "13rem", left: "2%" }
+              }
+            >
+              {zone === "India" ? "🇮🇳 India" : zone === "UK" ? "🇬🇧 UK" : "🇺🇸 USA"}
             </span>
           </div>
 
           {/* timezone pill column */}
-          <div className="relative z-10 flex flex-row items-center gap-3 lg:mt-28 lg:flex-col lg:justify-start">
+          <div className="relative z-10 flex flex-row items-center gap-3 lg:flex-col lg:justify-start lg:pt-[218px]">
             {[
               { flag: "🇬🇧", name: "UK", time: uk },
-              { flag: "🇮🇳", name: "India", time: ist, hot: true },
+              { flag: "🇮🇳", name: "India", time: ist },
+              { flag: "🇺🇸", name: "USA", time: "" },
             ].map((z) => (
-              <span
+              <button
                 key={z.name}
-                className={`w-fit min-w-[130px] rounded-full border px-4 py-2 text-center text-sm transition-colors ${
-                  z.hot
-                    ? "border-accent/50 bg-accent/10 text-ink"
-                    : "border-line bg-bg/70 text-ink-dim"
+                onClick={() => setZone(z.name)}
+                className={`w-fit min-w-[130px] rounded-full border px-4 py-2.5 text-center text-sm transition-all duration-300 ${
+                  zone === z.name
+                    ? "scale-105 border-transparent bg-ink font-semibold text-bg shadow-[0_8px_24px_rgba(233,238,234,0.15)]"
+                    : "border-line bg-bg/70 text-ink-dim hover:border-ink-faint hover:text-ink"
                 }`}
               >
-                {z.name} {z.flag}{" "}
-                <span className="font-mono text-xs text-ink-faint">{z.time}</span>
-              </span>
+                {z.name} {z.flag}
+                {z.time && (
+                  <span className={`ml-1 font-mono text-xs ${zone === z.name ? "text-bg/60" : "text-ink-faint"}`}>
+                    {z.time}
+                  </span>
+                )}
+              </button>
             ))}
             <p className="kicker mt-2 hidden text-center lg:block">
               📍 remote
