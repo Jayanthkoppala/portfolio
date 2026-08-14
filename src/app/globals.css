@@ -164,24 +164,24 @@ body {
 @media (min-width: 1024px) {
   .bite-mid {
     -webkit-mask-image: radial-gradient(
-      circle 213px at 50% calc(100% + 8px),
+      circle 213px at 50% calc(100% + 20px),
       transparent 212px,
       #000 213px
     );
     mask-image: radial-gradient(
-      circle 213px at 50% calc(100% + 8px),
+      circle 213px at 50% calc(100% + 20px),
       transparent 212px,
       #000 213px
     );
   }
   .bite-bot {
     -webkit-mask-image: radial-gradient(
-      circle 213px at 50% -8px,
+      circle 213px at 50% -20px,
       transparent 212px,
       #000 213px
     );
     mask-image: radial-gradient(
-      circle 213px at 50% -8px,
+      circle 213px at 50% -20px,
       transparent 212px,
       #000 213px
     );

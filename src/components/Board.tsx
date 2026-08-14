@@ -128,7 +128,7 @@ export default function Board() {
   useLayoutEffect(() => {
     const el = topRef.current;
     if (!el) return;
-    const update = () => setCy(el.offsetHeight + 8);
+    const update = () => setCy(el.offsetHeight + 20);
     update();
     const ro = new ResizeObserver(update);
     ro.observe(el);
@@ -283,6 +283,13 @@ export default function Board() {
       {/* ── the watch: measured center, concentric cuts, no arch ── */}
       {cy !== null && (
         <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 z-10 hidden h-px bg-white/[0.06] lg:block"
+          style={{ top: cy }}
+        />
+      )}
+      {cy !== null && (
+        <div
           className="absolute left-1/2 z-20 hidden lg:block"
           style={{ top: cy, transform: "translate(-50%, -50%)" }}
         >
@@ -291,19 +298,29 @@ export default function Board() {
             aria-hidden
             className="pointer-events-none absolute left-1/2 top-1/2 h-[426px] w-[426px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.08]"
           />
-          {/* stem + foot into the bottom card */}
+          {/* stem up into the middle card */}
           <div
             aria-hidden
-            className="absolute left-1/2 top-full h-8 w-4 -translate-x-1/2"
+            className="absolute bottom-full left-1/2 h-8 w-4 -translate-x-1/2"
             style={{
               background: "#0c0e0d",
               borderLeft: "1px solid rgba(255,255,255,0.06)",
               borderRight: "1px solid rgba(255,255,255,0.06)",
             }}
           />
+          {/* stem: long channel dropping past the pills, handle at its end */}
           <div
             aria-hidden
-            className="absolute left-1/2 top-[calc(100%+28px)] h-2 w-14 -translate-x-1/2 rounded-full border border-white/[0.08]"
+            className="absolute left-1/2 top-full h-[230px] w-5 -translate-x-1/2"
+            style={{
+              background: "var(--bg)",
+              borderLeft: "1px solid rgba(255,255,255,0.06)",
+              borderRight: "1px solid rgba(255,255,255,0.06)",
+            }}
+          />
+          <div
+            aria-hidden
+            className="absolute left-1/2 top-[calc(100%+226px)] h-1.5 w-16 -translate-x-1/2 rounded-full border border-white/[0.09]"
             style={{ background: "#11140f" }}
           />
           {/* collar — stepped rings */}
@@ -335,7 +352,7 @@ export default function Board() {
       )}
 
       {/* ── bottom row ──────────────────────────────────────── */}
-      <div className={`${CARD} bite-bot mt-4`} style={SPOT}>
+      <div className={`${CARD} bite-bot mt-10`} style={SPOT}>
         <div className="grid gap-6 p-7 lg:grid-cols-[1.15fr_auto_1.3fr] lg:gap-10">
           {/* globe zone */}
           <div className="relative min-h-[340px] overflow-hidden">
@@ -363,7 +380,7 @@ export default function Board() {
           </div>
 
           {/* timezone pill column */}
-          <div className="relative z-10 flex flex-row items-center gap-3 lg:flex-col lg:justify-start lg:pt-[218px]">
+          <div className="relative z-10 flex flex-row items-center gap-3 lg:-translate-x-14 lg:flex-col lg:justify-start lg:pt-[224px]">
             {[
               { flag: "🇬🇧", name: "UK", time: uk },
               { flag: "🇮🇳", name: "India", time: ist },
