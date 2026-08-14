@@ -296,22 +296,22 @@ export default function Board() {
           {/* stroke tracing the carved edge — exactly 12px outside the collar */}
           <div
             aria-hidden
-            className="pointer-events-none absolute left-1/2 top-1/2 h-[452px] w-[452px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.08]"
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[516px] w-[516px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.08]"
           />
           {/* stem up: bridges exactly the carve gap into the middle card */}
           <div
             aria-hidden
-            className="absolute bottom-full left-1/2 h-[13px] w-5 -translate-x-1/2"
+            className="absolute bottom-full left-1/2 h-[14px] w-6 -translate-x-1/2"
             style={{
               background: "var(--bg)",
               borderLeft: "1px solid rgba(255,255,255,0.06)",
               borderRight: "1px solid rgba(255,255,255,0.06)",
             }}
           />
-          {/* stem down: bridges into the carved column */}
+          {/* neck under the disc, opening into the column */}
           <div
             aria-hidden
-            className="absolute left-1/2 top-full h-[44px] w-5 -translate-x-1/2"
+            className="absolute left-1/2 top-full h-14 w-10 -translate-x-1/2"
             style={{
               background: "var(--bg)",
               borderLeft: "1px solid rgba(255,255,255,0.06)",
@@ -347,7 +347,7 @@ export default function Board() {
       )}
 
       {/* ── bottom row: two cards, pills live in the carved column ── */}
-      <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_210px_1fr] lg:gap-0">
+      <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_230px_1fr] lg:gap-0">
         {/* globe card */}
         <div className={`${CARD} bite-corner-r`} style={SPOT}>
           <div className="relative min-h-[400px] overflow-hidden p-7">
@@ -372,36 +372,38 @@ export default function Board() {
             >
               {zone === "India" ? "🇮🇳 India" : zone === "UK" ? "🇬🇧 UK" : "🇺🇸 USA"}
             </span>
-            <div className="relative z-10 mt-5 flex flex-row flex-wrap gap-3 lg:absolute lg:inset-x-7 lg:bottom-6 lg:mt-0 lg:justify-end">
-              {[
-                { flag: "🇬🇧", name: "UK", time: uk },
-                { flag: "🇮🇳", name: "India", time: ist },
-                { flag: "🇺🇸", name: "USA", time: "" },
-              ].map((z) => (
-                <button
-                  key={z.name}
-                  onClick={() => setZone(z.name)}
-                  className={`w-fit min-w-[128px] rounded-full border px-4 py-2.5 text-center text-sm transition-all duration-300 ${
-                    zone === z.name
-                      ? "scale-105 border-transparent bg-ink font-semibold text-bg shadow-[0_8px_24px_rgba(233,238,234,0.15)]"
-                      : "border-line bg-bg/70 text-ink-dim hover:border-ink-faint hover:text-ink"
-                  }`}
-                >
-                  {z.name} {z.flag}
-                  {z.time && (
-                    <span className={`ml-1 font-mono text-xs ${zone === z.name ? "text-bg/60" : "text-ink-faint"}`}>
-                      {z.time}
-                    </span>
-                  )}
-                </button>
-              ))}
-            </div>
           </div>
         </div>
 
-        {/* carved column — just the stem handle */}
-        <div className="relative z-10 hidden lg:flex lg:flex-col">
-          <span className="mt-auto mb-1 mx-auto h-1.5 w-14 rounded-full border border-white/[0.09] bg-[#11140f]" />
+        {/* carved column — pills stack in the void */}
+        <div className="relative z-10 flex flex-row items-center justify-center gap-4 lg:flex-col lg:items-center lg:justify-start lg:gap-5 lg:pt-[300px]">
+          {[
+            { flag: "🇬🇧", name: "UK", time: uk },
+            { flag: "🇮🇳", name: "India", time: ist },
+            { flag: "🇺🇸", name: "USA", time: "" },
+          ].map((z) => (
+            <button
+              key={z.name}
+              onClick={() => setZone(z.name)}
+              className={`w-fit min-w-[132px] rounded-full border px-5 py-3 text-center text-sm transition-all duration-300 ${
+                zone === z.name
+                  ? "scale-105 border-transparent bg-ink font-semibold text-bg shadow-[0_8px_24px_rgba(233,238,234,0.15)]"
+                  : "border-line bg-[#0e1210] text-ink-dim hover:border-ink-faint hover:text-ink"
+              }`}
+            >
+              {z.name} {z.flag}
+              {z.time && (
+                <span className={`ml-1 font-mono text-xs ${zone === z.name ? "text-bg/60" : "text-ink-faint"}`}>
+                  {z.time}
+                </span>
+              )}
+            </button>
+          ))}
+          <div className="mt-6 hidden text-center lg:block">
+            <p className="kicker">◎ remote</p>
+            <p className="mt-0.5 text-lg font-semibold text-ink">India</p>
+          </div>
+          <span className="mt-auto mb-1 hidden h-1.5 w-14 rounded-full border border-white/[0.09] bg-[#11140f] lg:block" />
         </div>
 
         {/* founder + phones card */}
