@@ -8,6 +8,9 @@ const IDS = [
   "1908253253730500716", // Uniswap Foundation prize
   "1953448415242723438", // Recall/Gaia $1500 -> job
   "1864403099470975119", // Polkadot bounty
+  "1905868856201195986", // VixDex build thread
+  "2002170394623807826", // Xtheo perps-agent demo
+  "2083173402932851055", // Sarvam AI Startup Program acceptance
 ];
 
 const out = {};

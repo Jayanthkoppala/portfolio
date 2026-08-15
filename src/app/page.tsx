@@ -237,9 +237,6 @@ export default function Home() {
         <div className="relative z-10 mx-auto max-w-6xl px-6">
           <Head caps="The" serif="receipts." />
           <ReceiptTweets />
-          <p className="serif-accent mt-4 text-xl text-ink-dim">
-            Plus a few smaller ones I never posted about.
-          </p>
         </div>
       </section>
 

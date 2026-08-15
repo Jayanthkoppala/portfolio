@@ -429,3 +429,31 @@ body {
   font-size: 0.75em;
   vertical-align: 0.15em;
 }
+
+/* ── receipts marquee rails ── */
+.receipt-rails {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.rail-track {
+  animation: rail-scroll 48s linear infinite;
+}
+.rail-track-reverse {
+  animation: rail-scroll 56s linear infinite reverse;
+}
+.receipt-rail:hover .rail-track,
+.receipt-rail:hover .rail-track-reverse {
+  animation-play-state: paused;
+}
+@keyframes rail-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rail-track,
+  .rail-track-reverse {
+    animation: none;
+  }
+}

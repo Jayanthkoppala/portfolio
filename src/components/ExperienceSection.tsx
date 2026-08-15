@@ -1,9 +1,8 @@
 /**
- * WHERE I'VE WORKED — the career line instrument + chapter panel,
- * followed by hackathons & communities prose with inline receipts.
+ * WHERE I'VE WORKED — the career line instrument + chapter panel.
+ * Hackathons & communities live in the receipts section now.
  */
 import ProofLink from "@/components/ProofLink";
-import { BlurFade } from "@/components/ui/blur-fade";
 import CareerLine, { type CareerEntry, type Spark } from "@/components/CareerLine";
 
 const LINKS = {
@@ -205,58 +204,6 @@ export default function ExperienceSection() {
     <div>
       <CareerLine entries={ENTRIES} sparks={SPARKS} />
 
-      {/* ── hackathons ── */}
-      <BlurFade delay={0.1} inView>
-        <div className="mx-auto mt-20 max-w-5xl border-t border-line pt-10">
-          <p className="kicker mb-4">hackathons</p>
-          <p className="max-w-3xl text-[0.95rem] leading-relaxed text-ink-dim">
-            I&apos;ve been entering hackathons since college, and the wins
-            carry receipts. Second place at the TON Bootcamp with TonMate —{" "}
-            <ProofLink href={LINKS.ton}>$1,500, my own announcement</ProofLink>
-            . A prize at the Uniswap Hook Incubator for VixDex, a
-            volatility-trading hook —{" "}
-            <ProofLink href={LINKS.atrium}>
-              Atrium&apos;s announcement
-            </ProofLink>
-            , <ProofLink href={LINKS.thread}>the build thread</ProofLink>, and
-            it&apos;s <ProofLink href={LINKS.vixdex}>still live</ProofLink>. A
-            trading-agent competition with Recall + Gaia —{" "}
-            <ProofLink href={LINKS.recall}>
-              9th place, $1,500, and it turned into the Xtheo job
-            </ProofLink>
-            . A{" "}
-            <ProofLink href={LINKS.polkadot}>
-              $300 bounty at the Polkadot Hacker House
-            </ProofLink>{" "}
-            for Jackdot, a Telegram lottery app. The ₹15 lakh MSME grant for
-            Souldem — <ProofLink href={LINKS.mca}>company on record</ProofLink>
-            . And <ProofLink href={LINKS.credibly}>Credibly</ProofLink>, built
-            at BASED India, still deployed. Plus a few smaller ones I never
-            posted about.
-          </p>
-        </div>
-      </BlurFade>
-
-      {/* ── communities ── */}
-      <BlurFade delay={0.15} inView>
-        <div className="mx-auto mt-10 max-w-5xl">
-          <p className="kicker mb-4">communities</p>
-          <p className="max-w-3xl text-[0.95rem] leading-relaxed text-ink-dim">
-            Before the companies, there were the rooms. Technical Director of
-            The Phoenix Guild&apos;s Chandigarh chapter, running sessions on
-            team formation and shipping with people I&apos;d just met.
-            Webmaster for IEEE CIS at Chandigarh University, then Student
-            Representative — I built the summer school&apos;s landing page and
-            learned that community work is mostly showing up. Spoke at the
-            Aleo zkMeetup in Chandigarh on zero-knowledge proofs, back when
-            explaining ZK to a room was still a dare. Since then it&apos;s
-            been hacker houses: AthenaFOSS, where I stayed up solving the
-            Monad CTF riddle after a full workday, and ETHDelhi with the rest
-            of the circus. No badges for any of this. Just the habit of being
-            in rooms where things get built.
-          </p>
-        </div>
-      </BlurFade>
     </div>
   );
 }

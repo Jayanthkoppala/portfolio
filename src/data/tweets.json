@@ -881,5 +881,515 @@
   "news_action_type": "conversation",
   "isEdited": false,
   "isStaleEdit": false
+ },
+ "1905868856201195986": {
+  "__typename": "Tweet",
+  "favorite_count": 24,
+  "lang": "en",
+  "possibly_sensitive": false,
+  "created_at": "2025-03-29T06:25:19.000Z",
+  "display_text_range": [
+   0,
+   241
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/GTgDD546uI",
+     "expanded_url": "https://x.com/FakeName137/status/1905868856201195986/video/1",
+     "indices": [
+      240,
+      263
+     ],
+     "url": "https://t.co/GTgDD546uI"
+    }
+   ],
+   "user_mentions": [
+    {
+     "id_str": "1762600390673956864",
+     "indices": [
+      126,
+      140
+     ],
+     "name": "Atrium Academy",
+     "screen_name": "AtriumAcademy"
+    },
+    {
+     "id_str": "1527389221379506177",
+     "indices": [
+      141,
+      152
+     ],
+     "name": "Uniswap Foundation",
+     "screen_name": "UniswapFND"
+    }
+   ]
+  },
+  "id_str": "1905868856201195986",
+  "text": "Submitted our Project Uniswap V4 Hookathon! \nVixDex – a decentralized volatility trading protocol built on Uniswap V4 Hooks.\n\n@AtriumAcademy @UniswapFND\n\nHere’s a 2-month journey of building an onchain-first product from scratch. 🎥👇VixDex— https://t.co/GTgDD546uI",
+  "user": {
+   "id_str": "1540167296693727233",
+   "name": "Jay",
+   "screen_name": "JayBosshq",
+   "is_blue_verified": true,
+   "profile_image_shape": "Circle",
+   "verified": false,
+   "profile_image_url_https": "https://pbs.twimg.com/profile_images/2048397821905379328/2gj5PUM2_normal.jpg"
+  },
+  "edit_control": {
+   "edit_tweet_ids": [
+    "1905868856201195986"
+   ],
+   "editable_until_msecs": "1743233119000",
+   "edits_remaining": "5",
+   "is_edit_eligible": false
+  },
+  "mediaDetails": [
+   {
+    "additional_media_info": {},
+    "display_url": "pic.x.com/GTgDD546uI",
+    "expanded_url": "https://x.com/FakeName137/status/1905868856201195986/video/1",
+    "ext_media_availability": {
+     "status": "Available"
+    },
+    "indices": [
+     240,
+     263
+    ],
+    "media_url_https": "https://pbs.twimg.com/ext_tw_video_thumb/1905866893145329664/pu/img/tD9A2IUtFUSE-dwL.jpg",
+    "original_info": {
+     "focus_rects": [],
+     "height": 1080,
+     "width": 1920
+    },
+    "sizes": {
+     "large": {
+      "h": 1080,
+      "resize": "fit",
+      "w": 1920
+     },
+     "medium": {
+      "h": 675,
+      "resize": "fit",
+      "w": 1200
+     },
+     "small": {
+      "h": 383,
+      "resize": "fit",
+      "w": 680
+     },
+     "thumb": {
+      "h": 150,
+      "resize": "crop",
+      "w": 150
+     }
+    },
+    "type": "video",
+    "url": "https://t.co/GTgDD546uI",
+    "video_info": {
+     "aspect_ratio": [
+      16,
+      9
+     ],
+     "duration_millis": 346366,
+     "variants": [
+      {
+       "content_type": "application/x-mpegURL",
+       "url": "https://video.twimg.com/ext_tw_video/1905866893145329664/pu/pl/Zh7eXzTzxhi7LTHh.m3u8?tag=12"
+      },
+      {
+       "bitrate": 256000,
+       "content_type": "video/mp4",
+       "url": "https://video.twimg.com/ext_tw_video/1905866893145329664/pu/vid/avc1/480x270/AS4fbrUhjmjglnDZ.mp4?tag=12"
+      },
+      {
+       "bitrate": 832000,
+       "content_type": "video/mp4",
+       "url": "https://video.twimg.com/ext_tw_video/1905866893145329664/pu/vid/avc1/640x360/PiB1gKckFNff-css.mp4?tag=12"
+      },
+      {
+       "bitrate": 2176000,
+       "content_type": "video/mp4",
+       "url": "https://video.twimg.com/ext_tw_video/1905866893145329664/pu/vid/avc1/1280x720/FtbWRgLGbkR8t0Tr.mp4?tag=12"
+      }
+     ]
+    }
+   }
+  ],
+  "photos": [],
+  "video": {
+   "aspectRatio": [
+    16,
+    9
+   ],
+   "contentType": "media_entity",
+   "durationMs": 346366,
+   "mediaAvailability": {
+    "status": "available"
+   },
+   "poster": "https://pbs.twimg.com/ext_tw_video_thumb/1905866893145329664/pu/img/tD9A2IUtFUSE-dwL.jpg",
+   "variants": [
+    {
+     "type": "application/x-mpegURL",
+     "src": "https://video.twimg.com/ext_tw_video/1905866893145329664/pu/pl/Zh7eXzTzxhi7LTHh.m3u8?tag=12"
+    },
+    {
+     "type": "video/mp4",
+     "src": "https://video.twimg.com/ext_tw_video/1905866893145329664/pu/vid/avc1/480x270/AS4fbrUhjmjglnDZ.mp4?tag=12"
+    },
+    {
+     "type": "video/mp4",
+     "src": "https://video.twimg.com/ext_tw_video/1905866893145329664/pu/vid/avc1/640x360/PiB1gKckFNff-css.mp4?tag=12"
+    },
+    {
+     "type": "video/mp4",
+     "src": "https://video.twimg.com/ext_tw_video/1905866893145329664/pu/vid/avc1/1280x720/FtbWRgLGbkR8t0Tr.mp4?tag=12"
+    }
+   ],
+   "videoId": {
+    "type": "tweet",
+    "id": "1905868856201195986"
+   },
+   "viewCount": 0
+  },
+  "conversation_count": 4,
+  "news_action_type": "conversation",
+  "isEdited": false,
+  "isStaleEdit": false
+ },
+ "2002170394623807826": {
+  "__typename": "Tweet",
+  "favorite_count": 1,
+  "lang": "en",
+  "possibly_sensitive": false,
+  "created_at": "2025-12-20T00:13:15.000Z",
+  "display_text_range": [
+   0,
+   274
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/OxH4Rp9Lj3",
+     "expanded_url": "https://x.com/FakeName137/status/2002170394623807826/video/1",
+     "indices": [
+      275,
+      298
+     ],
+     "url": "https://t.co/OxH4Rp9Lj3"
+    }
+   ]
+  },
+  "id_str": "2002170394623807826",
+  "text": "“Who said LLMs can’t trade?”\n\nI don’t know technical indicators.\nI don’t know what OHLCV means.\nI’m not a pro trader.\nYet I’m trading perpetuals right now.\nHow?\n\n• Pick a strategy\n• Paper trade it\n• Watch results\n• Go live when confident\n\nYes — it’s autonomous.\n\nNo fear. No https://t.co/OxH4Rp9Lj3",
+  "user": {
+   "id_str": "1540167296693727233",
+   "name": "Jay",
+   "screen_name": "JayBosshq",
+   "is_blue_verified": true,
+   "profile_image_shape": "Circle",
+   "verified": false,
+   "profile_image_url_https": "https://pbs.twimg.com/profile_images/2048397821905379328/2gj5PUM2_normal.jpg"
+  },
+  "edit_control": {
+   "edit_tweet_ids": [
+    "2002170394623807826"
+   ],
+   "editable_until_msecs": "1766193195000",
+   "edits_remaining": "5",
+   "is_edit_eligible": true
+  },
+  "mediaDetails": [
+   {
+    "additional_media_info": {},
+    "display_url": "pic.x.com/OxH4Rp9Lj3",
+    "expanded_url": "https://x.com/FakeName137/status/2002170394623807826/video/1",
+    "ext_media_availability": {
+     "status": "Available"
+    },
+    "indices": [
+     275,
+     298
+    ],
+    "media_url_https": "https://pbs.twimg.com/amplify_video_thumb/2002170291834007555/img/yTty7AzA6eA9OrSZ.jpg",
+    "original_info": {
+     "focus_rects": [],
+     "height": 720,
+     "width": 1412
+    },
+    "sizes": {
+     "large": {
+      "h": 720,
+      "resize": "fit",
+      "w": 1412
+     },
+     "medium": {
+      "h": 612,
+      "resize": "fit",
+      "w": 1200
+     },
+     "small": {
+      "h": 347,
+      "resize": "fit",
+      "w": 680
+     },
+     "thumb": {
+      "h": 150,
+      "resize": "crop",
+      "w": 150
+     }
+    },
+    "type": "video",
+    "url": "https://t.co/OxH4Rp9Lj3",
+    "video_info": {
+     "aspect_ratio": [
+      353,
+      180
+     ],
+     "duration_millis": 32866,
+     "variants": [
+      {
+       "content_type": "application/x-mpegURL",
+       "url": "https://video.twimg.com/amplify_video/2002170291834007555/pl/8kKPDiFoY9PJPbFH.m3u8"
+      },
+      {
+       "bitrate": 256000,
+       "content_type": "video/mp4",
+       "url": "https://video.twimg.com/amplify_video/2002170291834007555/vid/avc1/528x270/b-MfxIJpmP3x3i1r.mp4"
+      },
+      {
+       "bitrate": 832000,
+       "content_type": "video/mp4",
+       "url": "https://video.twimg.com/amplify_video/2002170291834007555/vid/avc1/706x360/SoPbXI3TkjmZk2LS.mp4"
+      },
+      {
+       "bitrate": 2176000,
+       "content_type": "video/mp4",
+       "url": "https://video.twimg.com/amplify_video/2002170291834007555/vid/avc1/1412x720/cABDPFhNi3c-JgIj.mp4"
+      }
+     ]
+    }
+   }
+  ],
+  "photos": [],
+  "video": {
+   "aspectRatio": [
+    353,
+    180
+   ],
+   "contentType": "media_entity",
+   "durationMs": 32866,
+   "mediaAvailability": {
+    "status": "available"
+   },
+   "poster": "https://pbs.twimg.com/amplify_video_thumb/2002170291834007555/img/yTty7AzA6eA9OrSZ.jpg",
+   "variants": [
+    {
+     "type": "application/x-mpegURL",
+     "src": "https://video.twimg.com/amplify_video/2002170291834007555/pl/8kKPDiFoY9PJPbFH.m3u8"
+    },
+    {
+     "type": "video/mp4",
+     "src": "https://video.twimg.com/amplify_video/2002170291834007555/vid/avc1/528x270/b-MfxIJpmP3x3i1r.mp4"
+    },
+    {
+     "type": "video/mp4",
+     "src": "https://video.twimg.com/amplify_video/2002170291834007555/vid/avc1/706x360/SoPbXI3TkjmZk2LS.mp4"
+    },
+    {
+     "type": "video/mp4",
+     "src": "https://video.twimg.com/amplify_video/2002170291834007555/vid/avc1/1412x720/cABDPFhNi3c-JgIj.mp4"
+    }
+   ],
+   "videoId": {
+    "type": "tweet",
+    "id": "2002170394623807826"
+   },
+   "viewCount": 0
+  },
+  "conversation_count": 0,
+  "news_action_type": "conversation",
+  "isEdited": false,
+  "isStaleEdit": false,
+  "note_tweet": {
+   "id": "Tm90ZVR3ZWV0UmVzdWx0czoyMDAyMTcwMzk0NTMxNTQwOTk1"
+  }
+ },
+ "2083173402932851055": {
+  "__typename": "Tweet",
+  "favorite_count": 36,
+  "lang": "en",
+  "possibly_sensitive": false,
+  "created_at": "2026-07-31T12:50:17.000Z",
+  "display_text_range": [
+   0,
+   282
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/BugDAD8Tcc",
+     "expanded_url": "https://x.com/JayBosshq/status/2083173402932851055/photo/1",
+     "indices": [
+      280,
+      303
+     ],
+     "url": "https://t.co/BugDAD8Tcc"
+    }
+   ],
+   "user_mentions": [
+    {
+     "id_str": "1670310861586460673",
+     "indices": [
+      267,
+      276
+     ],
+     "name": "Sarvam",
+     "screen_name": "SarvamAI"
+    }
+   ]
+  },
+  "id_str": "2083173402932851055",
+  "text": "Yesterday I couldn’t make it to Epoch.\n\nToday I woke up to this instead.\n\nBossHQ just got accepted into the Sarvam AI Startup Program 🇮🇳\n\nPerfect timing because we’re launching in 5 days, and Sarvam’s voice AI fits exactly what we’re building.\n\nExcited to build with @SarvamAI. 🚀 https://t.co/BugDAD8Tcc",
+  "user": {
+   "id_str": "1540167296693727233",
+   "name": "Jay",
+   "screen_name": "JayBosshq",
+   "is_blue_verified": true,
+   "profile_image_shape": "Circle",
+   "verified": false,
+   "profile_image_url_https": "https://pbs.twimg.com/profile_images/2048397821905379328/2gj5PUM2_normal.jpg"
+  },
+  "edit_control": {
+   "edit_tweet_ids": [
+    "2083173402932851055"
+   ],
+   "editable_until_msecs": "1785505817000",
+   "edits_remaining": "5",
+   "is_edit_eligible": true
+  },
+  "mediaDetails": [
+   {
+    "display_url": "pic.x.com/BugDAD8Tcc",
+    "expanded_url": "https://x.com/JayBosshq/status/2083173402932851055/photo/1",
+    "ext_media_availability": {
+     "status": "Available"
+    },
+    "indices": [
+     280,
+     303
+    ],
+    "media_url_https": "https://pbs.twimg.com/media/HOjrKksbMAAX9aW.jpg",
+    "original_info": {
+     "focus_rects": [
+      {
+       "h": 712,
+       "w": 1272,
+       "x": 0,
+       "y": 184
+      },
+      {
+       "h": 1250,
+       "w": 1250,
+       "x": 0,
+       "y": 0
+      },
+      {
+       "h": 1250,
+       "w": 1096,
+       "x": 0,
+       "y": 0
+      },
+      {
+       "h": 1250,
+       "w": 625,
+       "x": 0,
+       "y": 0
+      },
+      {
+       "h": 1250,
+       "w": 1272,
+       "x": 0,
+       "y": 0
+      }
+     ],
+     "height": 1250,
+     "width": 1272
+    },
+    "sizes": {
+     "large": {
+      "h": 1250,
+      "resize": "fit",
+      "w": 1272
+     },
+     "medium": {
+      "h": 1179,
+      "resize": "fit",
+      "w": 1200
+     },
+     "small": {
+      "h": 668,
+      "resize": "fit",
+      "w": 680
+     },
+     "thumb": {
+      "h": 150,
+      "resize": "crop",
+      "w": 150
+     }
+    },
+    "type": "photo",
+    "url": "https://t.co/BugDAD8Tcc"
+   }
+  ],
+  "photos": [
+   {
+    "backgroundColor": {
+     "red": 204,
+     "green": 214,
+     "blue": 221
+    },
+    "cropCandidates": [
+     {
+      "h": 712,
+      "w": 1272,
+      "x": 0,
+      "y": 184
+     },
+     {
+      "h": 1250,
+      "w": 1250,
+      "x": 0,
+      "y": 0
+     },
+     {
+      "h": 1250,
+      "w": 1096,
+      "x": 0,
+      "y": 0
+     },
+     {
+      "h": 1250,
+      "w": 625,
+      "x": 0,
+      "y": 0
+     },
+     {
+      "h": 1250,
+      "w": 1272,
+      "x": 0,
+      "y": 0
+     }
+    ],
+    "expandedUrl": "https://x.com/JayBosshq/status/2083173402932851055/photo/1",
+    "url": "https://pbs.twimg.com/media/HOjrKksbMAAX9aW.jpg",
+    "width": 1272,
+    "height": 1250
+   }
+  ],
+  "conversation_count": 5,
+  "news_action_type": "conversation",
+  "isEdited": false,
+  "isStaleEdit": false
  }
 }
