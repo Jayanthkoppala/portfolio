@@ -2,10 +2,11 @@ import type { Tweet } from "react-tweet/api";
 import tweets from "@/data/tweets.json";
 
 /**
- * THE RECEIPTS — one continuous evidence wall. Two opposite marquee rails
- * carrying four card species: tweets (from the committed snapshot), wins
- * (hackathon medals), rooms (community roles), and facts (registry records,
- * live deployments). Nothing is prose; every claim is a card with a link.
+ * THE RECEIPTS — one continuous evidence wall. Three opposite-direction
+ * marquee rails carrying four card species: tweets (committed snapshot),
+ * wins (hackathon medals), rooms (community roles — every one linked to a
+ * real receipt on LinkedIn or X), and facts (registry records, live
+ * deployments). Nothing is prose; every claim is a card with a link.
  */
 const T = tweets as unknown as Record<string, Tweet>;
 
@@ -43,32 +44,48 @@ const WINS: Win[] = [
   },
 ];
 
-type Room = { org: string; role: string; note: string };
+type Room = {
+  org: string;
+  role: string;
+  note: string;
+  href: string;
+  src: string;
+};
 const ROOMS: Room[] = [
   {
     org: "The Phoenix Guild",
     role: "Technical Director · Chandigarh",
-    note: "Ran sessions on team formation and shipping with strangers.",
+    note: "Hosted the sessions myself — receipt on LinkedIn.",
+    href: "https://www.linkedin.com/feed/update/urn:li:activity:7134208457670336512/",
+    src: "linkedin",
   },
   {
     org: "IEEE CIS",
-    role: "Webmaster → Student Rep",
-    note: "Built the summer school's landing page. Kept showing up.",
+    role: "Executive Member · Webmaster",
+    note: "The appointment post, and a GitHub session I co-led.",
+    href: "https://www.linkedin.com/feed/update/urn:li:activity:7162122191340290048/",
+    src: "linkedin",
   },
   {
     org: "Aleo zkMeetup",
     role: "Speaker",
-    note: "Explained zero-knowledge proofs when that was still a dare.",
+    note: "Phoenix Guild × Aleo Chandigarh — the event invite.",
+    href: "https://www.linkedin.com/feed/update/urn:li:activity:7171564639317680128/",
+    src: "linkedin",
   },
   {
     org: "AthenaFOSS",
     role: "Hacker house",
     note: "Solved the Monad CTF riddle after a full workday.",
+    href: "https://x.com/JayBosshq/status/1968547768495923492",
+    src: "x",
   },
   {
     org: "ETHDelhi",
     role: "Hacker house",
     note: "With the rest of the circus.",
+    href: "https://x.com/JayBosshq/status/1971584564632985757",
+    src: "x",
   },
 ];
 
@@ -116,10 +133,10 @@ function fmtDate(iso: string) {
 
 function TweetCard({ id }: { id: string }) {
   const t = T[id];
-  const photos = (
+  const media =
     (t as { mediaDetails?: { type: string; media_url_https: string }[] })
-      .mediaDetails ?? []
-  ).filter((m) => m.type === "photo");
+      .mediaDetails ?? [];
+  const first = media[0];
   return (
     <a
       href={`https://x.com/JayBosshq/status/${id}`}
@@ -152,20 +169,28 @@ function TweetCard({ id }: { id: string }) {
       </div>
       <p
         className={`mt-3 text-[0.88rem] leading-relaxed text-ink-dim ${
-          photos.length ? "line-clamp-3" : "line-clamp-5"
+          first ? "line-clamp-3" : "line-clamp-5"
         }`}
       >
         {cleanText(t.text)}
       </p>
-      {photos.length > 0 && (
-        <div className="mt-auto pt-3">
+      {first && (
+        <div className="relative mt-auto pt-3">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={photos[0].media_url_https}
+            src={first.media_url_https}
             alt=""
             className="h-20 w-full rounded-xl border border-line object-cover"
             loading="lazy"
           />
+          {first.type !== "photo" && (
+            <span
+              aria-hidden
+              className="absolute bottom-2 left-2 grid h-7 w-7 place-items-center rounded-full bg-bg/80 text-[0.6rem] text-ink backdrop-blur"
+            >
+              ▶
+            </span>
+          )}
         </div>
       )}
     </a>
@@ -182,8 +207,10 @@ function WinCard({ w }: { w: Win }) {
     >
       <div>
         <p className="kicker !text-accent">hackathon win</p>
-        <p style={{ fontFamily: "var(--font-anton)" }}
-          className="mt-2 text-xl uppercase leading-tight text-ink">
+        <p
+          style={{ fontFamily: "var(--font-anton)" }}
+          className="mt-2 text-xl uppercase leading-tight text-ink"
+        >
           {w.title}
         </p>
         <p className="serif-accent mt-1 text-lg text-accent">{w.prize}</p>
@@ -203,11 +230,18 @@ function WinCard({ w }: { w: Win }) {
 
 function RoomCard({ r }: { r: Room }) {
   return (
-    <div className="flex w-[260px] shrink-0 flex-col justify-between rounded-2xl border border-dashed border-line bg-bg-raised/40 p-5">
+    <a
+      href={r.href}
+      target="_blank"
+      rel="noreferrer"
+      className="group flex w-[260px] shrink-0 flex-col justify-between rounded-2xl border border-dashed border-line bg-bg-raised/40 p-5 transition-colors hover:border-accent/50"
+    >
       <div>
-        <p className="kicker">the rooms</p>
-        <p style={{ fontFamily: "var(--font-anton)" }}
-          className="mt-2 text-lg uppercase leading-tight text-ink">
+        <p className="kicker">the rooms · {r.src}</p>
+        <p
+          style={{ fontFamily: "var(--font-anton)" }}
+          className="mt-2 text-lg uppercase leading-tight text-ink"
+        >
           {r.org}
         </p>
         <p className="serif-accent mt-1 text-[0.95rem] text-ink-dim">
@@ -216,8 +250,14 @@ function RoomCard({ r }: { r: Room }) {
       </div>
       <p className="mt-4 text-[0.82rem] leading-relaxed text-ink-dim">
         {r.note}
+        <span
+          aria-hidden
+          className="ml-1 inline-block text-ink-faint transition-colors group-hover:text-accent"
+        >
+          ↗
+        </span>
       </p>
-    </div>
+    </a>
   );
 }
 
@@ -267,13 +307,16 @@ function GhostCard() {
 function Rail({
   children,
   reverse,
+  duration,
 }: {
   children: React.ReactNode;
   reverse?: boolean;
+  duration: number;
 }) {
   return (
     <div className="receipt-rail relative">
       <div
+        style={{ animationDuration: `${duration}s` }}
         className={`flex w-max items-stretch gap-4 py-2 ${
           reverse ? "rail-track-reverse" : "rail-track"
         }`}
@@ -286,38 +329,33 @@ function Rail({
 }
 
 export default function ReceiptTweets() {
-  const ids = Object.keys(T);
-  // interleave species so no two of a kind sit together; a win's tweet and
-  // its medal card ride opposite rails
-  const railA: React.ReactNode[] = [
-    <TweetCard key="t0" id={ids[0]} />,
-    <WinCard key="w2" w={WINS[2]} />,
-    <RoomCard key="r0" r={ROOMS[0]} />,
-    <TweetCard key="t3" id={ids[3]} />,
-    <FactCard key="f1" f={FACTS[1]} />,
-    <TweetCard key="t4" id={ids[4]} />,
-    <WinCard key="w4" w={WINS[4]} />,
-    <RoomCard key="r3" r={ROOMS[3]} />,
-    <TweetCard key="t6" id={ids[6] ?? ids[0]} />,
-  ];
-  const railB: React.ReactNode[] = [
-    <WinCard key="w0" w={WINS[0]} />,
-    <TweetCard key="t1" id={ids[1]} />,
-    <RoomCard key="r1" r={ROOMS[1]} />,
-    <FactCard key="f0" f={FACTS[0]} />,
-    <TweetCard key="t2" id={ids[2]} />,
-    <WinCard key="w1" w={WINS[1]} />,
-    <RoomCard key="r2" r={ROOMS[2]} />,
-    <TweetCard key="t5" id={ids[5] ?? ids[1]} />,
-    <WinCard key="w3" w={WINS[3]} />,
-    <RoomCard key="r4" r={ROOMS[4]} />,
-    <FactCard key="f2" f={FACTS[2]} />,
-    <GhostCard key="ghost" />,
-  ];
+  const tq = Object.keys(T).map((id) => <TweetCard key={`t-${id}`} id={id} />);
+  const wq = WINS.map((w) => <WinCard key={`w-${w.title}`} w={w} />);
+  const rq = ROOMS.map((r) => <RoomCard key={`r-${r.org}`} r={r} />);
+  const fq = FACTS.map((f) => <FactCard key={`f-${f.title}`} f={f} />);
+
+  // weighted interleave — tweets carry the stream, a win / room / fact
+  // lands between every couple of tweets so no two of a kind touch
+  const pools = [tq, wq, tq, rq, tq, fq];
+  const stream: React.ReactNode[] = [];
+  let pi = 0;
+  while (tq.length || wq.length || rq.length || fq.length) {
+    const pool = pools[pi++ % pools.length];
+    const card =
+      pool.shift() ?? tq.shift() ?? wq.shift() ?? rq.shift() ?? fq.shift();
+    if (card) stream.push(card);
+  }
+  const rails: React.ReactNode[][] = [[], [], []];
+  stream.forEach((c, i) => rails[i % 3].push(c));
+  rails[2].push(<GhostCard key="ghost" />);
+
   return (
     <div className="receipt-rails -mx-6 mt-2 space-y-1 sm:-mx-10">
-      <Rail>{railA}</Rail>
-      <Rail reverse>{railB}</Rail>
+      <Rail duration={72}>{rails[0]}</Rail>
+      <Rail duration={84} reverse>
+        {rails[1]}
+      </Rail>
+      <Rail duration={78}>{rails[2]}</Rail>
     </div>
   );
 }
