@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jayanthkoppala.vercel.app/sitemap.xml

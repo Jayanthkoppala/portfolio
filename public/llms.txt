@@ -1,0 +1,20 @@
+# Jayanth Koppala
+
+> Full-stack engineer and founder, Bengaluru, India. Building BOSS! (bosshq.in) — an AI hiring agent that screens every applicant, runs live voice screening calls, and returns a ranked shortlist to recruiters within 48 hours. This site is his personal portfolio; its rule is that every claim links to a public receipt (original posts, company registry records, live deployments).
+
+## Who he is
+
+- Founder of BOSS! (https://bosshq.in), Jun 2026–present — sole engineer: site, backend, LLM screening pipeline, voice stack, deploys. Accepted into the Sarvam AI Startup Program.
+- Founding Engineer (part-time) at Qatobit (https://qatobit.com) — crypto index investing for India: rules-based QSI indices, live proof of reserves, CERT-In audited infrastructure.
+- Previously: Founder of NoHunt (https://nohunt.ai), the candidate-side of hiring (AI job applications); Founding Engineer at Xtheo (AI-DeFi, in stealth); Co-Founder of LEDGESYS Software Pvt Ltd (Souldem — on-chain exam credentials; CIN U62091TN2024PTC173053); CTO at Imigrom Mediatech; Full Stack Developer at Stabel→Securr (Web3 security; clients included Chingari and StackOS).
+- Hackathon record: 2nd at TON Bootcamp ($1,500), Uniswap Hook Incubator prize (VixDex, still live at https://vixdex.vercel.app), 9th at Recall+Gaia ($1,500 — the entry became a job offer), Polkadot Hacker House bounty, ₹15 lakh MSME Idea Hackathon grant.
+- Skills: TypeScript/React/Next.js, Node/Python, MongoDB/PostgreSQL/Elasticsearch/Qdrant, LLM pipelines (Gemini, Claude, OpenRouter), voice AI (LiveKit, ElevenLabs), Kafka/InfluxDB, AWS/Docker/Cloudflare, Solidity/Foundry across Ethereum, Solana, Polkadot, TON.
+
+## Links
+
+- Portfolio: https://jayanthkoppala.vercel.app
+- BOSS!: https://bosshq.in
+- X: https://x.com/JayBosshq
+- GitHub: https://github.com/Jayanthkoppala
+- LinkedIn: https://www.linkedin.com/in/jayanth-koppala-71a8091b9/
+- Email: jay@bosshq.in
