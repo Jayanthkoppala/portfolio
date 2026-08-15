@@ -49,6 +49,7 @@ interface ProfileCardProps {
   status?: string;
   contactText?: string;
   showUserInfo?: boolean;
+  showHolo?: boolean;
   onContactClick?: () => void;
 }
 
@@ -80,6 +81,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   status = 'Online',
   contactText = 'Contact',
   showUserInfo = true,
+  showHolo = true,
   onContactClick
 }) => {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -498,11 +500,9 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
               gridArea: '1 / -1'
             }}
           >
-            {/* Shine layer */}
-            <div style={shineStyle} />
-
-            {/* Glare layer */}
-            <div style={glareStyle} />
+            {/* Shine + glare: the holographic film — optional */}
+            {showHolo && <div style={shineStyle} />}
+            {showHolo && <div style={glareStyle} />}
 
             {/* Avatar content */}
             <div

@@ -213,6 +213,7 @@ export default function Home() {
               status="Shipping daily"
               contactText="Email"
               showUserInfo
+              showHolo={false}
               enableTilt
               innerGradient="linear-gradient(145deg,#10b98126 0%,#0a0c0bcc 100%)"
             />
