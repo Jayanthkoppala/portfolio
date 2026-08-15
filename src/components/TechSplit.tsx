@@ -19,62 +19,58 @@ type Technology = {
 };
 
 const TECHNOLOGY_ROWS: Technology[][] = [
+  // full-stack
   [
-    { label: "ReactJS", slug: "react", color: "61DAFB" },
-    {
-      label: "NextJS",
-      slug: "nextdotjs",
-      color: "9CA39E",
-      neutral: true,
-    },
     { label: "TypeScript", slug: "typescript", color: "3178C6" },
+    { label: "JavaScript", slug: "javascript", color: "F7DF1E" },
+    { label: "ReactJS", slug: "react", color: "61DAFB" },
+    { label: "NextJS", slug: "nextdotjs", color: "9CA39E", neutral: true },
     { label: "Tailwind CSS", slug: "tailwindcss", color: "06B6D4" },
     { label: "Motion", slug: "framer", color: "FFF312" },
-    { label: "Sanity", slug: "sanity", color: "F03E2F" },
   ],
+  // backend + data
   [
-    { label: "Contentful", slug: "contentful", color: "2478CC" },
     { label: "NodeJS", slug: "nodedotjs", color: "5FA04E" },
-    {
-      label: "ExpressJS",
-      slug: "express",
-      color: "9CA39E",
-      neutral: true,
-    },
-    { label: "PostgreSQL", slug: "postgresql", color: "4169E1" },
-    { label: "MongoDB", slug: "mongodb", color: "47A248" },
-    {
-      label: "Prisma",
-      slug: "prisma",
-      color: "9CA39E",
-      neutral: true,
-    },
-    { label: "Zustand", slug: "zustand", color: "C09B79", mark: "Z" },
-  ],
-  [
-    { label: "Zod", slug: "zod", color: "3E67B1" },
-    { label: "pnpm", slug: "pnpm", color: "F69220" },
+    { label: "ExpressJS", slug: "express", color: "9CA39E", neutral: true },
     { label: "Bun", slug: "bun", color: "F6E4CF", neutral: true },
-    { label: "Git", slug: "git", color: "F05032" },
-    {
-      label: "GitHub",
-      slug: "github",
-      color: "9CA39E",
-      neutral: true,
-    },
-    {
-      label: "Vercel",
-      slug: "vercel",
-      color: "9CA39E",
-      neutral: true,
-    },
+    { label: "Python", slug: "python", color: "3776AB" },
+    { label: "MongoDB", slug: "mongodb", color: "47A248" },
+    { label: "PostgreSQL", slug: "postgresql", color: "4169E1" },
+    { label: "Elasticsearch", slug: "elasticsearch", color: "00BFB3" },
+    { label: "Qdrant", slug: "qdrant", color: "DC244C" },
+  ],
+  // AI + realtime
+  [
+    { label: "Gemini", slug: "googlegemini", color: "8E75B2" },
+    { label: "Claude", slug: "claude", color: "D97757" },
+    { label: "OpenRouter", slug: "openrouter", color: "9CA39E", neutral: true },
+    { label: "LiveKit", slug: "livekit", color: "1FD5F9" },
+    { label: "ElevenLabs", slug: "elevenlabs", color: "9CA39E", neutral: true },
+    { label: "Kafka", slug: "apachekafka", color: "9CA39E", neutral: true },
+    { label: "InfluxDB", slug: "influxdb", color: "22ADF6" },
+  ],
+  // devops
+  [
     { label: "AWS", slug: "amazonwebservices", color: "FF9900", mark: "aws" },
     { label: "Docker", slug: "docker", color: "2496ED" },
-    { label: "Expo", slug: "expo", color: "9CA39E", neutral: true },
-  ],
-  [
-    { label: "Clerk", slug: "clerk", color: "6C47FF" },
+    { label: "Git", slug: "git", color: "F05032" },
+    { label: "GitHub", slug: "github", color: "9CA39E", neutral: true },
+    { label: "GH Actions", slug: "githubactions", color: "2088FF" },
+    { label: "Vercel", slug: "vercel", color: "9CA39E", neutral: true },
+    { label: "Cloudflare", slug: "cloudflare", color: "F38020" },
     { label: "Linux", slug: "linux", color: "FCC624" },
+    { label: "pnpm", slug: "pnpm", color: "F69220" },
+  ],
+  // blockchain
+  [
+    { label: "Solidity", slug: "solidity", color: "9CA39E", neutral: true },
+    { label: "Ethereum", slug: "ethereum", color: "9CA39E", neutral: true },
+    { label: "Foundry", slug: "foundry", color: "F6851B", mark: "⚒" },
+    { label: "Solana", slug: "solana", color: "9945FF" },
+    { label: "Polkadot", slug: "polkadot", color: "E6007A" },
+    { label: "TON", slug: "ton", color: "0098EA" },
+    { label: "Uniswap", slug: "uniswap", color: "FF007A", mark: "🦄" },
+    { label: "IPFS", slug: "ipfs", color: "65C2CB" },
   ],
 ];
 
@@ -214,32 +210,6 @@ export default function TechSplit() {
             reduceMotion={shouldReduceMotion}
           />
         ))}
-      </div>
-
-      <div
-        role="list"
-        aria-label="Technologies I build with"
-        className="relative z-10 mx-auto mt-11 hidden flex-col items-center gap-3 lg:flex"
-      >
-        {TECHNOLOGY_ROWS.map((row, rowIndex) => {
-          const rowOffset = TECHNOLOGY_ROWS.slice(0, rowIndex).reduce(
-            (count, currentRow) => count + currentRow.length,
-            0,
-          );
-
-          return (
-            <div key={row[0].slug} className="flex justify-center gap-3">
-              {row.map((technology, index) => (
-                <TechnologyChip
-                  key={technology.slug}
-                  technology={technology}
-                  index={rowOffset + index}
-                  reduceMotion={shouldReduceMotion}
-                />
-              ))}
-            </div>
-          );
-        })}
       </div>
     </div>
   );
