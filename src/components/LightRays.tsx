@@ -144,10 +144,22 @@ const LightRays: React.FC<LightRaysProps> = ({
 
       if (!containerRef.current) return;
 
-      const renderer = new Renderer({
-        dpr: Math.min(window.devicePixelRatio, 2),
-        alpha: true
-      });
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const allowPointer =
+        followMouse &&
+        !reduceMotion &&
+        window.matchMedia('(any-hover: hover) and (any-pointer: fine)').matches;
+
+      let renderer: InstanceType<typeof Renderer>;
+      try {
+        renderer = new Renderer({
+          dpr: Math.min(window.devicePixelRatio, 2),
+          alpha: true
+        });
+      } catch (error) {
+        console.warn('Light rays unavailable:', error);
+        return;
+      }
       rendererRef.current = renderer;
 
       const gl = renderer.gl;
@@ -308,16 +320,18 @@ void main() {
         const { anchor, dir } = getAnchorAndDir(raysOrigin, w, h);
         uniforms.rayPos.value = anchor;
         uniforms.rayDir.value = dir;
+
+        if (reduceMotion) renderer.render({ scene: mesh });
       };
 
-      const loop = (t: number) => {
+      const renderFrame = (t: number) => {
         if (!rendererRef.current || !uniformsRef.current || !meshRef.current) {
           return;
         }
 
         uniforms.iTime.value = t * 0.001;
 
-        if (followMouse && mouseInfluence > 0.0) {
+        if (allowPointer && mouseInfluence > 0.0) {
           const smoothing = 0.92;
 
           smoothMouseRef.current.x = smoothMouseRef.current.x * smoothing + mouseRef.current.x * (1 - smoothing);
@@ -328,16 +342,23 @@ void main() {
 
         try {
           renderer.render({ scene: mesh });
-          animationIdRef.current = requestAnimationFrame(loop);
         } catch (error) {
           console.warn('WebGL rendering error:', error);
-          return;
         }
+      };
+
+      const loop = (t: number) => {
+        renderFrame(t);
+        animationIdRef.current = requestAnimationFrame(loop);
       };
 
       window.addEventListener('resize', updatePlacement);
       updatePlacement();
-      animationIdRef.current = requestAnimationFrame(loop);
+      if (reduceMotion) {
+        renderFrame(performance.now());
+      } else {
+        animationIdRef.current = requestAnimationFrame(loop);
+      }
 
       cleanupFunctionRef.current = () => {
         if (animationIdRef.current) {
@@ -438,7 +459,12 @@ void main() {
       mouseRef.current = { x, y };
     };
 
-    if (followMouse) {
+    const canFollow =
+      followMouse &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches &&
+      window.matchMedia('(any-hover: hover) and (any-pointer: fine)').matches;
+
+    if (canFollow) {
       window.addEventListener('mousemove', handleMouseMove);
       return () => window.removeEventListener('mousemove', handleMouseMove);
     }

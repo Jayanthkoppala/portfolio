@@ -1,6 +1,6 @@
-// Single source of truth for everything the site says.
-// Claims policy: only publicly-documented facts. See the blueprint's
-// "Never on this page" list before adding anything here.
+// Shared source of truth for stable portfolio data.
+// The richer, source-labeled career chapters live in ExperienceSection.tsx
+// so their public evidence stays beside the exact claim it supports.
 
 export const identity = {
   name: "Jayanth Koppala",
@@ -9,6 +9,9 @@ export const identity = {
     "Full-stack engineer & founder. Bengaluru.",
   ],
   email: "jay@bosshq.in",
+  // Add the real scheduling URL here when it is ready. The navigation keeps
+  // an email fallback so the call action is never a dead end.
+  bookingUrl: null as string | null,
   socials: [
     { label: "X", href: "https://x.com/JayBosshq" },
     { label: "GitHub", href: "https://github.com/Jayanthkoppala" },
@@ -21,65 +24,11 @@ export const identity = {
 };
 
 export const about: string[] = [
-  "The first thing anyone paid me for was marketing. ₹500, three months, I was 16. I freelanced after that and the money got real — and I noticed I was getting better at earning and not at building. So I stopped.",
+  "The first thing anyone paid me for was marketing. ₹500, three months, I was 16. I freelanced after that and the money got real. Then I noticed I was getting better at earning and not at building. So I stopped.",
   "At 17 I left home for a college on the other side of the country, in a state where I didn't speak the language. I picked it for that reason. Nothing there was handled for me. I had to talk to strangers to get anything done.",
-  "College happened around the building, not the other way around. Somewhere in there I interned, worked full-time, ran a business of my own, won hackathons, started companies — stacked on top of classes. I've slept through exams I should have taken and events I wanted to attend because I coded till sunrise. I've been broke with a cracked mac screen, still shipping.",
+  "College happened around the building, not the other way around. Somewhere in there I interned, worked full-time, ran a business of my own, won hackathons, started companies, all stacked on top of classes. I've slept through exams I should have taken and events I wanted to attend because I coded till sunrise. I've been broke with a cracked mac screen, still shipping.",
   "When I go quiet, it's not rest. It's cooking season.",
-  "The pattern, honestly: I put myself somewhere I don't belong and let it change me. Comfort is the thing that's always made me worse. Right now that somewhere is Bengaluru — most nights, still up, building.",
-];
-
-export const experience = [
-  {
-    role: "Founder",
-    org: "BOSS!",
-    period: "Jun 2026 — now",
-    note: "AI round-one screening for India recruiters. Sarvam AI Startup Program. Sole developer — site, backend, AI, voice, all of it.",
-    href: "https://bosshq.in",
-  },
-  {
-    role: "Founding Engineer",
-    org: "Qatobit",
-    period: "May 2026 — now · part-time",
-    note: "Crypto index investing platform — structured QSI indices, proof of reserves, INR rails.",
-    href: "https://qatobit.com",
-  },
-  {
-    role: "Founder",
-    org: "NoHunt",
-    period: "Nov 2025 — May 2026",
-    note: "AI job-application copilot: resume creation, job discovery, auto-apply, tracking.",
-    href: "https://nohunt.ai",
-  },
-  {
-    role: "Founding Engineer",
-    org: "Xtheo",
-    period: "Aug 2025 — Mar 2026",
-    note: "AI Web3/DeFi platform, zero to production. Audited leverage contracts holding user funds. Built and mentored a team of 3.",
-  },
-  {
-    role: "Co-Founder",
-    org: "LEDGESYS (Souldem)",
-    period: "Feb 2024 — Jan 2025",
-    note: "On-chain exam credentials. ₹15L MSME grant, incubated at ITNT, Anna University.",
-  },
-  {
-    role: "CTO",
-    org: "Imigrom Mediatech",
-    period: "Mar — Jul 2023",
-    note: "₹5L revenue, 5+ clients; ran tech, design, sales and marketing.",
-  },
-  {
-    role: "Full Stack Developer",
-    org: "Stabel → Securr",
-    period: "Dec 2022 — Apr 2023",
-    note: "Built the landing page that pulled 2,000 users in 30 days; shipped the bug-bounty platform front and back.",
-  },
-  {
-    role: "Community",
-    org: "TPG · IEEE · Aleo",
-    period: "2023 — 2024",
-    note: "Technical Director, The Phoenix Guild Chandigarh. IEEE CIS Webmaster. Speaker, Aleo zkMeetup.",
-  },
+  "The pattern, honestly: I put myself somewhere I don't belong and let it change me. Comfort is the thing that's always made me worse. Right now that somewhere is Bengaluru. Most nights, still up, building.",
 ];
 
 export const projects = [
@@ -108,7 +57,7 @@ export const projects = [
     problem:
       "You can't trade volatility on-chain the way TradFi trades the VIX.",
     shipped:
-      "A Uniswap V4 hook that prices volatility with no LPs and no oracles — it took the Uniswap Foundation prize at the Hook Incubator. Built with Abdul Haq; I owned the trading interface end to end.",
+      "A Uniswap V4 hook that prices volatility with no LPs and no oracles. It took the Uniswap Foundation prize at the Hook Incubator. Built with Abdul Haq; I owned the trading interface end to end.",
     href: "https://vixdex.vercel.app",
     live: true,
     year: "2025",
@@ -165,8 +114,8 @@ export const wins = [
   },
   {
     line: "₹15 lakh MSME Idea Hackathon grant. Souldem (LEDGESYS).",
-    href: "https://tracxn.com/d/legal-entities/india/ledgesys-software-private-limited/__fqiPlCYIzq7GSQ0teygyeLP3MgCfmkhePuaoGAce3h4",
-    source: "incorporation record",
+    href: "https://www.cuchd.in/uic/computing/achievements.php",
+    source: "Chandigarh University record",
   },
 ];
 
@@ -207,4 +156,4 @@ export const marqueeItems = [
 ];
 
 export const contactCloser =
-  "Building something in hiring? Tell me where you think I'm wrong.";
+  "Building something in hiring? Mail me. I reply to everything.";

@@ -256,6 +256,7 @@ const GradientWaves: React.FC<GradientWavesProps> = ({
 
     const currentMouse: [number, number] = [0.5, 0.5];
     const targetMouse: [number, number] = [0.5, 0.5];
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const onPointerMove = (e: PointerEvent) => {
       const rect = canvas.getBoundingClientRect();
@@ -266,8 +267,10 @@ const GradientWaves: React.FC<GradientWavesProps> = ({
       targetMouse[0] = 0.5;
       targetMouse[1] = 0.5;
     };
-    canvas.addEventListener('pointermove', onPointerMove);
-    canvas.addEventListener('pointerleave', onPointerLeave);
+    if (!reducedMotion) {
+      canvas.addEventListener('pointermove', onPointerMove);
+      canvas.addEventListener('pointerleave', onPointerLeave);
+    }
 
     let raf = 0;
     let isVisible = true;
@@ -288,6 +291,10 @@ const GradientWaves: React.FC<GradientWavesProps> = ({
     };
 
     const tryStart = () => {
+      if (reducedMotion) {
+        renderer.render({ scene: mesh });
+        return;
+      }
       if (isVisible && isPageVisible && raf === 0) raf = requestAnimationFrame(loop);
     };
     const tryStop = () => {
@@ -300,7 +307,8 @@ const GradientWaves: React.FC<GradientWavesProps> = ({
     const io = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting;
-        isVisible ? tryStart() : tryStop();
+        if (isVisible) tryStart();
+        else tryStop();
       },
       { threshold: 0 }
     );
@@ -308,7 +316,8 @@ const GradientWaves: React.FC<GradientWavesProps> = ({
 
     const onVisibility = () => {
       isPageVisible = !document.hidden;
-      isPageVisible ? tryStart() : tryStop();
+      if (isPageVisible) tryStart();
+      else tryStop();
     };
     document.addEventListener('visibilitychange', onVisibility);
 
@@ -334,8 +343,11 @@ const GradientWaves: React.FC<GradientWavesProps> = ({
     if (!container) return;
     const ctx = ctxMap.get(container);
     if (!ctx) return;
-    const { program } = ctx;
-    const u = program.uniforms as Record<string, { value: any }>;
+    const { renderer, program, mesh } = ctx;
+    const u = program.uniforms as Record<
+      string,
+      { value: number | boolean | Float32Array }
+    >;
 
     enableMouseRef.current = mouseInteraction;
 
@@ -371,6 +383,7 @@ const GradientWaves: React.FC<GradientWavesProps> = ({
     cc[0] = cr[0];
     cc[1] = cr[1];
     cc[2] = cr[2];
+    renderer.render({ scene: mesh });
   }, [
     horizonColor,
     waveColor,

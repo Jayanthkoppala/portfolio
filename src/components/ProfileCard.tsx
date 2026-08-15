@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useRef, useCallback, useMemo, useState } from 'react';
+import React, { useEffect, useRef, useCallback, useMemo } from 'react';
 
 const DEFAULT_INNER_GRADIENT = 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)';
 
@@ -50,6 +50,7 @@ interface ProfileCardProps {
   contactText?: string;
   showUserInfo?: boolean;
   showHolo?: boolean;
+  contactHref?: string;
   onContactClick?: () => void;
 }
 
@@ -82,6 +83,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   contactText = 'Contact',
   showUserInfo = true,
   showHolo = true,
+  contactHref,
   onContactClick
 }) => {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -447,7 +449,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   return (
     <div
       ref={wrapRef}
-      className={`relative touch-none ${className}`.trim()}
+      className={`relative mx-auto w-full max-w-[380px] ${enableMobileTilt ? 'touch-none' : 'touch-pan-y'} ${className}`.trim()}
       style={{ perspective: '500px', transform: 'translate3d(0, 0, 0.1px)', ...cardStyle } as React.CSSProperties}
     >
       {behindGlowEnabled && (
@@ -464,8 +466,8 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
         <section
           className="grid relative overflow-hidden"
           style={{
-            height: '80svh',
-            maxHeight: '540px',
+            width: '100%',
+            height: 'auto',
             aspectRatio: '0.718',
             borderRadius: cardRadius,
             backgroundBlendMode: 'color-dodge, normal, normal, normal',
@@ -572,15 +574,26 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                       <div className="text-sm text-white/70 leading-none">{status}</div>
                     </div>
                   </div>
-                  <button
-                    className="border border-white/10 rounded-lg px-4 py-3 text-xs font-semibold text-white/90 cursor-pointer backdrop-blur-[10px] transition-all duration-200 ease-out hover:border-white/40 hover:-translate-y-px"
-                    onClick={handleContactClick}
-                    style={{ pointerEvents: 'auto', display: 'block', gridArea: 'auto', borderRadius: '8px' }}
-                    type="button"
-                    aria-label={`Contact ${name || 'user'}`}
-                  >
-                    {contactText}
-                  </button>
+                  {contactHref ? (
+                    <a
+                      href={contactHref}
+                      className="inline-flex min-h-11 items-center rounded-lg border border-white/10 px-4 py-2.5 text-xs font-semibold text-white/90 backdrop-blur-[10px] transition-[border-color,transform] duration-200 ease-out hover:-translate-y-px hover:border-white/40 active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80"
+                      style={{ pointerEvents: 'auto', gridArea: 'auto', borderRadius: '8px' }}
+                      aria-label={`Email ${name || 'user'}`}
+                    >
+                      {contactText}
+                    </a>
+                  ) : (
+                    <button
+                      className="min-h-11 rounded-lg border border-white/10 px-4 py-2.5 text-xs font-semibold text-white/90 backdrop-blur-[10px] transition-[border-color,transform] duration-200 ease-out hover:-translate-y-px hover:border-white/40 active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80"
+                      onClick={handleContactClick}
+                      style={{ pointerEvents: 'auto', display: 'block', gridArea: 'auto', borderRadius: '8px' }}
+                      type="button"
+                      aria-label={`Contact ${name || 'user'}`}
+                    >
+                      {contactText}
+                    </button>
+                  )}
                 </div>
               )}
             </div>

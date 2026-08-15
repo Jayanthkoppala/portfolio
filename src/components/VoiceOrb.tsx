@@ -20,7 +20,7 @@ const FACTS: { keys: string[]; answer: string }[] = [
   {
     keys: ["win", "hackathon", "prize", "award", "uniswap", "ton"],
     answer:
-      "Documented wins: 2nd place at the TON Hackathon Bootcamp ($1,500, TonMate). A Uniswap Foundation prize at the Hook Incubator for VixDex. $1,500 in the Recall + Gaia trading-agent competition — that one turned into a job offer. A Polkadot Hacker House bounty. And a ₹15 lakh MSME grant for Souldem. Every one links to a public receipt on this page.",
+      "Documented wins: 2nd place at the TON Hackathon Bootcamp ($1,500, TonMate). A Uniswap Foundation prize at the Hook Incubator for VixDex. $1,500 in the Recall + Gaia trading-agent competition — that one turned into a job offer. A Polkadot Hacker House bounty. And a ₹15 lakh MSME Idea Hackathon grant for Souldem. Every one links to a public receipt on this page.",
   },
   {
     keys: ["stack", "tech", "language", "tools", "skills"],

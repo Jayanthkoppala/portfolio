@@ -19,19 +19,27 @@ type Technology = {
 };
 
 const TECHNOLOGY_ROWS: Technology[][] = [
-  // full-stack
   [
     { label: "TypeScript", slug: "typescript", color: "3178C6" },
     { label: "JavaScript", slug: "javascript", color: "F7DF1E" },
     { label: "ReactJS", slug: "react", color: "61DAFB" },
-    { label: "NextJS", slug: "nextdotjs", color: "9CA39E", neutral: true },
+    {
+      label: "NextJS",
+      slug: "nextdotjs",
+      color: "9CA39E",
+      neutral: true,
+    },
     { label: "Tailwind CSS", slug: "tailwindcss", color: "06B6D4" },
     { label: "Motion", slug: "framer", color: "FFF312" },
   ],
-  // backend + data
   [
     { label: "NodeJS", slug: "nodedotjs", color: "5FA04E" },
-    { label: "ExpressJS", slug: "express", color: "9CA39E", neutral: true },
+    {
+      label: "ExpressJS",
+      slug: "express",
+      color: "9CA39E",
+      neutral: true,
+    },
     { label: "Bun", slug: "bun", color: "F6E4CF", neutral: true },
     { label: "Python", slug: "python", color: "3776AB" },
     { label: "MongoDB", slug: "mongodb", color: "47A248" },
@@ -39,7 +47,6 @@ const TECHNOLOGY_ROWS: Technology[][] = [
     { label: "Elasticsearch", slug: "elasticsearch", color: "00BFB3" },
     { label: "Qdrant", slug: "qdrant", color: "DC244C" },
   ],
-  // AI + realtime
   [
     { label: "Gemini", slug: "googlegemini", color: "8E75B2" },
     { label: "Claude", slug: "claude", color: "D97757" },
@@ -49,7 +56,6 @@ const TECHNOLOGY_ROWS: Technology[][] = [
     { label: "Kafka", slug: "apachekafka", color: "9CA39E", neutral: true },
     { label: "InfluxDB", slug: "influxdb", color: "22ADF6" },
   ],
-  // devops
   [
     { label: "AWS", slug: "amazonwebservices", color: "FF9900", mark: "aws" },
     { label: "Docker", slug: "docker", color: "2496ED" },
@@ -61,7 +67,6 @@ const TECHNOLOGY_ROWS: Technology[][] = [
     { label: "Linux", slug: "linux", color: "FCC624" },
     { label: "pnpm", slug: "pnpm", color: "F69220" },
   ],
-  // blockchain
   [
     { label: "Solidity", slug: "solidity", color: "9CA39E", neutral: true },
     { label: "Ethereum", slug: "ethereum", color: "9CA39E", neutral: true },
@@ -98,12 +103,12 @@ function TechnologyChip({
         delay: reduceMotion ? 0 : Math.min(index * 0.022, 0.34),
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="group/chip inline-flex h-8 items-center gap-2 rounded-lg border border-ink/[0.1] bg-ink/[0.025] px-2.5 font-mono text-[12px] tracking-[0.015em] text-ink-dim shadow-[inset_0_1px_0_var(--surface-highlight)] transition-[border-color,background-color,color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-ink/[0.2] hover:bg-ink/[0.055] hover:text-ink hover:shadow-[inset_0_1px_0_var(--surface-highlight),0_8px_24px_rgba(0,0,0,0.08)] sm:h-9 sm:px-3 sm:text-sm"
+      className="group/chip inline-flex h-[30px] items-center gap-1.5 rounded-lg border border-ink/[0.1] bg-ink/[0.025] px-2 font-mono text-[11px] tracking-[0.01em] text-ink-dim shadow-[inset_0_1px_0_var(--surface-highlight)] transition-[border-color,background-color,color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-ink/[0.2] hover:bg-ink/[0.055] hover:text-ink hover:shadow-[inset_0_1px_0_var(--surface-highlight),0_8px_24px_rgba(0,0,0,0.08)] sm:h-8 sm:gap-2 sm:px-2.5 sm:text-xs"
     >
       {technology.mark ? (
         <span
           aria-hidden="true"
-          className="grid h-[18px] min-w-[18px] shrink-0 place-items-center font-sans text-[9px] font-bold leading-none transition-transform duration-200 group-hover/chip:scale-105"
+          className="grid h-4 min-w-4 shrink-0 place-items-center font-sans text-[8px] font-bold leading-none transition-transform duration-200 group-hover/chip:scale-105 sm:h-[17px] sm:min-w-[17px] sm:text-[9px]"
           style={{ color: `#${technology.color}` }}
         >
           {technology.mark}
@@ -111,7 +116,7 @@ function TechnologyChip({
       ) : (
         <span
           aria-hidden="true"
-          className="h-[17px] w-[17px] shrink-0 transition-transform duration-200 group-hover/chip:scale-105 sm:h-[18px] sm:w-[18px]"
+          className="h-4 w-4 shrink-0 transition-transform duration-200 group-hover/chip:scale-105 sm:h-[17px] sm:w-[17px]"
           style={{
             backgroundColor: technology.neutral
               ? "var(--ink-dim)"
@@ -139,7 +144,7 @@ export default function TechSplit() {
     target: sectionRef,
     offset: ["start end", "end start"],
   });
-  const rawRotation = useTransform(scrollYProgress, [0, 1], [28, 720]);
+  const rawRotation = useTransform(scrollYProgress, [0, 1], [28, 420]);
   const smoothRotation = useSpring(rawRotation, {
     stiffness: 50,
     damping: 20,
@@ -149,11 +154,11 @@ export default function TechSplit() {
   return (
     <div
       ref={sectionRef}
-      className="relative isolate mx-auto min-h-[660px] overflow-hidden pt-[185px] sm:min-h-[710px] sm:pt-[235px] lg:min-h-[740px] lg:pt-[305px]"
+      className="relative isolate mx-auto min-h-[545px] overflow-hidden pt-[190px] sm:min-h-[580px] sm:pt-[235px] xl:min-h-[540px] xl:pt-[245px]"
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-0 h-[270px] w-[270px] -translate-x-1/2 sm:h-[340px] sm:w-[340px] lg:h-[430px] lg:w-[430px]"
+        className="pointer-events-none absolute left-1/2 top-0 h-[250px] w-[250px] -translate-x-1/2 sm:h-[290px] sm:w-[290px] xl:h-[330px] xl:w-[330px]"
       >
         <motion.div
           className="relative h-full w-full transform-gpu"
@@ -186,21 +191,28 @@ export default function TechSplit() {
         }}
         className="relative z-10 text-center"
       >
-        <p className="kicker !text-[0.68rem] !text-white tracking-[0.23em] mix-blend-difference">
+        <p className="kicker !text-[0.65rem] !text-[var(--hero-meta)] tracking-[0.21em]">
           My skillset
         </p>
-        <h2 className="mt-4 text-balance text-[clamp(3.2rem,7vw,5.1rem)] font-semibold leading-[0.92] tracking-[-0.06em] text-ink">
-          The Magic{" "}
-          <span className="serif-accent bg-[linear-gradient(105deg,#db1bc5_0%,#fc396a_52%,#ff7b3d_100%)] bg-clip-text pr-[0.06em] text-transparent">
-            Behind
+        <h2
+          id="stack-title"
+          className="mt-3 text-balance text-[clamp(2.85rem,6.2vw,4.2rem)] font-semibold leading-[0.92] tracking-[-0.06em] text-ink"
+        >
+          What I ship{" "}
+          <span className="serif-accent pr-[0.06em] text-accent">
+            with.
           </span>
         </h2>
+        <p className="mx-auto mt-4 max-w-md text-pretty text-xs leading-5 text-ink-dim sm:text-sm">
+          The tools I actually ship with, end
+          to end.
+        </p>
       </motion.div>
 
       <div
         role="list"
         aria-label="Technologies I build with"
-        className="relative z-10 mx-auto mt-9 flex max-w-[760px] flex-wrap justify-center gap-2.5 px-1 sm:mt-10 sm:gap-3 lg:hidden"
+        className="relative z-10 mx-auto mt-7 flex max-w-[560px] flex-wrap justify-center gap-2 px-1 sm:mt-8 sm:gap-2.5"
       >
         {TECHNOLOGIES.map((technology, index) => (
           <TechnologyChip

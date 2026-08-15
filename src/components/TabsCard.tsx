@@ -39,7 +39,7 @@ export default function TabsCard() {
       <h3 className="mt-3 text-2xl font-bold leading-none tracking-tight">
         Products
         <br />
-        <span className="serif-accent text-ink-dim">you can trust.</span>
+        <span className="serif-accent text-ink-dim">that hold up.</span>
       </h3>
       <div className="mt-4 flex flex-wrap gap-2">
         {TABS.map((t, i) => (

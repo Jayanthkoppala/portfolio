@@ -72,7 +72,7 @@ const TABS = [
   {
     key: "Agents",
     head: "Systems that act",
-    body: "Agents that do the work, not chatbots that describe it — running without me in the loop.",
+    body: "Agents that finish the work without me in the loop. Chatbots just talk about it.",
   },
   {
     key: "Voice",
@@ -436,7 +436,7 @@ export default function Board() {
                 </span>
                 <span className="kicker whitespace-nowrap">products that act</span>
               </span>
-              <p className="kicker flex items-center gap-1.5 whitespace-nowrap">
+              <p className="kicker hidden items-center gap-1.5 whitespace-nowrap sm:flex">
                 philosophy
                 <Sparkles size={12} strokeWidth={1.6} className="text-accent" aria-hidden />
               </p>
@@ -447,11 +447,11 @@ export default function Board() {
                   Products
                 </h3>
                 <p className="serif-accent mt-1 text-3xl text-ink-dim">
-                  you can trust.
+                  that hold up.
                 </p>
                 <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-dim text-pretty">
-                  I sweat the screening call, the contract audit, the deploy —
-                  the stuff that has to hold.
+                  I sweat the screening call, the contract audit, the deploy.
+                  The parts that have to hold when it matters.
                 </p>
               </div>
               <div className="sm:-mt-2 sm:text-right">
@@ -667,9 +667,9 @@ export default function Board() {
           >
             <p className="kicker">available globally</p>
             <h3 className="mt-2 text-2xl font-bold leading-tight text-balance">
-              Adaptable across
+              IST on paper,
               <br />
-              time zones
+              awake on yours
             </h3>
             <div className="absolute -bottom-[160px] -left-[142px] z-0 h-[480px] w-[480px] sm:-bottom-[88px] sm:-left-[124px]">
               <Globe config={GLOBE_CFG} className="!max-w-none" />
@@ -724,7 +724,7 @@ export default function Board() {
                 href="https://bosshq.in"
                 target="_blank"
                 rel="noreferrer"
-                className={`group/boss relative inline-flex items-center gap-1 ${FOCUS_RING}`}
+                className={`group/boss relative inline-flex min-h-11 items-center gap-1 ${FOCUS_RING}`}
               >
                 <span className="serif-accent bg-gradient-to-r from-accent to-[#6ee7b7] bg-clip-text text-transparent">
                   BOSS!
