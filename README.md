@@ -9,9 +9,11 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 
-https://github.com/Jayanthkoppala/portfolio/raw/main/docs/demo.mp4
+<a href="https://jayanthkoppala.vercel.app">
+  <img src="docs/demo.gif" alt="Walkthrough of the portfolio: molten hero, the desk board, the career console, the proof wall" width="820">
+</a>
 
-<sub>Video not playing? <a href="docs/demo.mp4">Download the walkthrough</a> · or just <a href="https://jayanthkoppala.vercel.app">open the site</a>.</sub>
+<sub><a href="docs/demo.mp4">▶ Full walkthrough with sound (25s)</a> · <a href="https://jayanthkoppala.vercel.app">Open the live site</a></sub>
 
 </div>
 
