@@ -15,9 +15,6 @@ import { ArrowUpRight } from "lucide-react";
 import { useCallback, useRef, useState } from "react";
 import type { CareerEntry } from "@/types/career";
 
-const GRAIN =
-  "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='120' height='120' filter='url(%23n)' opacity='0.55'/></svg>";
-
 export default function CareerIndex({ entries }: { entries: CareerEntry[] }) {
   const [active, setActive] = useState(0);
   const plateRef = useRef<HTMLDivElement>(null);
@@ -144,174 +141,26 @@ export default function CareerIndex({ entries }: { entries: CareerEntry[] }) {
                   ))}
                 </ul>
               )}
+              {e.scope.length > 0 && (
+                <dl className="mt-4 grid grid-cols-1 gap-x-5 gap-y-2 border-t border-black/[0.07] pt-3 sm:grid-cols-2 dark:border-white/[0.05]">
+                  {e.scope.map((item) => (
+                    <div key={item.label} className="min-w-0">
+                      <dt className="cc-engrave font-mono text-[0.55rem] font-semibold uppercase tracking-[0.14em]">
+                        {item.label}
+                      </dt>
+                      <dd className="cc-text mt-0.5 text-[0.78rem] leading-snug">
+                        {item.detail}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              )}
             </div>
     </div>
   );
 
   return (
     <div className="career-console mt-10">
-      <style>{`
-        .career-console {
-          /* light: machined aluminum */
-          --cc-plate-hi: #f1f2ef; --cc-plate-lo: #e2e4df;
-          --cc-edge-hi: rgba(255,255,255,.9); --cc-edge-lo: rgba(255,255,255,.3);
-          --cc-ring: rgba(0,0,0,.16); --cc-chamfer: rgba(255,255,255,.85);
-          --cc-innerline: rgba(255,255,255,.5);
-          --cc-cap-hi: #fbfcfa; --cc-cap-lo: #e8eae5;
-          --cc-skirt: #b6bbb3; --cc-cap-shadow: rgba(0,0,0,.22);
-          --cc-caplip: rgba(0,0,0,.12); --cc-captop: rgba(255,255,255,.9);
-          --cc-engrave-ink: #4c564f;
-          --cc-engrave-hi: rgba(255,255,255,.85); --cc-engrave-sh: rgba(0,0,0,.12);
-          --cc-text: #55605a; --cc-text-strong: #171b19;
-          --cc-led-off: #c9cec8; --cc-led-off-inset: rgba(0,0,0,.25);
-          --cc-accent: #087f5b;
-          --cc-screw-hi: #dcdfd9; --cc-screw-lo: #a9aea7;
-          --cc-beam: rgba(255,255,255,.55);
-          --cc-chip-hi: rgba(0,0,0,.07); --cc-chip-lo: rgba(0,0,0,.03);
-          --cc-grain-opacity: .35;
-        }
-        .dark .career-console {
-          /* dark: gunmetal */
-          --cc-plate-hi: #0e1110; --cc-plate-lo: #0b0d0c;
-          --cc-edge-hi: rgba(255,255,255,.10); --cc-edge-lo: rgba(255,255,255,.035);
-          --cc-ring: rgba(0,0,0,.56); --cc-chamfer: rgba(255,255,255,.055);
-          --cc-innerline: rgba(255,255,255,.03);
-          --cc-cap-hi: #191d1b; --cc-cap-lo: #10130f;
-          --cc-skirt: #050706; --cc-cap-shadow: rgba(0,0,0,.5);
-          --cc-caplip: rgba(0,0,0,.5); --cc-captop: rgba(255,255,255,.07);
-          --cc-engrave-ink: #93a49b;
-          --cc-engrave-hi: rgba(255,255,255,.045); --cc-engrave-sh: rgba(0,0,0,.85);
-          --cc-text: #9ab0a6; --cc-text-strong: #eef2ef;
-          --cc-led-off: #1c211f; --cc-led-off-inset: rgba(0,0,0,.8);
-          --cc-accent: #10b981;
-          --cc-screw-hi: #232826; --cc-screw-lo: #0a0c0b;
-          --cc-beam: rgba(255,255,255,.065);
-          --cc-chip-hi: rgba(0,0,0,.5); --cc-chip-lo: rgba(0,0,0,.25);
-          --cc-grain-opacity: .5;
-        }
-        .cc-plate {
-          position: relative;
-          border-radius: 2rem;
-          border: 1px solid transparent;
-          background:
-            linear-gradient(180deg, var(--cc-plate-hi), var(--cc-plate-lo) 70%) padding-box,
-            linear-gradient(135deg, var(--cc-edge-hi), var(--cc-edge-lo) 45%, transparent 80%) border-box;
-          box-shadow:
-            inset 0 0 0 1px var(--cc-innerline),
-            inset 0 1px 0 var(--cc-chamfer),
-            0 0 0 1px var(--cc-ring),
-            0 4px 4px rgba(0,0,0,.1),
-            0 32px 64px -32px rgba(0,0,0,.35);
-          overflow: hidden;
-        }
-        .cc-grain {
-          position: absolute; inset: 0; pointer-events: none; z-index: 3;
-          background-image: url("${GRAIN}");
-          background-size: 60px;
-          opacity: var(--cc-grain-opacity); mix-blend-mode: overlay;
-          animation: cc-noise .4s steps(1) infinite;
-        }
-        @media (min-width: 768px)  { .cc-grain { background-size: 80px; } }
-        @media (min-width: 1200px) { .cc-grain { background-size: 100px; } }
-        @keyframes cc-noise {
-          0% { background-position: 0 0 } 25% { background-position: -18px 12px }
-          50% { background-position: 11px -9px } 75% { background-position: -6px -14px }
-        }
-        .cc-beam {
-          position: absolute; inset: 0; pointer-events: none; z-index: 2;
-          background: var(--cc-beam);
-          -webkit-mask-image: radial-gradient(280px 280px at var(--mx, 30%) var(--my, 20%), #000 0%, rgba(0,0,0,.55) 30%, rgba(0,0,0,.18) 50%, transparent 70%);
-          mask-image: radial-gradient(280px 280px at var(--mx, 30%) var(--my, 20%), #000 0%, rgba(0,0,0,.55) 30%, rgba(0,0,0,.18) 50%, transparent 70%);
-          mix-blend-mode: overlay;
-        }
-        .cc-corner {
-          position: absolute; width: 9px; height: 9px; border-radius: 50%; z-index: 4;
-          background: radial-gradient(circle at 35% 30%, var(--cc-screw-hi), var(--cc-screw-lo) 75%);
-          box-shadow: inset 0 1px 1px rgba(255,255,255,.25), inset 0 -1px 1px rgba(0,0,0,.4), 0 1px 0 rgba(255,255,255,.1);
-        }
-        .cc-corner::after {
-          content: ""; position: absolute; left: 1.5px; right: 1.5px; top: 50%; height: 1px;
-          background: rgba(0,0,0,.45); transform: rotate(38deg);
-        }
-        .cc-engrave {
-          color: var(--cc-engrave-ink);
-          text-shadow: 0 1px 0 var(--cc-engrave-hi), 0 -1px 0 var(--cc-engrave-sh);
-        }
-        .cc-key {
-          position: relative; width: 100%; text-align: left; cursor: pointer;
-          appearance: none; border: 0; background: none; padding: 0 0 5px 0;
-          outline: none;
-        }
-        .cc-cap {
-          position: relative; display: flex; align-items: baseline; gap: 1rem;
-          border-radius: 14px; padding: .8rem 1rem .85rem;
-          background:
-            linear-gradient(180deg, var(--cc-cap-hi), var(--cc-cap-lo) 85%) padding-box,
-            linear-gradient(135deg, var(--cc-edge-hi), var(--cc-edge-lo) 55%, transparent) border-box;
-          border: 1px solid transparent;
-          box-shadow:
-            inset 0 1px 0 var(--cc-captop),
-            inset 0 -2px 3px var(--cc-caplip),
-            0 5px 0 var(--cc-skirt),
-            0 9px 16px var(--cc-cap-shadow);
-          transform: translateY(0);
-          transition: transform .18s cubic-bezier(.4,2.08,.55,.44), box-shadow .18s cubic-bezier(.4,2.08,.55,.44);
-        }
-        .cc-key:hover .cc-cap { transform: translateY(-1px); box-shadow: inset 0 1px 0 var(--cc-captop), inset 0 -2px 3px var(--cc-caplip), 0 6px 0 var(--cc-skirt), 0 11px 18px var(--cc-cap-shadow); }
-        .cc-key.on .cc-cap, .cc-key:active .cc-cap {
-          transform: translateY(4px);
-          box-shadow: inset 0 1px 0 var(--cc-captop), inset 0 2px 4px var(--cc-caplip), 0 1px 0 var(--cc-skirt), 0 3px 8px var(--cc-cap-shadow);
-        }
-        .cc-key:focus-visible .cc-cap { outline: 2px solid var(--cc-accent); outline-offset: 3px; }
-        .cc-led {
-          width: 6px; height: 6px; border-radius: 50%; flex: none; align-self: center;
-          background: var(--cc-led-off); box-shadow: inset 0 1px 1px var(--cc-led-off-inset);
-          transition: background .2s, box-shadow .2s;
-        }
-        .cc-key.on .cc-led {
-          background: var(--cc-accent);
-          box-shadow: 0 0 6px rgba(16,185,129,.85), 0 0 12px rgba(16,185,129,.3);
-        }
-        .cc-name-on { color: var(--cc-accent); }
-        .cc-text { color: var(--cc-text); }
-        .cc-text-strong { color: var(--cc-text-strong); }
-        .cc-accent { color: var(--cc-accent); }
-        .cc-chip {
-          background: linear-gradient(180deg, var(--cc-chip-hi), var(--cc-chip-lo));
-          box-shadow: inset 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(255,255,255,.1);
-        }
-        .cc-counter { background: var(--cc-accent); }
-        .cc-screen {
-          position: relative; border-radius: 14px; overflow: hidden;
-          background: #050706;
-          box-shadow:
-            inset 0 2px 10px rgba(0,0,0,.85),
-            inset 0 0 0 1px rgba(255,255,255,.045),
-            0 1px 0 rgba(255,255,255,.15);
-        }
-        .cc-scan {
-          position: absolute; inset: 0; pointer-events: none; z-index: 2;
-          background: repeating-linear-gradient(rgba(0,0,0,.22) 0 1px, transparent 1px 3px);
-          opacity: .5;
-        }
-        .cc-sweep {
-          position: absolute; inset: 0; pointer-events: none; z-index: 3;
-          background: linear-gradient(115deg, transparent 25%, rgba(255,255,255,.16) 44%, rgba(255,255,255,.03) 52%, transparent 70%);
-          background-size: 240% 100%;
-          background-position: 120% 0;
-          animation: cc-sweep .8s cubic-bezier(.4,0,.2,1) both;
-          mix-blend-mode: plus-lighter;
-        }
-        @keyframes cc-sweep { from { background-position: 120% 0 } to { background-position: -60% 0 } }
-        @keyframes cc-fade { from { opacity: 0; transform: translateY(6px) } }
-        .cc-fade { animation: cc-fade .28s ease; }
-        @media (prefers-reduced-motion: reduce) {
-          .cc-grain { animation: none; }
-          .cc-sweep { animation: none; opacity: 0; }
-          .cc-cap, .cc-key:hover .cc-cap { transition: none; }
-          .cc-fade { animation: none; }
-        }
-      `}</style>
 
       <div ref={plateRef} className="cc-plate" onPointerMove={onPointerMove}>
         <div className="cc-beam" />
@@ -356,6 +205,7 @@ export default function CareerIndex({ entries }: { entries: CareerEntry[] }) {
                   aria-selected={on}
                   aria-controls={`career-panel-${c.key}`}
                   tabIndex={on ? 0 : -1}
+                  aria-label={`${c.org} — ${c.role}, ${c.periodLabel}`}
                   onMouseEnter={() => setActive(i)}
                   onClick={() => setActive(i)}
                   className={`cc-key ${on ? "on" : ""}`}

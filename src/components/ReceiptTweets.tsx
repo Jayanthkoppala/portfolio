@@ -1,8 +1,6 @@
 "use client";
 
 import {
-  ArrowLeft,
-  ArrowRight,
   ArrowUpRight,
   MoveRight,
   Pause,
@@ -135,7 +133,6 @@ const LEDGER = recentFirst([
     mediaAlt:
       "Jayanth Koppala with a Souldem collaborator at the iTNT Hub in Chennai.",
     mediaPosition: "center",
-    visualNote: null,
   },
 ]).map((item, index) => ({
   ...item,
@@ -153,7 +150,6 @@ const ROOMS = recentFirst([
     mediaAlt:
       "Jayanth Koppala at the podium while hosting the Aleo Chandigarh zkMeetup in Chandigarh, with The Phoenix Guild branding on screen.",
     mediaPosition: "center 20%",
-    visualNote: null,
   },
   {
     sortDate: "2024-02-10",
@@ -165,7 +161,6 @@ const ROOMS = recentFirst([
     mediaAlt:
       "Jayanth Koppala addressing attendees with a microphone at an IEEE Chandigarh University event.",
     mediaPosition: "center 34%",
-    visualNote: null,
   },
   {
     sortDate: "2023-11-25",
@@ -178,7 +173,6 @@ const ROOMS = recentFirst([
     mediaAlt:
       "The Phoenix Guild Chandigarh community session hosted by Jay.",
     mediaPosition: null,
-    visualNote: null,
   },
 ]).map((room, index) => ({
   ...room,
@@ -328,9 +322,12 @@ function ReceiptCardFace({
   );
 }
 
+const RECEIPT_DWELL_MS = 6000;
+
 function InteractiveProofDeck({ reduceMotion }: { reduceMotion: boolean }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(1);
+  const [deckPaused, setDeckPaused] = useState(false);
   const draggedRef = useRef(false);
   const stageRef = useRef<HTMLDivElement>(null);
   const finePointer = useFinePointer();
@@ -344,6 +341,17 @@ function InteractiveProofDeck({ reduceMotion }: { reduceMotion: boolean }) {
   };
 
   const cycle = (step: number) => goTo(activeIndex + step, step);
+
+  /** Auto-advance: hands the reader the next receipt without asking.
+   *  Restarts on any manual move; holds while hovered, focused or dragging. */
+  useEffect(() => {
+    if (reduceMotion || deckPaused) return;
+    const id = window.setTimeout(() => {
+      setDirection(1);
+      setActiveIndex((i) => (i + 1) % STORIES.length);
+    }, RECEIPT_DWELL_MS);
+    return () => window.clearTimeout(id);
+  }, [activeIndex, deckPaused, reduceMotion]);
 
   const handleDragEnd = (
     _event: MouseEvent | TouchEvent | PointerEvent,
@@ -390,6 +398,14 @@ function InteractiveProofDeck({ reduceMotion }: { reduceMotion: boolean }) {
       <div className="grid min-w-0 gap-9 lg:grid-cols-[minmax(0,1.08fr)_minmax(18rem,0.92fr)] lg:items-center lg:gap-11">
         <div
           ref={stageRef}
+          onPointerEnter={() => setDeckPaused(true)}
+          onPointerLeave={() => setDeckPaused(false)}
+          onFocusCapture={() => setDeckPaused(true)}
+          onBlurCapture={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget as Node)) {
+              setDeckPaused(false);
+            }
+          }}
           className="relative mx-auto w-full max-w-[34rem] pb-8"
         >
           <span
@@ -591,39 +607,6 @@ function InteractiveProofDeck({ reduceMotion }: { reduceMotion: boolean }) {
             </AnimatePresence>
           </div>
 
-          <div className="mt-7 flex items-center gap-4 border-t border-line pt-5">
-            <button
-              type="button"
-              onClick={() => cycle(-1)}
-              aria-label="Previous receipt"
-              className="grid size-11 shrink-0 place-items-center rounded-full text-ink ring-1 ring-inset ring-line transition-[background-color,transform] duration-200 hover:bg-[var(--surface-hover)] active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-            >
-              <ArrowLeft aria-hidden="true" className="size-4" strokeWidth={1.7} />
-            </button>
-            <div aria-hidden="true" className="relative h-px flex-1 overflow-hidden bg-line">
-              <motion.span
-                className="absolute inset-y-0 left-0 w-full origin-left bg-ink"
-                animate={{ scaleX: (activeIndex + 1) / STORIES.length }}
-                transition={
-                  reduceMotion
-                    ? { duration: 0 }
-                    : { type: "spring", duration: 0.4, bounce: 0 }
-                }
-              />
-            </div>
-            <span className="min-w-[3.5rem] text-center font-mono text-[0.65rem] tabular-nums text-ink-dim">
-              {String(activeIndex + 1).padStart(2, "0")} /{" "}
-              {String(STORIES.length).padStart(2, "0")}
-            </span>
-            <button
-              type="button"
-              onClick={() => cycle(1)}
-              aria-label="Next receipt"
-              className="grid size-11 shrink-0 place-items-center rounded-full text-ink ring-1 ring-inset ring-line transition-[background-color,transform] duration-200 hover:bg-[var(--surface-hover)] active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-            >
-              <ArrowRight aria-hidden="true" className="size-4" strokeWidth={1.7} />
-            </button>
-          </div>
         </div>
       </div>
     </motion.section>
@@ -637,10 +620,9 @@ type EvidenceCardProps = {
   detail: string;
   source: string;
   href: string;
-  mediaSrc: string | null;
+  mediaSrc: string;
   mediaAlt: string;
   mediaPosition?: string | null;
-  visualNote?: string | null;
   rotation: number;
   reduceMotion: boolean;
 };
@@ -655,7 +637,6 @@ function EvidenceCard({
   mediaSrc,
   mediaAlt,
   mediaPosition,
-  visualNote,
   rotation,
   reduceMotion,
 }: EvidenceCardProps) {
@@ -671,35 +652,15 @@ function EvidenceCard({
       className="group/reel flex h-[27rem] w-full flex-col overflow-hidden rounded-[1.4rem] bg-[var(--bg-card)] p-2 text-left shadow-[var(--desk-shadow)] ring-1 ring-inset ring-line outline-none sm:h-[28rem] lg:h-[27rem] xl:h-[28rem] focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-bg"
     >
       <span className="relative block h-[13rem] shrink-0 overflow-hidden rounded-[1rem] bg-[var(--surface-inset)] sm:h-[14.5rem] lg:h-[13.5rem] xl:h-[15rem]">
-        {mediaSrc ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={mediaSrc}
-            alt={mediaAlt}
-            draggable="false"
-            loading="lazy"
-            style={{ objectPosition: mediaPosition ?? "center" }}
-            className="h-full w-full select-none object-cover outline -outline-offset-1 outline-black/10 transition-transform duration-500 ease-out group-hover/reel:scale-[1.012] motion-reduce:transform-none motion-reduce:transition-none dark:outline-white/10"
-          />
-        ) : (
-          <span className="flex h-full flex-col justify-between p-5 sm:p-6">
-            <span className="flex items-center justify-between font-mono text-[0.58rem] uppercase tracking-[0.15em] text-ink-dim">
-              {index.startsWith("R") ? "Community file" : "Registry file"}
-              <span aria-hidden="true" className="size-1.5 rounded-full bg-accent" />
-            </span>
-            <span>
-              <span
-                className="block text-[4.75rem] uppercase leading-[0.8] text-ink sm:text-[5.75rem]"
-                style={{ fontFamily: "var(--font-anton)" }}
-              >
-                {index}
-              </span>
-              <span className="mt-4 block max-w-md border-t border-line pt-3 font-mono text-[0.6rem] uppercase leading-relaxed tracking-[0.13em] text-ink-dim">
-                {visualNote ?? detail}
-              </span>
-            </span>
-          </span>
-        )}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={mediaSrc}
+          alt={mediaAlt}
+          draggable="false"
+          loading="lazy"
+          style={{ objectPosition: mediaPosition ?? "center" }}
+          className="h-full w-full select-none object-cover outline -outline-offset-1 outline-black/10 transition-transform duration-500 ease-out group-hover/reel:scale-[1.012] motion-reduce:transform-none motion-reduce:transition-none dark:outline-white/10"
+        />
         <span className="absolute right-3 top-3 inline-flex items-center gap-2 rounded-full border border-line bg-[var(--bg-card)] px-3 py-2 font-mono text-[0.55rem] uppercase tracking-[0.12em] text-ink-dim shadow-sm">
           <span aria-hidden="true" className="size-1.5 rounded-full bg-accent" />
           linked
@@ -883,7 +844,6 @@ function DualEvidenceReel({ reduceMotion }: { reduceMotion: boolean }) {
                   mediaSrc={room.mediaSrc}
                   mediaAlt={room.mediaAlt}
                   mediaPosition={room.mediaPosition}
-                  visualNote={room.visualNote}
                   rotation={index % 2 === 0 ? -0.38 : 0.32}
                   reduceMotion={reduceMotion}
                 />
@@ -942,9 +902,6 @@ function DualEvidenceReel({ reduceMotion }: { reduceMotion: boolean }) {
                   mediaSrc={item.mediaSrc}
                   mediaAlt={item.mediaAlt}
                   mediaPosition={item.mediaPosition}
-                  visualNote={
-                    "visualNote" in item ? item.visualNote : undefined
-                  }
                   rotation={index % 2 === 0 ? 0.34 : -0.3}
                   reduceMotion={reduceMotion}
                 />
