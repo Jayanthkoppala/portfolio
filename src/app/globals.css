@@ -1468,19 +1468,19 @@ body {
 /* ── Career console: machined two-finish instrument (CareerIndex.tsx) ── */
 .career-console {
   /* light: machined aluminum */
-  --cc-plate-hi: #f1f2ef; --cc-plate-lo: #e2e4df;
+  --cc-plate-hi: #f2f2f0; --cc-plate-lo: #e4e4e1;
   --cc-edge-hi: rgba(255,255,255,.9); --cc-edge-lo: rgba(255,255,255,.3);
   --cc-ring: rgba(0,0,0,.16); --cc-chamfer: rgba(255,255,255,.85);
   --cc-innerline: rgba(255,255,255,.5);
-  --cc-cap-hi: #fbfcfa; --cc-cap-lo: #e8eae5;
-  --cc-skirt: #b6bbb3; --cc-cap-shadow: rgba(0,0,0,.22);
+  --cc-cap-hi: #fcfcfa; --cc-cap-lo: #eaeae7;
+  --cc-skirt: #b9b9b5; --cc-cap-shadow: rgba(0,0,0,.22);
   --cc-caplip: rgba(0,0,0,.12); --cc-captop: rgba(255,255,255,.9);
   --cc-engrave-ink: #4c564f;
   --cc-engrave-hi: rgba(255,255,255,.85); --cc-engrave-sh: rgba(0,0,0,.12);
   --cc-text: #55605a; --cc-text-strong: #171b19;
   --cc-led-off: #c9cec8; --cc-led-off-inset: rgba(0,0,0,.25);
   --cc-accent: #087f5b;
-  --cc-screw-hi: #dcdfd9; --cc-screw-lo: #a9aea7;
+  --cc-screw-hi: #dededa; --cc-screw-lo: #ababa7;
   --cc-beam: rgba(255,255,255,.55);
   --cc-chip-hi: rgba(0,0,0,.07); --cc-chip-lo: rgba(0,0,0,.03);
   --cc-grain-opacity: .35;
