@@ -1626,3 +1626,34 @@ body {
   .cc-cap, .cc-key:hover .cc-cap { transition: none; }
   .cc-fade { animation: none; }
 }
+
+/* ── Evidence reels: infinite marquee on small screens ─────────
+   Desktop keeps the vertical ping-pong lanes (JS-driven); below lg the
+   lanes become seamless horizontal marquees so they never dead-end. */
+@keyframes reel-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.reel-track {
+  animation: reel-marquee var(--reel-duration, 42s) linear infinite;
+  animation-direction: var(--reel-direction, normal);
+  will-change: transform;
+}
+
+[data-reel-paused="true"] .reel-track {
+  animation-play-state: paused;
+}
+
+@media (min-width: 1024px) {
+  .reel-track {
+    animation: none;
+    will-change: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reel-track {
+    animation: none;
+  }
+}

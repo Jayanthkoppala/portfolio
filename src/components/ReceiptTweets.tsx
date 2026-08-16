@@ -382,7 +382,7 @@ function InteractiveProofDeck({ reduceMotion }: { reduceMotion: boolean }) {
       <div className="mb-5 flex items-center justify-between gap-4 border-y border-line py-3 font-mono text-[0.64rem] uppercase tracking-[0.14em] text-ink-dim">
         <span>Drag the receipts</span>
         <span className="inline-flex items-center gap-2">
-          {finePointer ? "Click or use arrows" : "Swipe or tap"}
+          {finePointer ? "Click a card or the dots" : "Swipe or tap"}
           <motion.span
             aria-hidden="true"
             initial={reduceMotion ? false : { x: 0 }}
@@ -776,6 +776,10 @@ function DualEvidenceReel({ reduceMotion }: { reduceMotion: boolean }) {
           setInteractionPaused(false);
         }
       }}
+      onTouchStart={() => setInteractionPaused(true)}
+      onTouchEnd={() => setInteractionPaused(false)}
+      onTouchCancel={() => setInteractionPaused(false)}
+      data-reel-paused={paused ? "true" : "false"}
       className="rounded-[1.75rem] border border-line bg-[var(--surface-inset)] p-3 sm:p-5 lg:p-6"
     >
       <div className="mb-4 hidden min-h-11 items-center justify-end lg:flex">
@@ -825,14 +829,21 @@ function DualEvidenceReel({ reduceMotion }: { reduceMotion: boolean }) {
             </motion.span>
           </div>
 
+          <div
+            className="-mx-3 overflow-hidden px-3 lg:mx-0 lg:overflow-visible lg:px-0"
+            style={
+              { "--reel-duration": "46s" } as React.CSSProperties
+            }
+          >
           <ul
             ref={roomsRef}
-            className="flex scroll-auto snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-1 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:block lg:h-[36rem] lg:snap-none lg:space-y-5 lg:overflow-x-hidden lg:overflow-y-auto lg:overscroll-contain lg:pb-0 xl:h-[40rem]"
+            className="reel-track flex w-max gap-4 px-1 pb-3 lg:block lg:h-[36rem] lg:w-auto lg:space-y-5 lg:overflow-x-hidden lg:overflow-y-auto lg:overscroll-contain lg:pb-0 xl:h-[40rem]"
           >
-            {ROOMS.map((room, index) => (
+            {[...ROOMS, ...ROOMS].map((room, index) => (
               <li
-                key={room.index}
-                className="min-w-[82vw] max-w-[23rem] snap-center sm:min-w-[22rem] lg:min-w-0 lg:max-w-none"
+                key={`${room.index}-${index}`}
+                aria-hidden={index >= ROOMS.length ? true : undefined}
+                className="w-[78vw] max-w-[23rem] shrink-0 sm:w-[21rem] lg:w-auto lg:max-w-none"
               >
                 <EvidenceCard
                   index={room.index}
@@ -850,6 +861,7 @@ function DualEvidenceReel({ reduceMotion }: { reduceMotion: boolean }) {
               </li>
             ))}
           </ul>
+          </div>
         </section>
 
         <section
@@ -883,14 +895,24 @@ function DualEvidenceReel({ reduceMotion }: { reduceMotion: boolean }) {
             </motion.span>
           </div>
 
+          <div
+            className="-mx-3 overflow-hidden px-3 lg:mx-0 lg:overflow-visible lg:px-0"
+            style={
+              {
+                "--reel-duration": "38s",
+                "--reel-direction": "reverse",
+              } as React.CSSProperties
+            }
+          >
           <ul
             ref={ledgerRef}
-            className="flex scroll-auto snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-1 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:block lg:h-[36rem] lg:snap-none lg:space-y-5 lg:overflow-x-hidden lg:overflow-y-auto lg:overscroll-contain lg:pb-0 xl:h-[40rem]"
+            className="reel-track flex w-max gap-4 px-1 pb-3 lg:block lg:h-[36rem] lg:w-auto lg:space-y-5 lg:overflow-x-hidden lg:overflow-y-auto lg:overscroll-contain lg:pb-0 xl:h-[40rem]"
           >
-            {LEDGER.map((item, index) => (
+            {[...LEDGER, ...LEDGER].map((item, index) => (
               <li
-                key={item.index}
-                className="min-w-[82vw] max-w-[23rem] snap-center sm:min-w-[22rem] lg:min-w-0 lg:max-w-none"
+                key={`${item.index}-${index}`}
+                aria-hidden={index >= LEDGER.length ? true : undefined}
+                className="w-[78vw] max-w-[23rem] shrink-0 sm:w-[21rem] lg:w-auto lg:max-w-none"
               >
                 <EvidenceCard
                   index={item.index}
@@ -908,6 +930,7 @@ function DualEvidenceReel({ reduceMotion }: { reduceMotion: boolean }) {
               </li>
             ))}
           </ul>
+          </div>
         </section>
       </div>
     </motion.section>
