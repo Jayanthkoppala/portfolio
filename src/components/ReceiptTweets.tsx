@@ -55,7 +55,7 @@ const STORIES: Story[] = recentFirst([
       "Accepted into Sarvam's AI Startup Program five days before launch. Their voice stack is exactly what BOSS needed.",
     sourceHref: "https://x.com/JayBosshq/status/2083173402932851055",
     sourceLabel: "Acceptance post",
-    mediaSrc: "https://pbs.twimg.com/media/HOjrKksbMAAX9aW.jpg",
+    mediaSrc: "/images/receipts/receipt-HOjrKksbMAAX9aW.jpg",
     mediaAlt:
       "BOSS acceptance into the Sarvam AI Startup Program, shared by Jay.",
     liveHref: "https://bosshq.in",
@@ -72,7 +72,7 @@ const STORIES: Story[] = recentFirst([
     sourceHref: "https://x.com/JayBosshq/status/1953448415242723438",
     sourceLabel: "Original post",
     mediaSrc:
-      "https://pbs.twimg.com/tweet_video_thumb/GxwK9-KaQAEavmf.jpg",
+      "/images/receipts/receipt-GxwK9KaQAEavmf.jpg",
     mediaAlt:
       "Media attached to Jay's Recall and Gaia competition result announcement.",
   },
@@ -86,7 +86,7 @@ const STORIES: Story[] = recentFirst([
       "Two months building a volatility-trading hook. Atrium published the winners; the product is still online.",
     sourceHref: "https://x.com/AtriumAcademy/status/1908207881486475538",
     sourceLabel: "Atrium result",
-    mediaSrc: "https://pbs.twimg.com/media/GntQ9HgbYAAfQqf.jpg",
+    mediaSrc: "/images/receipts/receipt-GntQ9HgbYAAfQqf.jpg",
     mediaAlt:
       "Atrium Academy's published Uniswap Foundation prize winners graphic listing VixDex.",
     liveHref: "https://vixdex.vercel.app",
@@ -105,7 +105,7 @@ const LEDGER = recentFirst([
     result: "$300 product bounty",
     source: "X / original post",
     href: "https://x.com/JayBosshq/status/1864403099470975119",
-    mediaSrc: "https://pbs.twimg.com/media/Gd-wttja0AITK3P.jpg",
+    mediaSrc: "/images/receipts/receipt-Gdwttja0AITK3P.jpg",
     mediaAlt:
       "Photograph attached to Jay's Polkadot Hacker House bounty post.",
     mediaPosition: null,
@@ -117,7 +117,7 @@ const LEDGER = recentFirst([
     result: "2nd · $1,500",
     source: "X / original post",
     href: "https://x.com/JayBosshq/status/1850824819966669220",
-    mediaSrc: "https://pbs.twimg.com/media/Ga9zV-MagAAMf2q.jpg",
+    mediaSrc: "/images/receipts/receipt-Ga9zVMagAAMf2q.jpg",
     mediaAlt:
       "Photograph attached to Jay's TON Hackathon Bootcamp result post.",
     mediaPosition: null,
@@ -172,7 +172,7 @@ const ROOMS = recentFirst([
     source: "Session post · LinkedIn",
     href: "https://www.linkedin.com/feed/update/urn:li:activity:7134208457670336512/",
     mediaSrc:
-      "https://media.licdn.com/dms/image/v2/D4D22AQFuO_vFzn61Yg/feedshare-shrink_800/feedshare-shrink_800/0/1700927842422?e=2147483647&v=beta&t=J7tHWh17wZGdmuW4Ewk0_UAS57PVE_LOvFS3Zy3KJ5w",
+      "/images/receipts/receipt-tpg-session.jpg",
     mediaAlt:
       "The Phoenix Guild Chandigarh community session hosted by Jay.",
     mediaPosition: null,

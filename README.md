@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# jayanthkoppala.vercel.app
 
-## Getting Started
+Personal portfolio for Jayanth Koppala — full-stack engineer & founder, Bengaluru.
+Built as a static site; every claim on the page links to a public receipt.
 
-First, run the development server:
+## Stack
+
+| | |
+|---|---|
+| Framework | Next.js 16 (App Router, `output: "export"`) |
+| Language | TypeScript |
+| Styling | Tailwind CSS v4 (`@theme inline` tokens in `globals.css`) |
+| Motion | `motion` (Framer successor), Lenis smooth scroll |
+| 3D / shaders | three.js (desk cube), OGL-based backgrounds |
+| Hosting | Vercel — production at https://jayanthkoppala.vercel.app |
+
+## Commands
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev     # dev server
+npm run build   # static export to out/
+npm run lint    # eslint
+npx serve out   # preview the exported build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Deploy: `vercel deploy --prod --yes` (project `jayanthkoppala`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Layout
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  app/            layout, page, globals.css, icons
+  components/     bespoke sections (Hero, Board, CareerIndex, ReceiptTweets, …)
+    ui/           shadcn/Magic UI primitives
+  config/         portfolio.ts — identity, about copy, contact strings
+  data/           contributions.json (GitHub activity snapshot)
+  lib/            small shared helpers
+  types/          shared types (career chapter shape)
+public/
+  icons/tech/     skill chip SVGs (simple-icons, served locally)
+  images/         section artwork + receipt photos
+  shots/          product screenshots used by career chapters
+```
 
-## Learn More
+## Content rules
 
-To learn more about Next.js, take a look at the following resources:
+- **Receipts over claims.** Anything assertive links to a public source — an original post, a company registry record, or a live product.
+- **Every asset is local.** Receipt images are downloaded into `public/images/receipts/` rather than hotlinked, so the proof section can't break when a third-party CDN changes.
+- **Copy lives beside its claim** — career chapters in `ExperienceSection.tsx`, longer prose in `config/portfolio.ts`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Page sections
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`Hero → Board (desk) → Career (the Console) → Story → Skills → Receipts → Contact`
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The career section (`CareerIndex.tsx`) renders as a machined instrument with two
+finishes — gunmetal in dark mode, aluminium in light — driven entirely by CSS
+variables scoped to `.career-console`.

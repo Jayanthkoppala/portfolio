@@ -1,5 +1,5 @@
 /** WHERE I'VE WORKED — recent-first career chapters. */
-import { type CareerEntry } from "@/components/CareerLine";
+import type { CareerEntry } from "@/types/career";
 import CareerIndex from "@/components/CareerIndex";
 
 const LINKS = {

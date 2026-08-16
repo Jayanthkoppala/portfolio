@@ -13,7 +13,7 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { useCallback, useRef, useState } from "react";
-import type { CareerEntry } from "@/components/CareerLine";
+import type { CareerEntry } from "@/types/career";
 
 const GRAIN =
   "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='120' height='120' filter='url(%23n)' opacity='0.55'/></svg>";
