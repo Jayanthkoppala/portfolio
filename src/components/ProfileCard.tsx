@@ -64,9 +64,9 @@ interface TiltEngine {
 }
 
 const ProfileCardComponent: React.FC<ProfileCardProps> = ({
-  avatarUrl = '<Placeholder for avatar URL>',
-  iconUrl = '<Placeholder for icon URL>',
-  grainUrl = '<Placeholder for grain URL>',
+  avatarUrl,
+  iconUrl,
+  grainUrl,
   innerGradient,
   behindGlowEnabled = true,
   behindGlowColor,
@@ -76,9 +76,9 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   enableMobileTilt = false,
   mobileTiltSensitivity = 5,
   miniAvatarUrl,
-  name = 'Javi A. Torres',
+  name,
   title = 'Software Engineer',
-  handle = 'javicodes',
+  handle,
   status = 'Online',
   contactText = 'Contact',
   showUserInfo = true,
@@ -565,7 +565,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                         onError={e => {
                           const t = e.target as HTMLImageElement;
                           t.style.opacity = '0.5';
-                          t.src = avatarUrl;
+                          if (avatarUrl) t.src = avatarUrl;
                         }}
                       />
                     </div>

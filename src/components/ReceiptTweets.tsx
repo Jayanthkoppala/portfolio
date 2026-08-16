@@ -35,6 +35,7 @@ type Story = {
   sourceHref: string;
   sourceLabel: string;
   mediaSrc: string;
+  mediaFit?: "cover" | "contain";
   mediaAlt: string;
   liveHref?: string;
   liveLabel?: string;
@@ -44,7 +45,7 @@ function recentFirst<T extends { sortDate: string }>(items: T[]) {
   return [...items].sort((a, b) => b.sortDate.localeCompare(a.sortDate));
 }
 
-const STORIES: Story[] = recentFirst([
+const STORIES: Story[] = recentFirst<Omit<Story, "index">>([
   {
     sortDate: "2026-07-01",
     label: "Current chapter",
@@ -66,6 +67,7 @@ const STORIES: Story[] = recentFirst([
     label: "Built → won → hired",
     date: "Aug 2025",
     title: "Recall + Gaia",
+    mediaFit: "cover",
     result: "9th · $1,500 → a full-time job",
     description:
       "I built the agent for the competition. Xtheo hired me to keep building it.",
@@ -298,7 +300,7 @@ function ReceiptCardFace({
           alt={active ? story.mediaAlt : ""}
           draggable="false"
           className={`h-full w-full select-none object-center outline -outline-offset-1 outline-black/10 transition-transform duration-500 ease-out motion-reduce:transition-none dark:outline-white/10 ${
-            story.title === "Recall + Gaia" ? "object-cover" : "object-contain"
+            story.mediaFit === "cover" ? "object-cover" : "object-contain"
           } ${active ? "group-hover/card:scale-[1.012] motion-reduce:transform-none" : ""}`}
         />
         <span className="absolute right-3 top-3 inline-flex items-center gap-2 rounded-full border border-line bg-[var(--bg-card)] px-3 py-2 font-mono text-[0.58rem] uppercase tracking-[0.13em] text-ink-dim shadow-sm">
@@ -610,7 +612,8 @@ function InteractiveProofDeck({ reduceMotion }: { reduceMotion: boolean }) {
               />
             </div>
             <span className="min-w-[3.5rem] text-center font-mono text-[0.65rem] tabular-nums text-ink-dim">
-              {String(activeIndex + 1).padStart(2, "0")} / 03
+              {String(activeIndex + 1).padStart(2, "0")} /{" "}
+              {String(STORIES.length).padStart(2, "0")}
             </span>
             <button
               type="button"
@@ -867,7 +870,7 @@ function DualEvidenceReel({ reduceMotion }: { reduceMotion: boolean }) {
           >
             {ROOMS.map((room, index) => (
               <li
-                key={room.org}
+                key={room.index}
                 className="min-w-[82vw] max-w-[23rem] snap-center sm:min-w-[22rem] lg:min-w-0 lg:max-w-none"
               >
                 <EvidenceCard

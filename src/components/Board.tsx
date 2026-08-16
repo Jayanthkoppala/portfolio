@@ -92,7 +92,7 @@ const TABS = [
 ];
 
 function useTimes() {
-  const [t, setT] = useState({ ist: "--:--", uk: "--:--" });
+  const [t, setT] = useState({ ist: "--:--" });
   useEffect(() => {
     const tick = () => {
       const fmt = (tz: string) =>
@@ -102,7 +102,7 @@ function useTimes() {
           minute: "2-digit",
           hour12: false,
         }).format(new Date());
-      setT({ ist: fmt("Asia/Kolkata"), uk: fmt("Europe/London") });
+      setT({ ist: fmt("Asia/Kolkata") });
     };
     tick();
     const i = setInterval(tick, 30_000);

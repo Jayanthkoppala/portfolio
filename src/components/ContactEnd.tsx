@@ -8,6 +8,9 @@ import { Dock, DockIcon } from "@/components/ui/dock";
 import { identity } from "@/config/portfolio";
 import { useReducedMotionPreference } from "@/lib/use-reduced-motion";
 
+/** Frozen at build time — this page is statically exported. */
+const YEAR = new Date().getFullYear();
+
 type ChannelId = "GitHub" | "LinkedIn" | "Email" | "X" | "Instagram";
 
 type Channel = {
@@ -284,7 +287,7 @@ export default function ContactEnd() {
         className="flex items-center justify-between gap-4 border-t border-line pt-4"
       >
         <p className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-ink-faint">
-          © {new Date().getFullYear()} Jayanth Koppala · Bengaluru, India
+          © {YEAR} Jayanth Koppala · Bengaluru, India
         </p>
         <a
           href="#home"

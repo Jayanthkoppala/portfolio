@@ -27,7 +27,7 @@ export default function Ribbon({
           {row.map((p, i) => (
             <span
               key={i}
-              className="whitespace-nowrap font-display text-lg uppercase tracking-wide text-bg"
+              className="whitespace-nowrap text-lg uppercase tracking-wide text-bg"
               style={{ fontFamily: "var(--font-anton)" }}
             >
               {p} <span className="mx-4 opacity-60">✦</span>

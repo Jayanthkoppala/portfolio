@@ -23,6 +23,30 @@ export default function CareerIndex({ entries }: { entries: CareerEntry[] }) {
   const plateRef = useRef<HTMLDivElement>(null);
   const e = entries[active];
 
+  const keyRefs = useRef<Array<HTMLButtonElement | null>>([]);
+
+  /** Roving focus: arrows move between chapters, Home/End jump to the ends. */
+  const onTablistKeyDown = useCallback(
+    (ev: React.KeyboardEvent) => {
+      const last = entries.length - 1;
+      const next =
+        ev.key === "ArrowDown" || ev.key === "ArrowRight"
+          ? Math.min(active + 1, last)
+          : ev.key === "ArrowUp" || ev.key === "ArrowLeft"
+            ? Math.max(active - 1, 0)
+            : ev.key === "Home"
+              ? 0
+              : ev.key === "End"
+                ? last
+                : null;
+      if (next === null) return;
+      ev.preventDefault();
+      setActive(next);
+      keyRefs.current[next]?.focus();
+    },
+    [active, entries.length],
+  );
+
   const onPointerMove = useCallback((ev: React.PointerEvent) => {
     const el = plateRef.current;
     if (!el) return;
@@ -31,8 +55,15 @@ export default function CareerIndex({ entries }: { entries: CareerEntry[] }) {
     el.style.setProperty("--my", `${ev.clientY - r.top}px`);
   }, []);
 
-  const bay = (
-    <div>
+  /** The display bay. Rendered twice (mobile accordion + desktop column), so the
+   *  caller supplies a unique id to keep the tab/panel pairing valid. */
+  const renderBay = (idSuffix: string) => (
+    <div
+      id={`career-panel-${e.key}${idSuffix}`}
+      role="tabpanel"
+      aria-labelledby={`career-key-${e.key}`}
+      tabIndex={0}
+    >
             <div key={`s-${e.key}`} className="cc-screen aspect-[16/9]">
               {e.shot ? (
                 e.shotHref ? (
@@ -305,17 +336,28 @@ export default function CareerIndex({ entries }: { entries: CareerEntry[] }) {
 
         <div className="relative z-[4] grid gap-8 p-5 sm:p-7 lg:grid-cols-[1.02fr_0.98fr] lg:gap-9">
           {/* ── the keybank ── */}
-          <div className="flex flex-col gap-3" role="tablist" aria-label="Career chapters">
+          <div
+            className="flex flex-col gap-3"
+            role="tablist"
+            aria-label="Career chapters"
+            aria-orientation="vertical"
+            onKeyDown={onTablistKeyDown}
+          >
             {entries.map((c, i) => {
               const on = i === active;
               return (
                 <div key={c.key}>
                 <button
+                  ref={(el) => {
+                    keyRefs.current[i] = el;
+                  }}
+                  id={`career-key-${c.key}`}
                   role="tab"
                   aria-selected={on}
+                  aria-controls={`career-panel-${c.key}`}
+                  tabIndex={on ? 0 : -1}
                   onMouseEnter={() => setActive(i)}
                   onClick={() => setActive(i)}
-                  onFocus={() => setActive(i)}
                   className={`cc-key ${on ? "on" : ""}`}
                 >
                   <span className="cc-cap">
@@ -337,7 +379,7 @@ export default function CareerIndex({ entries }: { entries: CareerEntry[] }) {
                   </span>
                 </button>
                   {on && (
-                    <div className="cc-fade pb-2 pt-1 lg:hidden">{bay}</div>
+                    <div className="cc-fade pb-2 pt-1 lg:hidden">{renderBay("-m")}</div>
                   )}
                 </div>
               );
@@ -345,7 +387,7 @@ export default function CareerIndex({ entries }: { entries: CareerEntry[] }) {
           </div>
 
           {/* ── the display bay (desktop column) ── */}
-          <div className="hidden lg:block">{bay}</div>
+          <div className="hidden lg:block">{renderBay("")}</div>
         </div>
       </div>
     </div>

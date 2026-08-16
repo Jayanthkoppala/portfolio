@@ -330,8 +330,9 @@ body {
 
   .desk-status-halo::after {
     animation: none !important;
-    opacity: 0.28;
-    transform: none;
+    /* !important: this block precedes the base rule at equal specificity */
+    opacity: 0.28 !important;
+    transform: none !important;
   }
 }
 
