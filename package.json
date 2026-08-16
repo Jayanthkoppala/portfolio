@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "og": "python3 scripts/build-og.py",
     "start": "next start",
     "lint": "eslint"
   },

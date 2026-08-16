@@ -63,7 +63,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Jayanth Koppala — every claim carries a receipt.",
+        alt: "Jayanth Koppala — a desk and an empty chair on a rain-slick Bengaluru rooftop at night, the monitor still on.",
       },
     ],
     firstName: "Jayanth",
