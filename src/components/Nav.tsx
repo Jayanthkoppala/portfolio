@@ -2,16 +2,129 @@
 
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
+import { getCalApi } from "@calcom/embed-react";
 
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import { identity } from "@/config/portfolio";
+
+const CAL_LINK = identity.calLink;
+const CAL_NAMESPACE = "book-a-call";
+const CAL_CONFIG = JSON.stringify({ layout: "month_view" });
 
 const BOOKING_FALLBACK = `mailto:${identity.email}?subject=${encodeURIComponent(
   "Portfolio — book a call"
 )}`;
 const BOOKING_HREF = identity.bookingUrl ?? BOOKING_FALLBACK;
 const BOOKING_IS_EXTERNAL = Boolean(identity.bookingUrl);
-const BOOKING_LABEL = BOOKING_IS_EXTERNAL ? "Book a Call" : "Email Jay";
+const CAN_BOOK = Boolean(CAL_LINK) || BOOKING_IS_EXTERNAL;
+const BOOKING_LABEL = CAN_BOOK ? "Book a Call" : "Email Jay";
+const BOOKING_SHORT_LABEL = CAN_BOOK ? "Call" : "Email";
+const BOOKING_ARIA = CAN_BOOK
+  ? "Book a call with Jay"
+  : "Email Jay to book a call";
+
+// The embed script is pulled in when the browser goes idle rather than during
+// first paint: the booking popup is never the reason someone lands here, so it
+// should not compete with the hero for bandwidth.
+function useCalEmbed() {
+  const { resolvedTheme } = useTheme();
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    if (!CAL_LINK) return;
+    let cancelled = false;
+
+    const load = async () => {
+      const cal = await getCalApi({ namespace: CAL_NAMESPACE });
+      if (cancelled) return;
+      cal("ui", {
+        hideEventTypeDetails: false,
+        layout: "month_view",
+        cssVarsPerTheme: {
+          light: { "cal-brand": "#087f5b" },
+          dark: { "cal-brand": "#10b981" },
+        },
+      });
+      setReady(true);
+    };
+
+    const handle = window.requestIdleCallback
+      ? window.requestIdleCallback(() => void load(), { timeout: 2000 })
+      : window.setTimeout(() => void load(), 300);
+
+    return () => {
+      cancelled = true;
+      if (window.cancelIdleCallback) window.cancelIdleCallback(handle);
+      else window.clearTimeout(handle);
+    };
+  }, []);
+
+  // Keep the popup on the same side of the light/dark switch as the site.
+  useEffect(() => {
+    if (!CAL_LINK || !ready) return;
+    let cancelled = false;
+
+    void (async () => {
+      const cal = await getCalApi({ namespace: CAL_NAMESPACE });
+      if (cancelled) return;
+      cal("ui", { theme: resolvedTheme === "light" ? "light" : "dark" });
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [ready, resolvedTheme]);
+
+  return ready;
+}
+
+function BookingCta({
+  className,
+  label,
+  ready,
+}: {
+  className: string;
+  label: string;
+  ready: boolean;
+}) {
+  if (CAL_LINK) {
+    return (
+      <button
+        type="button"
+        data-cal-namespace={CAL_NAMESPACE}
+        data-cal-link={CAL_LINK}
+        data-cal-config={CAL_CONFIG}
+        aria-label={BOOKING_ARIA}
+        className={className}
+        onClick={() => {
+          // If someone beats the idle load to the click, send them to the
+          // hosted page rather than swallowing the tap.
+          if (!ready) {
+            window.open(
+              `https://cal.com/${CAL_LINK}`,
+              "_blank",
+              "noreferrer"
+            );
+          }
+        }}
+      >
+        {label}
+      </button>
+    );
+  }
+
+  return (
+    <a
+      href={BOOKING_HREF}
+      target={BOOKING_IS_EXTERNAL ? "_blank" : undefined}
+      rel={BOOKING_IS_EXTERNAL ? "noreferrer" : undefined}
+      aria-label={BOOKING_ARIA}
+      className={className}
+    >
+      {label}
+    </a>
+  );
+}
 
 const NAV_LINKS = [
   { label: "Home", href: "#home", sections: ["home"], size: "home" },
@@ -140,6 +253,7 @@ function PrimaryLink({
 
 export default function Nav() {
   const activeSection = useActiveSection();
+  const calReady = useCalEmbed();
 
   return (
     <>
@@ -157,19 +271,11 @@ export default function Nav() {
 
         <span aria-hidden className="reference-nav__divider" />
         <ThemeControl />
-        <a
-          href={BOOKING_HREF}
-          target={BOOKING_IS_EXTERNAL ? "_blank" : undefined}
-          rel={BOOKING_IS_EXTERNAL ? "noreferrer" : undefined}
-          aria-label={
-            BOOKING_IS_EXTERNAL
-              ? "Book a call with Jay"
-              : "Email Jay to book a call"
-          }
+        <BookingCta
           className="reference-nav__cta"
-        >
-          {BOOKING_LABEL}
-        </a>
+          label={BOOKING_LABEL}
+          ready={calReady}
+        />
       </nav>
 
       <nav
@@ -185,19 +291,11 @@ export default function Nav() {
         ))}
         <span aria-hidden className="reference-nav__divider" />
         <ThemeControl compact />
-        <a
-          href={BOOKING_HREF}
-          target={BOOKING_IS_EXTERNAL ? "_blank" : undefined}
-          rel={BOOKING_IS_EXTERNAL ? "noreferrer" : undefined}
-          aria-label={
-            BOOKING_IS_EXTERNAL
-              ? "Book a call with Jay"
-              : "Email Jay to book a call"
-          }
+        <BookingCta
           className="reference-nav__cta"
-        >
-          {BOOKING_LABEL}
-        </a>
+          label={BOOKING_LABEL}
+          ready={calReady}
+        />
       </nav>
 
       <nav
@@ -219,19 +317,11 @@ export default function Nav() {
             activeSection={activeSection}
           />
         ))}
-        <a
-          href={BOOKING_HREF}
-          target={BOOKING_IS_EXTERNAL ? "_blank" : undefined}
-          rel={BOOKING_IS_EXTERNAL ? "noreferrer" : undefined}
-          aria-label={
-            BOOKING_IS_EXTERNAL
-              ? "Book a call with Jay"
-              : "Email Jay to book a call"
-          }
+        <BookingCta
           className="reference-mobile-nav__item"
-        >
-          {BOOKING_IS_EXTERNAL ? "Call" : "Email"}
-        </a>
+          label={BOOKING_SHORT_LABEL}
+          ready={calReady}
+        />
       </nav>
     </>
   );

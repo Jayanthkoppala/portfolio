@@ -9,8 +9,13 @@ export const identity = {
     "Full-stack engineer & founder. Bengaluru.",
   ],
   email: "jay@bosshq.in",
-  // Add the real scheduling URL here when it is ready. The navigation keeps
-  // an email fallback so the call action is never a dead end.
+  // Cal.com event slug, in "username/event" form (e.g. "jayanth/intro").
+  // When set, the nav CTA opens the booking flow in a popup over the site
+  // instead of sending people away. Falls back to bookingUrl, then to email,
+  // so the call action is never a dead end.
+  calLink: "jayanth-koppala-nwyc61/30min" as string | null,
+  // A plain scheduling URL, if the booking flow ever moves off Cal.com.
+  // Swapping providers is this one string.
   bookingUrl: null as string | null,
   socials: [
     { label: "X", href: "https://x.com/JayBosshq" },

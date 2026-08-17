@@ -479,6 +479,16 @@ body {
   line-height: 1.25rem;
 }
 
+/* The booking CTA is a <button> when the Cal popup is wired up and an <a>
+   otherwise. Buttons do not inherit the page font, and Tailwind v4 no longer
+   gives them a pointer cursor, so hold the two renderings to one appearance. */
+button.reference-nav__cta,
+button.reference-mobile-nav__item {
+  appearance: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
 .reference-nav__item:focus-visible,
 .reference-nav__cta:focus-visible,
 .reference-nav__theme:focus-visible,
